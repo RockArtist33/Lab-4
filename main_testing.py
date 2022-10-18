@@ -9,6 +9,15 @@ Counter_inc = 1
 Counter_mult = 1.0
 Price_inc = 1.0
 
+def testing():
+    global Counter_num
+    global Counter_auto
+    if Counter_num >= 100:
+        math = Counter_num - 100
+        Counter_num = math
+        Counter_auto += 0.01
+        print(Counter_num)
+        print(Counter_auto)
 
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
@@ -79,35 +88,36 @@ def main_loop():
             if event.type == pygame.QUIT:
                 active = False
             if event.type == pygame.MOUSEBUTTONDOWN:
+                global Counter_num
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_inc
             
-                elif startx_1 <= mouse_pos[0] <= (startx_1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
-                    Counter_auto += 0.1
-                elif startx_2 <= mouse_pos[0] <= (startx_2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
+                elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
+                    testing()
+                elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     print("hello2")
-                elif startx_3 <= mouse_pos[0] <= (startx_3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
+                elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
                     print("hello3")
-                elif startx_4 <= mouse_pos[0] <= (startx_4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
+                elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     print("hello4")
-                elif startx_5 <= mouse_pos[0] <= (startx_5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
+                elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     print("hello5")
-                elif startx_6 <= mouse_pos[0] <= (startx_6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
+                elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     print("hello6")
             
                 
-                
+        global printer 
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200)
         printer = pygame.transform.scale(printer,(sizex, sizey))
         screen.blit(printer,(startx, starty),)
-        startx_1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,700,25,200,75)
-        startx_2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,700,125,200,75)
-        startx_3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,700,225,200,75)
-        startx_4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,700,325,200,75)
-        startx_5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,700,425,200,75)
-        startx_6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,700,525,200,75)
+        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,700,25,200,75)
+        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,700,125,200,75)
+        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,700,225,200,75)
+        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,700,325,200,75)
+        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,700,425,200,75)
+        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,700,525,200,75)
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         text = Text_create("Money Printer", white, black, 20, 400, 200)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 400, 300)
