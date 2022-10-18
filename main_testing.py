@@ -19,10 +19,10 @@ upgrademult6 = 1
 #---------------------------------------# 
 upgradeprice1 = (100*upgrademult1)
 upgradeprice2 = (1000*upgrademult2)
-upgradeprice3 = (20000*upgrademult3)
-upgradeprice4 = (50000*upgrademult4)
-upgradeprice5 = (100000*upgrademult5)
-upgradeprice6 = (150000*upgrademult6)
+upgradeprice3 = (5000*upgrademult3)
+upgradeprice4 = (1000*upgrademult4)
+upgradeprice5 = (25000*upgrademult5)
+upgradeprice6 = (60000*upgrademult6)
 ####################################### Clicker upgrades
 clickermult1 = 1
 clickermult2 = 1
@@ -39,60 +39,75 @@ clickerprice5 = (200000*clickermult5)
 def upgrade1():
     global Counter_num
     global Counter_auto
+    global upgrademult1
     if Counter_num >= upgradeprice1:
         math = Counter_num - upgradeprice1
         Counter_num = math
-        Counter_auto += 0.01
+        Counter_auto += 0.15
+        upgrademult1 += 0.14
         print(Counter_num)
         print(Counter_auto)
+        print(upgrademult1)
+        print(upgradeprice1)
+        
         
 def upgrade2():
     global Counter_num
     global Counter_auto
+    global upgrademult2
     if Counter_num >= upgradeprice2:
         math = Counter_num - upgradeprice2
         Counter_num = math
-        Counter_auto += 0.05
+        Counter_auto += 0.55
+        upgrademult2 += 0.14
         print(Counter_num)
         print(Counter_auto)
         
 def upgrade3():
     global Counter_num
     global Counter_auto
+    global upgrademult3
     if Counter_num >= upgradeprice3:
         math = Counter_num - upgradeprice3
         Counter_num = math
-        Counter_auto += 0.5
+        Counter_auto += 55
+        upgrademult3 += 0.14
         print(Counter_num)
         print(Counter_auto)
         
 def upgrade4():
     global Counter_num
+    global upgrademult4
     global Counter_auto
     if Counter_num >= upgradeprice4:
         math = Counter_num - upgradeprice4
         Counter_num = math
-        Counter_auto += 1.5
+        Counter_auto += 10
+        upgrademult4 += 0.145
         print(Counter_num)
         print(Counter_auto)
         
 def upgrade5():
     global Counter_num
     global Counter_auto
+    global upgrademult5
     if Counter_num >= upgradeprice5:
         math = Counter_num - upgradeprice5
         Counter_num = math
-        Counter_auto += 10
+        Counter_auto += 100
+        upgrademult5 += 0.14
         print(Counter_num)
         print(Counter_auto)
         
 def upgrade6():
     global Counter_num
     global Counter_auto
+    global upgrademult6
     if Counter_num >= upgradeprice6:
         math = Counter_num - upgradeprice6
         Counter_num = math
-        Counter_auto += 100
+        Counter_auto += 1000
+        upgrademult6 += 0.14
         print(Counter_num)
         print(Counter_auto)
         
@@ -251,9 +266,10 @@ def main_loop():
                     upgrade5()
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     upgrade6()
+                
             
                 
-        global printer 
+        global printer, upgradeprice1 ,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200,160)
@@ -265,6 +281,13 @@ def main_loop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65,128)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
+        ################################################################################################
+        clicker1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
+        clicker2 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
+        clicker3 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
+        clicker4 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
+        clicker5 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
+        ################################################################################################
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 676, 75)
