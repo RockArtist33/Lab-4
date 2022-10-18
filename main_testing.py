@@ -1,4 +1,5 @@
 ####################################### Imports
+from msilib.schema import Upgrade
 import pygame
 import sys , os
 import time
@@ -160,7 +161,7 @@ picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
 
 
 pygame.init()
-screen_size = (800,600)
+screen_size = (1024,768)
 screen = pygame.display.set_mode(screen_size)
 white = (255,255,255)
 black = (0,0,0)
@@ -226,7 +227,7 @@ def start_menu():
         
 #Main loop
 def main_loop():
-    global printer, Counter_num, Counter_click, price
+    global printer, Counter_num, Counter_click, price, picupgrade1, picupgrade2, picupgrade3, picupgrade4, picupgrade5, picupgrade6, background
     active = True
     while active:
         if active:
@@ -251,20 +252,44 @@ def main_loop():
                     upgrade5()
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     upgrade6()
-            
-                
-        global printer 
+                    
+                    
+        background = pygame.transform.scale(background,(1024,768))
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200,160)
         printer = pygame.transform.scale(printer,(sizex, sizey))
-        screen.blit(printer,(startx, starty),)
-        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,65,128)
-        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,65,128)
-        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,65,128)
-        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65,128)
-        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
-        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
+        screen.blit(printer, (startx, starty))
+        
+        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,75,128)
+        picupgrade1 = pygame.transform.scale(picupgrade1,(sizex_1, sizey_1))
+        screen.blit(picupgrade1,(Upgrade1, starty_1),)
+        
+        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,75,128)
+        picupgrade2 = pygame.transform.scale(picupgrade2,(sizex_2, sizey_2))
+        screen.blit(picupgrade2,(Upgrade2, starty_2),)
+        
+        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,75,128)
+        picupgrade3 = pygame.transform.scale(picupgrade3,(sizex_3, sizey_3))
+        screen.blit(picupgrade3,(Upgrade3, starty_3),)
+        
+        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,75,128)
+        picupgrade4 = pygame.transform.scale(picupgrade4,(sizex_4, sizey_4))
+        screen.blit(picupgrade4,(Upgrade4, starty_4),)
+        
+        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,75,128)
+        picupgrade5 = pygame.transform.scale(picupgrade5,(sizex_5, sizey_5))
+        screen.blit(picupgrade5,(Upgrade5, starty_5),)
+        
+        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,75,128)
+        picupgrade6 = pygame.transform.scale(picupgrade6,(sizex_6, sizey_6))
+        screen.blit(picupgrade6,(Upgrade6, starty_6),)
+        
+        radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
+        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
+        y = 0
+        pygame.display.update()
+        
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         y = 0
@@ -273,3 +298,6 @@ def main_loop():
 
 
 main_loop()
+
+
+
