@@ -1,9 +1,6 @@
 import pygame
 import sys , os
 import time
-print("hello boiiiiiii")
-
-
 
 ####################################### main storage
 Counter_num = 0
