@@ -41,6 +41,16 @@ clickerprice3 = (50000*clickermult3)
 clickerprice4 = (100000*clickermult4)
 clickerprice5 = (200000*clickermult5)
 ####################################### Upgrade functions
+
+def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
+    pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size)
+    pixel_text = pixel_font.render(txt, True, color_of_text, rect_area_color)
+    pixel_txt_Rect = pixel_text.get_rect()
+    pixel_txt_Rect.center = (pos_x,pos_y)
+    screen.blit(pixel_text, pixel_txt_Rect)
+
+
+
 def upgrade1():
     global Counter_num
     global Counter_auto
@@ -55,7 +65,7 @@ def upgrade1():
         print(upgrademult1)
         print(upgradeprice1)
     else:
-        print("You do not have enough money")
+        Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 1024/2, 768/2)
         
         
 def upgrade2():
@@ -225,12 +235,7 @@ height = screen.get_height()
 price = (10*Price_inc)
 y = 0
 
-def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
-    pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size)
-    pixel_text = pixel_font.render(txt, True, color_of_text, rect_area_color)
-    pixel_txt_Rect = pixel_text.get_rect()
-    pixel_txt_Rect.center = (pos_x,pos_y)
-    screen.blit(pixel_text, pixel_txt_Rect)
+
 
 def auto_click():
     global Counter_num, Counter_click
