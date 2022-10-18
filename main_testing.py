@@ -217,11 +217,12 @@ def auto_click():
 active = True
 class Button_make:
 
-    def button(button_color,place_x,place_y,size_x,size_y,transparency):
+    def button(button_color,place_x,place_y,size_x,size_y,transparency,picture):
         #pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
         bttn = pygame.Surface((size_x, size_y))
         bttn.set_alpha(transparency)
         bttn.fill((button_color))
+        picture
         screen.blit(bttn, (place_x,place_y))
         
         return int(place_x),int(place_y),int(size_x),int(size_y)
@@ -293,18 +294,19 @@ def main_loop():
         printer = pygame.transform.scale(printer,(sizex, sizey))
         screen.blit(printer,(startx, starty),)
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,65,128)
+        picupgrade1 = pygame.transform.scale(picupgrade1, (sizex_1, sizey_1))
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,65,128)
         Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,65,128)
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65,128)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128) 
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
-        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 676, 75)
-        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, black, 20, 676, 162)
-        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, black, 20, 676, 250)
-        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, black, 20, 676, 339)
-        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, black, 20, 676, 425)
-        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, black, 20, 676, 511)
+        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 900, 75)
+        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, black, 20, 900, 162)
+        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, black, 20, 900, 250)
+        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, black, 20, 900, 339)
+        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, black, 20, 900, 425)
+        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, black, 20, 900, 511)
 
         y = 0
         pygame.display.update()
