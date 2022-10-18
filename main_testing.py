@@ -83,7 +83,7 @@ def upgrade5():
     if Counter_num >= upgradeprice5:
         math = Counter_num - upgradeprice5
         Counter_num = math
-        Counter_auto += 0.01
+        Counter_auto += 10
         print(Counter_num)
         print(Counter_auto)
         
@@ -93,7 +93,7 @@ def upgrade6():
     if Counter_num >= upgradeprice6:
         math = Counter_num - upgradeprice6
         Counter_num = math
-        Counter_auto += 0.01
+        Counter_auto += 100
         print(Counter_num)
         print(Counter_auto)
         
@@ -113,7 +113,7 @@ def clicker2():
     global Counter_click
     if Counter_num >= clickerprice2:
         Counter_num - clickerprice2
-        Counter_click = 10
+        Counter_click = 50
         print(Counter_num)
         print(Counter_click)
         
@@ -122,7 +122,7 @@ def clicker3():
     global Counter_click
     if Counter_num >= clickerprice3:
         Counter_num - clickerprice3
-        Counter_click = 10
+        Counter_click = 100
         print(Counter_num)
         print(Counter_click)
         
@@ -131,7 +131,7 @@ def clicker4():
     global Counter_click
     if Counter_num >= clickerprice4:
         Counter_num - clickerprice4
-        Counter_click = 10
+        Counter_click = 500
         print(Counter_num)
         print(Counter_click)
         
@@ -140,7 +140,7 @@ def clicker5():
     global Counter_click
     if Counter_num >= clickerprice5:
         Counter_num - clickerprice5
-        Counter_click = 10
+        Counter_click = 1000
         print(Counter_num)
         print(Counter_click)        
 
