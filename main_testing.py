@@ -58,6 +58,7 @@ def clicker1():
         
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
+moneyicon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
 mouse1 = pygame.image.load(os.path.join("./assets/images/mouse1.png"))
 mouse2 = pygame.image.load(os.path.join("./assets/images/mouse2.png"))
 mouse3 = pygame.image.load(os.path.join("./assets/images/mouse3.png"))
