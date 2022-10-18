@@ -1,8 +1,11 @@
 ####################################### Imports
 import pygame
+from pygame import mixer
+mixer.init()
 import sys , os
 import time
 import random
+
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
@@ -157,7 +160,14 @@ picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
 picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
 picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
-
+cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
+cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3"))
+cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
+cap_ryan_4_noyay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_noyay.mp3"))
+cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_yay.mp3"))
+cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
+cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
+cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
 
 pygame.init()
 screen_size = (800,600)
