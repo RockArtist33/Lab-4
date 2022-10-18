@@ -9,6 +9,7 @@ Counter_num = 0
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
+Price_inc = 1.0
 ####################################### normal upgrades
 upgradeinc1 = 1
 upgradeinc2 = 1
@@ -76,7 +77,7 @@ color_light = (170,170,170)
 color_dark = (100,100,100)
 width = screen.get_width()
 height = screen.get_height()
-
+price = (10*Price_inc)
 y = 0
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
@@ -157,8 +158,8 @@ def main_loop():
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,700,525,200,75)
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         text = Text_create("Money Printer", white, black, 20, 400, 200)
-        counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 400, 300)
-        Price = Counter_Text = Text_create("Price: £"+str(f"{Price:.2f}"), white, black, 20, 400, 400)
+        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 400, 300)
+        Price = Counter_Text = Text_create("Price: £"+str(f"{price:.2f}"), white, black, 20, 400, 400)
         y = 0
         pygame.display.update()
  
