@@ -10,8 +10,13 @@ Counter_mult = 1.0
 Price_inc = 1.0
 
 
-background = pygame.image.load(os.path.join("./assets/images/pixil-frame-0.png"))
-printer = pygame.image.load(os.path.join("./assets/images/Money_printer.png"))
+background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
+printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
+mouse1 = pygame.image.load(os.path.join("./assets/images/mouse1.png"))
+mouse2 = pygame.image.load(os.path.join("./assets/images/mouse2.png"))
+mouse3 = pygame.image.load(os.path.join("./assets/images/mouse3.png"))
+mouse4 = pygame.image.load(os.path.join("./assets/images/mouse4.png"))
+mouse4 = pygame.image.load(os.path.join("./assets/images/mouse5.png"))
 
 pygame.init()
 screen_size = (800,600)
@@ -92,7 +97,7 @@ def main_loop():
             
                 
                 
-        screen.blit(background,m()) 
+        screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200)
         printer = pygame.transform.scale(printer,(sizex, sizey))
