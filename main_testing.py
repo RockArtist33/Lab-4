@@ -47,8 +47,8 @@ def upgrade1():
     if Counter_num >= upgradeprice1:
         math = Counter_num - upgradeprice1
         Counter_num = math
-        Counter_auto += 0.15
-        upgrademult1 += 0.14
+        Counter_auto += 0.01
+        upgrademult1 += 1
         print(Counter_num)
         print(Counter_auto)
         print(upgrademult1)
@@ -162,6 +162,7 @@ def clicker5():
         print(Counter_num)
         print(Counter_click)        
 
+####################################### Calling assets
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
 moneyicon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
