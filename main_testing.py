@@ -96,8 +96,13 @@ def auto_click():
 active = True
 class Button_make:
 
-    def button(button_color,place_x,place_y,size_x,size_y):
-        pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
+    def button(button_color,place_x,place_y,size_x,size_y,transparency):
+        #pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
+        bttn = pygame.Surface((size_x, size_y))
+        bttn.set_alpha(transparency)
+        bttn.fill((button_color))
+        screen.blit(bttn, (place_x,place_y))
+        
         return int(place_x),int(place_y),int(size_x),int(size_y)
 
     def circle(screen, colour_circle, center_location, radius, width_of_line,top_left,top_right,bottom_left,bottom_right):
@@ -148,15 +153,15 @@ def main_loop():
         global printer 
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
-        startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200)
+        startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200,160)
         printer = pygame.transform.scale(printer,(sizex, sizey))
         screen.blit(printer,(startx, starty),)
-        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,65)
-        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,65)
-        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,65)
-        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65)
-        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65)
-        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65)
+        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,65,128)
+        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,65,128)
+        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,65,128)
+        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65,128)
+        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
+        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         y = 0
