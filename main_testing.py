@@ -3,22 +3,59 @@ import sys , os
 import time
 
 
+
+####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
-Counter_inc = 1
+Counter_click = 1
 Counter_mult = 1.0
 Price_inc = 1.0
-
-def testing():
+####################################### normal upgrades
+upgradeinc1 = 1
+upgradeinc2 = 1
+upgradeinc3 = 1
+upgradeinc4 = 1
+upgradeinc5 = 1
+upgradeinc6 = 1
+#---------------------------------------# 
+upgradeprice1 = (100*upgradeinc1)
+upgradeprice2 = (1000*upgradeinc2)
+upgradeprice3 = (20000*upgradeinc3)
+upgradeprice4 = (50000*upgradeinc4)
+upgradeprice5 = (100000*upgradeinc5)
+upgradeprice6 = (150000*upgradeinc6)
+####################################### Clicker upgrades
+clickerinc1 = 1
+clickerinc2 = 1
+clickerinc3 = 1
+clickerinc4 = 1
+clickerinc5 = 1
+#---------------------------------------#
+clickerprice1 = (1000*clickerinc1)
+clickerprice2 = (10000*clickerinc2)
+clickerprice3 = (50000*clickerinc3)
+clickerprice4 = (100000*clickerinc4)
+clickerprice5 = (200000*clickerinc5)
+####################################### Upgrade functions
+def upgrade1():
     global Counter_num
     global Counter_auto
-    if Counter_num >= 100:  #change this to whatever the new price will be 
-        math = Counter_num - 100 #change this to whatever the new price will be
+    if Counter_num >= upgradeprice1:
+        math = Counter_num - upgradeprice1
         Counter_num = math
         Counter_auto += 0.01
         print(Counter_num)
         print(Counter_auto)
-
+####################################### Clicker functions
+def clicker1():
+    global Counter_num
+    global Counter_click
+    if Counter_num >= clickerprice1:
+        Counter_num - clickerprice1
+        Counter_click = 10
+        print(Counter_num)
+        print(Counter_click)
+        
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
 mouse1 = pygame.image.load(os.path.join("./assets/images/mouse1.png"))
@@ -51,7 +88,7 @@ def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
     screen.blit(pixel_text, pixel_txt_Rect)
 
 def auto_click():
-    global Counter_num, Counter_inc
+    global Counter_num, Counter_click
     time.sleep(0.1)
     Counter_num = Counter_num + Counter_auto
 
@@ -80,7 +117,7 @@ def start_menu():
         
 #Main loop
 def main_loop():
-    global printer, Counter_num, Counter_inc, price
+    global printer, Counter_num, Counter_click, price
     active = True
     while active:
         if active:
@@ -91,10 +128,10 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
-                    Counter_num = Counter_num + Counter_inc
+                    Counter_num = Counter_num + Counter_click
             
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
-                    testing()
+                    upgrade1()
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     print("hello2")
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
