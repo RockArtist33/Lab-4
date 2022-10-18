@@ -320,7 +320,7 @@ def main_loop():
         clickerup3 = Button_make.circle(screen,dark_grey,(250,850),50,50,True,True,True,True)
         clickerup4 = Button_make.circle(screen,dark_grey,(350,850),50,50,True,True,True,True)
         clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True)
-        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
+        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
         pygame.display.update()
  
