@@ -252,7 +252,7 @@ def start_menu():
         
 #Main loop
 def main_loop():
-    global printer, Counter_num, Counter_click, price, picupgrade1, picupgrade2, picupgrade3, picupgrade4, picupgrade5, picupgrade6, background
+    global printer, background
     active = True
     while active:
         if active:
