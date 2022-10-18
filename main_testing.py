@@ -1,5 +1,6 @@
 ####################################### Imports
 from msilib.schema import Upgrade
+from this import d
 import pygame
 from pygame import mixer
 mixer.init()
@@ -309,12 +310,12 @@ def main_loop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(875,325.5,200,100,0, picupgrade4)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(875,425,200,100,0, picupgrade5)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(875,525.5,200,100,0, picupgrade6)
-        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 776, 75)
-        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, black, 20, 776, 175)
-        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, black, 20, 776, 275)
-        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, black, 20, 776, 375)
-        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, black, 20, 776, 475)
-        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, black, 20, 776, 575)
+        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 975, 102)
+        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 975, 202)
+        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 975, 302)
+        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 975, 402)
+        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 975, 502)
+        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 975, 602)
         clickerup1 = Button_make.circle(screen,dark_grey,(50,850),50,50,True,True,True,True)
         clickerup2 = Button_make.circle(screen,dark_grey,(150,850),50,50,True,True,True,True)
         clickerup3 = Button_make.circle(screen,dark_grey,(250,850),50,50,True,True,True,True)
