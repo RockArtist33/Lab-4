@@ -283,7 +283,8 @@ def start_menu():
     
     screen.fill(dark_grey)
     
-        
+print("ooooooooo")
+    
         
         
 #Main loop
