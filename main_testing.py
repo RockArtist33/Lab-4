@@ -56,7 +56,7 @@ def upgrade1():
     if Counter_num >= upgradeprice1:
         math = Counter_num - upgradeprice1
         Counter_num = math
-        Counter_auto += 0.10
+        Counter_auto += 0.5
         upgrademult1 += 0.15
         print(Counter_num)
         print(Counter_auto)
@@ -73,8 +73,8 @@ def upgrade2():
     if Counter_num >= upgradeprice2:
         math = Counter_num - upgradeprice2
         Counter_num = math
-        Counter_auto += 0.55
-        upgrademult2 += 0.15
+        Counter_auto += 1
+        upgrademult2 += 0.18
         print(Counter_num)
         print(Counter_auto)
     else:
@@ -87,8 +87,8 @@ def upgrade3():
     if Counter_num >= upgradeprice3:
         math = Counter_num - upgradeprice3
         Counter_num = math
-        Counter_auto += 55
-        upgrademult3 += 0.15
+        Counter_auto += 15
+        upgrademult3 += 0.3
         print(Counter_num)
         print(Counter_auto)
     else:
@@ -101,8 +101,8 @@ def upgrade4():
     if Counter_num >= upgradeprice4:
         math = Counter_num - upgradeprice4
         Counter_num = math
-        Counter_auto += 10
-        upgrademult4 += 0.15
+        Counter_auto += 100
+        upgrademult4 += 0.6
         print(Counter_num)
         print(Counter_auto)
     else:
@@ -115,8 +115,8 @@ def upgrade5():
     if Counter_num >= upgradeprice5:
         math = Counter_num - upgradeprice5
         Counter_num = math
-        Counter_auto += 100
-        upgrademult5 += 0.15
+        Counter_auto += 500
+        upgrademult5 += 0.4
         print(Counter_num)
         print(Counter_auto)
     else:
@@ -130,7 +130,7 @@ def upgrade6():
         math = Counter_num - upgradeprice6
         Counter_num = math
         Counter_auto += 1000
-        upgrademult6 += 0.15
+        upgrademult6 += 0.4
         print(Counter_num)
         print(Counter_auto)
     else:
@@ -306,21 +306,19 @@ def main_loop():
                     upgradeprice1 = (50*upgrademult1)
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     upgrade2()
-                    upgradeprice2 = (1000*upgrademult2)
+                    upgradeprice2 = (300*upgrademult2)
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
                     upgrade3()
-                    upgradeprice3 = (1500*upgrademult3)
+                    upgradeprice3 = (1000*upgrademult3)
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     upgrade4()
-                    upgradeprice4 = (3000*upgrademult4)
+                    upgradeprice4 = (2500*upgrademult4)
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     upgrade5()
                     upgradeprice5 = (10000*upgrademult5)
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     upgrade6()
-                    upgradeprice6 = (60000*upgrademult6)
-            
-                upgradeprice1 = (50*upgrademult1)
+                    upgradeprice6 = (25000*upgrademult6)
         global printer 
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
