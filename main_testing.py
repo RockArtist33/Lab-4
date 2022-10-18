@@ -6,7 +6,6 @@ mixer.init()
 import sys , os
 import time
 import random
-print("HELLO HOOMAN")
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
