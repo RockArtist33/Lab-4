@@ -267,6 +267,13 @@ def main_loop():
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
+        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 676, 75)
+        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, black, 20, 676, 162)
+        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, black, 20, 676, 250)
+        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, black, 20, 676, 339)
+        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, black, 20, 676, 425)
+        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, black, 20, 676, 511)
+
         y = 0
         pygame.display.update()
  
