@@ -12,8 +12,8 @@ Price_inc = 1.0
 def testing():
     global Counter_num
     global Counter_auto
-    if Counter_num >= 100:
-        math = Counter_num - 100
+    if Counter_num >= 100:  #change this to whatever the new price will be 
+        math = Counter_num - 100 #change this to whatever the new price will be
         Counter_num = math
         Counter_auto += 0.01
         print(Counter_num)
