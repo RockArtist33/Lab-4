@@ -266,4 +266,4 @@ def main_loop():
  
 
 
-start_menu
+start_menu()
