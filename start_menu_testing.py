@@ -158,7 +158,8 @@ screen_size = (800,600)
 screen = pygame.display.set_mode(screen_size)
 white = (255,255,255)
 black = (0,0,0)
-dark_grey = (40,40,40)
+dark_grey = (0,40,40)
+light_grey = (80,80,80)
 red = (255,0,0)
 green = (0,255,0)
 blue = (0,0,255)
@@ -190,7 +191,6 @@ class Button_make:
         bttn.set_alpha(transparency)
         bttn.fill((button_color))
         screen.blit(bttn, (place_x,place_y))
-        
         return int(place_x),int(place_y),int(size_x),int(size_y)
 
     def circle(screen, colour_circle, center_location, radius, width_of_line,top_left,top_right,bottom_left,bottom_right):
@@ -204,16 +204,26 @@ class Button_make:
 
 
 
+
 def start_menu():
+    x_button = 125
+    y_button = 60
     active = True
+    
     while active:
+        mouse_pos1 = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                active == False
+                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                pass
+                if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
+                    main_loop()
     
-    screen.fill(dark_grey)
+        screen.fill(black)
+        x_pos1, y_pos1, x_size1, y_size1 = Button_make.button(light_grey, ((800/2)-(x_button)/2), ((600/2)-(y_button)/2), x_button, y_button, 128)
+        Text_create("START",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2)
+        print(x_pos1, y_pos1, x_size1, y_size1, mouse_pos1[0], mouse_pos1[1])
+        pygame.display.update()
     
         
         
@@ -227,7 +237,7 @@ def main_loop():
             auto_click()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                active = False
+                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
@@ -260,7 +270,7 @@ def main_loop():
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275, 128)
+        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         y = 0
         pygame.display.update()
  

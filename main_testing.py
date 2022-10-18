@@ -11,12 +11,12 @@ Counter_click = 1
 Counter_mult = 1.0
 Price_inc = 1.0
 ####################################### normal upgrades
-upgrademult1 = 2
-upgrademult2 = 3
-upgrademult3 = 4
-upgrademult4 = 5
-upgrademult5 = 6
-upgrademult6 = 7
+upgrademult1 = 1
+upgrademult2 = 1
+upgrademult3 = 1
+upgrademult4 = 1
+upgrademult5 = 1
+upgrademult6 = 1
 #---------------------------------------# 
 upgradeprice1 = (100*upgrademult1)
 upgradeprice2 = (1000*upgrademult2)
@@ -25,11 +25,11 @@ upgradeprice4 = (50000*upgrademult4)
 upgradeprice5 = (100000*upgrademult5)
 upgradeprice6 = (150000*upgrademult6)
 ####################################### Clicker upgrades
-clickermult1 = 2
-clickermult2 = 3
-clickermult3 = 4
-clickermult4 = 5
-clickermult5 = 6
+clickermult1 = 1
+clickermult2 = 1
+clickermult3 = 1
+clickermult4 = 1
+clickermult5 = 1
 #---------------------------------------#
 clickerprice1 = (1000*clickermult1)
 clickerprice2 = (10000*clickermult2)
@@ -151,7 +151,14 @@ mouse1 = pygame.image.load(os.path.join("./assets/images/mouse1.png"))
 mouse2 = pygame.image.load(os.path.join("./assets/images/mouse2.png"))
 mouse3 = pygame.image.load(os.path.join("./assets/images/mouse3.png"))
 mouse4 = pygame.image.load(os.path.join("./assets/images/mouse4.png"))
-mouse4 = pygame.image.load(os.path.join("./assets/images/mouse5.png"))
+mouse5 = pygame.image.load(os.path.join("./assets/images/mouse5.png"))
+picupgrade1 = pygame.image.load(os.path.join("./assets/images/upgrade1.png"))
+picupgrade2 = pygame.image.load(os.path.join("./assets/images/upgrade2.png"))
+picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
+picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
+picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
+picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
+
 
 pygame.init()
 screen_size = (800,600)
@@ -236,15 +243,15 @@ def main_loop():
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     upgrade1()
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
-                    print("hello2")
+                    upgrade2()
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
-                    print("hello3")
+                    upgrade3()
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
-                    print("hello4")
+                    upgrade4()
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
-                    print("hello5")
+                    upgrade5()
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
-                    print("hello6")
+                    upgrade6()
             
                 
         global printer 
@@ -260,7 +267,7 @@ def main_loop():
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275, 128)
+        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         y = 0
         pygame.display.update()
  
