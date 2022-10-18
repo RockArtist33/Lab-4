@@ -298,8 +298,6 @@ def main_loop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65,128)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
-        radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 676, 75)
         counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, black, 20, 676, 162)
         counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, black, 20, 676, 250)
@@ -311,7 +309,7 @@ def main_loop():
         clickerup3 = Button_make.circle(screen,dark_grey,(250,850),50,50,True,True,True,True)
         clickerup4 = Button_make.circle(screen,dark_grey,(350,850),50,50,True,True,True,True)
         clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True)
-
+        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         y = 0
         pygame.display.update()
  
