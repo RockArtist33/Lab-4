@@ -11,12 +11,12 @@ Counter_click = 1
 Counter_mult = 1.0
 Price_inc = 1.0
 ####################################### normal upgrades
-upgrademult1 = 2
-upgrademult2 = 3
-upgrademult3 = 4
-upgrademult4 = 5
-upgrademult5 = 6
-upgrademult6 = 7
+upgrademult1 = 1
+upgrademult2 = 1
+upgrademult3 = 1
+upgrademult4 = 1
+upgrademult5 = 1
+upgrademult6 = 1
 #---------------------------------------# 
 upgradeprice1 = (100*upgrademult1)
 upgradeprice2 = (1000*upgrademult2)
@@ -25,11 +25,11 @@ upgradeprice4 = (50000*upgrademult4)
 upgradeprice5 = (100000*upgrademult5)
 upgradeprice6 = (150000*upgrademult6)
 ####################################### Clicker upgrades
-clickermult1 = 2
-clickermult2 = 3
-clickermult3 = 4
-clickermult4 = 5
-clickermult5 = 6
+clickermult1 = 1
+clickermult2 = 1
+clickermult3 = 1
+clickermult4 = 1
+clickermult5 = 1
 #---------------------------------------#
 clickerprice1 = (1000*clickermult1)
 clickerprice2 = (10000*clickermult2)
