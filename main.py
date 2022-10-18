@@ -9,7 +9,7 @@ Counter_inc = 1
 Counter_mult = 1.0
 Price_inc = 1.0
 
-printer = pygame.image.load(os.path.join("./assets/images/Money_printer.png"))
+printer = pygame.image.load(os.path.join("./assets/images/printer.png"))
 
 pygame.init()
 screen_size = (1024,768)
