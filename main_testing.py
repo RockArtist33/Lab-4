@@ -11,31 +11,31 @@ Counter_click = 1
 Counter_mult = 1.0
 Price_inc = 1.0
 ####################################### normal upgrades
-upgradeinc1 = 1
-upgradeinc2 = 1
-upgradeinc3 = 1
-upgradeinc4 = 1
-upgradeinc5 = 1
-upgradeinc6 = 1
+upgrademult1 = 1
+upgrademult2 = 1
+upgrademult3 = 1
+upgrademult4 = 1
+upgrademult5 = 1
+upgrademult6 = 1
 #---------------------------------------# 
-upgradeprice1 = (100*upgradeinc1)
-upgradeprice2 = (1000*upgradeinc2)
-upgradeprice3 = (20000*upgradeinc3)
-upgradeprice4 = (50000*upgradeinc4)
-upgradeprice5 = (100000*upgradeinc5)
-upgradeprice6 = (150000*upgradeinc6)
+upgradeprice1 = (100*upgrademult1)
+upgradeprice2 = (1000*upgrademult2)
+upgradeprice3 = (20000*upgrademult3)
+upgradeprice4 = (50000*upgrademult4)
+upgradeprice5 = (100000*upgrademult5)
+upgradeprice6 = (150000*upgrademult6)
 ####################################### Clicker upgrades
-clickerinc1 = 1
-clickerinc2 = 1
-clickerinc3 = 1
-clickerinc4 = 1
-clickerinc5 = 1
+clickermult1 = 1
+clickermult2 = 1
+clickermult3 = 1
+clickermult4 = 1
+clickermult5 = 1
 #---------------------------------------#
-clickerprice1 = (1000*clickerinc1)
-clickerprice2 = (10000*clickerinc2)
-clickerprice3 = (50000*clickerinc3)
-clickerprice4 = (100000*clickerinc4)
-clickerprice5 = (200000*clickerinc5)
+clickerprice1 = (1000*clickermult1)
+clickerprice2 = (10000*clickermult2)
+clickerprice3 = (50000*clickermult3)
+clickerprice4 = (100000*clickermult4)
+clickerprice5 = (200000*clickermult5)
 ####################################### Upgrade functions
 def upgrade1():
     global Counter_num
