@@ -259,7 +259,7 @@ def main_loop():
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200,160)
         printer = pygame.transform.scale(printer,(sizex, sizey))
-        screen.blit(printer,(startx, starty),)
+        screen.blit(printer,(startx, starty))
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,65,128)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,65,128)
         Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,65,128)
