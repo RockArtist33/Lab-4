@@ -1,6 +1,7 @@
 import pygame
 import sys , os
 import time
+print("hello boiiiiiii")
 
 
 
