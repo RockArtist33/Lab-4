@@ -80,6 +80,7 @@ def start_menu():
         
 #Main loop
 def main_loop():
+    global printer, Counter_num, Counter_inc, price
     active = True
     while active:
         if active:
