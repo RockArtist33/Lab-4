@@ -1,9 +1,8 @@
+####################################### Imports
 import pygame
 import sys , os
 import time
-
-
-
+import random
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
