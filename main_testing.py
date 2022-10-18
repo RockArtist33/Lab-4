@@ -324,7 +324,7 @@ def main_loop():
         global printer 
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
-        startx, starty, sizex, sizey = Button_make.button(50,50,300,300,0, printer)
+        startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
 
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(875,25,200,100,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(875,125,200,100,0, picupgrade2)
