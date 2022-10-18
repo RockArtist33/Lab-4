@@ -1,9 +1,12 @@
 ####################################### Imports
 from msilib.schema import Upgrade
 import pygame
+from pygame import mixer
+mixer.init()
 import sys , os
 import time
 import random
+
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
@@ -158,7 +161,14 @@ picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
 picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
 picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
-
+cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
+cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3"))
+cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
+cap_ryan_4_noyay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_noyay.mp3"))
+cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_yay.mp3"))
+cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
+cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
+cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
 
 pygame.init()
 screen_size = (1024,768)
@@ -292,6 +302,13 @@ def main_loop():
         
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
+        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 676, 75)
+        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, black, 20, 676, 162)
+        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, black, 20, 676, 250)
+        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, black, 20, 676, 339)
+        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, black, 20, 676, 425)
+        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, black, 20, 676, 511)
+
         y = 0
         pygame.display.update()
  
