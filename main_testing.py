@@ -1,6 +1,5 @@
 ####################################### Imports
 from msilib.schema import Upgrade
-from this import d
 import pygame
 from pygame import mixer
 mixer.init()
@@ -54,6 +53,8 @@ def upgrade1():
         print(Counter_auto)
         print(upgrademult1)
         print(upgradeprice1)
+    else:
+        print("You do not have enough money")
         
         
 def upgrade2():
@@ -67,6 +68,8 @@ def upgrade2():
         upgrademult2 += 0.15
         print(Counter_num)
         print(Counter_auto)
+    else:
+        print("You do not have enough money")
         
 def upgrade3():
     global Counter_num
@@ -79,6 +82,8 @@ def upgrade3():
         upgrademult3 += 0.15
         print(Counter_num)
         print(Counter_auto)
+    else:
+        print("You do not have enough money")
         
 def upgrade4():
     global Counter_num
@@ -91,6 +96,8 @@ def upgrade4():
         upgrademult4 += 0.15
         print(Counter_num)
         print(Counter_auto)
+    else:
+        print("You do not have enough money")
         
 def upgrade5():
     global Counter_num
@@ -103,6 +110,8 @@ def upgrade5():
         upgrademult5 += 0.15
         print(Counter_num)
         print(Counter_auto)
+    else:
+        print("You do not have enough money")
         
 def upgrade6():
     global Counter_num
@@ -115,6 +124,8 @@ def upgrade6():
         upgrademult6 += 0.15
         print(Counter_num)
         print(Counter_auto)
+    else:
+        print("You do not have enough money")
         
 
 ####################################### Clicker functions
@@ -126,6 +137,8 @@ def clicker1():
         Counter_click = 10
         print(Counter_num)
         print(Counter_click)
+    else:
+        print("You do not have enough money")
         
 def clicker2():
     global Counter_num
@@ -135,6 +148,8 @@ def clicker2():
         Counter_click = 50
         print(Counter_num)
         print(Counter_click)
+    else:
+        print("You do not have enough money")
         
 def clicker3():
     global Counter_num
@@ -144,6 +159,8 @@ def clicker3():
         Counter_click = 100
         print(Counter_num)
         print(Counter_click)
+    else:
+        print("You do not have enough money")
         
 def clicker4():
     global Counter_num
@@ -153,6 +170,8 @@ def clicker4():
         Counter_click = 500
         print(Counter_num)
         print(Counter_click)
+    else:
+        print("You do not have enough money")
         
 def clicker5():
     global Counter_num
@@ -161,7 +180,9 @@ def clicker5():
         Counter_num - clickerprice5
         Counter_click = 1000
         print(Counter_num)
-        print(Counter_click)        
+        print(Counter_click)
+    else:
+        print("You do not have enough money")        
 
 ####################################### Calling assets
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
@@ -302,7 +323,7 @@ def main_loop():
         global printer 
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
-        startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
+        startx, starty, sizex, sizey = Button_make.button(50,50,300,300,0, printer)
 
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(875,25,200,100,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(875,125,200,100,0, picupgrade2)
@@ -310,12 +331,12 @@ def main_loop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(875,325.5,200,100,0, picupgrade4)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(875,425,200,100,0, picupgrade5)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(875,525.5,200,100,0, picupgrade6)
-        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 975, 102)
-        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 975, 202)
-        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 975, 302)
-        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 975, 402)
-        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 975, 502)
-        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 975, 602)
+        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 776, 75)
+        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, black, 20, 776, 175)
+        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, black, 20, 776, 275)
+        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, black, 20, 776, 375)
+        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, black, 20, 776, 475)
+        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, black, 20, 776, 575)
         clickerup1 = Button_make.circle(screen,dark_grey,(50,850),50,50,True,True,True,True)
         clickerup2 = Button_make.circle(screen,dark_grey,(150,850),50,50,True,True,True,True)
         clickerup3 = Button_make.circle(screen,dark_grey,(250,850),50,50,True,True,True,True)
@@ -323,7 +344,6 @@ def main_loop():
         clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
-        
         pygame.display.update()
  
 
