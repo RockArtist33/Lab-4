@@ -48,7 +48,7 @@ def upgrade1():
         math = Counter_num - upgradeprice1
         Counter_num = math
         Counter_auto += 0.01
-        upgrademult1 += 1
+        upgrademult1 += 0.15
         print(Counter_num)
         print(Counter_auto)
         print(upgrademult1)
@@ -63,7 +63,7 @@ def upgrade2():
         math = Counter_num - upgradeprice2
         Counter_num = math
         Counter_auto += 0.55
-        upgrademult2 += 0.14
+        upgrademult2 += 0.15
         print(Counter_num)
         print(Counter_auto)
         
@@ -75,7 +75,7 @@ def upgrade3():
         math = Counter_num - upgradeprice3
         Counter_num = math
         Counter_auto += 55
-        upgrademult3 += 0.14
+        upgrademult3 += 0.15
         print(Counter_num)
         print(Counter_auto)
         
@@ -87,7 +87,7 @@ def upgrade4():
         math = Counter_num - upgradeprice4
         Counter_num = math
         Counter_auto += 10
-        upgrademult4 += 0.145
+        upgrademult4 += 0.15
         print(Counter_num)
         print(Counter_auto)
         
@@ -99,7 +99,7 @@ def upgrade5():
         math = Counter_num - upgradeprice5
         Counter_num = math
         Counter_auto += 100
-        upgrademult5 += 0.14
+        upgrademult5 += 0.15
         print(Counter_num)
         print(Counter_auto)
         
@@ -111,7 +111,7 @@ def upgrade6():
         math = Counter_num - upgradeprice6
         Counter_num = math
         Counter_auto += 1000
-        upgrademult6 += 0.14
+        upgrademult6 += 0.15
         print(Counter_num)
         print(Counter_auto)
         
@@ -256,6 +256,12 @@ def main_loop():
     global printer, Counter_num, Counter_click, price, picupgrade1, picupgrade2, picupgrade3, picupgrade4, picupgrade5, picupgrade6, background
     active = True
     while active:
+        upgradeprice1 = (100*upgrademult1)
+        upgradeprice2 = (1000*upgrademult2)
+        upgradeprice3 = (5000*upgrademult3)
+        upgradeprice4 = (1000*upgrademult4)
+        upgradeprice5 = (25000*upgrademult5)
+        upgradeprice6 = (60000*upgrademult6)
         if active:
             auto_click()
         for event in pygame.event.get():
@@ -264,7 +270,7 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
-                    Counter_num = Counter_num + Counter_click
+                    Counter_num = Counter_num + Counter_click + 5
             
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     upgrade1()
