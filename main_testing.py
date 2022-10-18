@@ -216,7 +216,7 @@ cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism
 cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
 cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
 cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
-
+sound_printer_1 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_1.mp3"))  
 pygame.init()
 screen_size = (1200,900)
 screen = pygame.display.set_mode(screen_size)
@@ -298,6 +298,8 @@ def main_loop():
                 active = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
+                sound_printer_1
+                mixer.music.set_volume(1); mixer.music.play()
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click 
             
