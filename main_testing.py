@@ -2,6 +2,8 @@ import pygame
 import sys , os
 import time
 
+
+
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
@@ -149,12 +151,12 @@ def main_loop():
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200)
         printer = pygame.transform.scale(printer,(sizex, sizey))
         screen.blit(printer,(startx, starty),)
-        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,75)
-        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,125,200,75)
-        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,225,200,75)
-        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,325,200,75)
-        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,425,200,75)
-        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,525,200,75)
+        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,65)
+        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,65)
+        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,65)
+        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65)
+        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65)
+        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65)
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         y = 0
