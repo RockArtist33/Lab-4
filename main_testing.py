@@ -323,6 +323,7 @@ def main_loop():
         clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
+        
         pygame.display.update()
  
 
