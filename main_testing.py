@@ -147,6 +147,7 @@ def clicker5():
         print(Counter_num)
         print(Counter_click)        
 
+####################################### Calling assets
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
 moneyicon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
