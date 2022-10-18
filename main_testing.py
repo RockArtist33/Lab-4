@@ -1,6 +1,6 @@
 ####################################### Imports
 from msilib.schema import Upgrade
-from this import d
+
 import pygame
 from pygame import mixer
 mixer.init()
