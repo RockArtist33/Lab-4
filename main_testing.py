@@ -1,8 +1,12 @@
 ####################################### Imports
+from msilib.schema import Upgrade
 import pygame
+from pygame import mixer
+mixer.init()
 import sys , os
 import time
 import random
+
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
@@ -172,10 +176,17 @@ picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
 picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
 picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
-
+cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
+cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3"))
+cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
+cap_ryan_4_noyay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_noyay.mp3"))
+cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_yay.mp3"))
+cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
+cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
+cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
 
 pygame.init()
-screen_size = (800,600)
+screen_size = (1024,768)
 screen = pygame.display.set_mode(screen_size)
 white = (255,255,255)
 black = (0,0,0)
@@ -241,7 +252,7 @@ def start_menu():
         
 #Main loop
 def main_loop():
-    global printer, Counter_num, Counter_click, price
+    global printer, Counter_num, Counter_click, price, picupgrade1, picupgrade2, picupgrade3, picupgrade4, picupgrade5, picupgrade6, background
     active = True
     while active:
         if active:
@@ -266,10 +277,9 @@ def main_loop():
                     upgrade5()
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     upgrade6()
-                
             
                 
-        global printer, upgradeprice1 ,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
+        global printer 
         screen.blit(background,(0,0)) 
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200,160)
@@ -281,13 +291,6 @@ def main_loop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(dark_grey,575,287.5,200,65,128)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(dark_grey,575,375,200,65,128)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(dark_grey,575,462.5,200,65,128)
-        ################################################################################################
-        clicker1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        clicker2 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        clicker3 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        clicker4 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        clicker5 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
-        ################################################################################################
         radius1 = Button_make.circle(screen,dark_grey,(400,600),50,48,True,True,True,True)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 275)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, black, 20, 676, 75)
@@ -303,3 +306,6 @@ def main_loop():
 
 
 main_loop()
+
+
+
