@@ -219,7 +219,7 @@ def start_menu():
                 if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
                     main_loop()
                 
-                if
+                if 
     
         screen.fill(black)
         x_pos1, y_pos1, x_size1, y_size1 = Button_make.button(light_grey, ((800/2)-(x_button)/2), ((600/2)-(y_button)/2), x_button, y_button, 128)
