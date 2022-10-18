@@ -187,7 +187,7 @@ cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap
 cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
 
 pygame.init()
-screen_size = (1024,768)
+screen_size = (1200,900)
 screen = pygame.display.set_mode(screen_size)
 white = (255,255,255)
 black = (0,0,0)
