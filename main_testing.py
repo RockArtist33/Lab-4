@@ -253,15 +253,9 @@ def start_menu():
         
 #Main loop
 def main_loop():
-    global printer, background
+    global printer, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     active = True
     while active:
-        upgradeprice1 = (100*upgrademult1)
-        upgradeprice2 = (1000*upgrademult2)
-        upgradeprice3 = (5000*upgrademult3)
-        upgradeprice4 = (1000*upgrademult4)
-        upgradeprice5 = (25000*upgrademult5)
-        upgradeprice6 = (60000*upgrademult6)
         if active:
             auto_click()
         for event in pygame.event.get():
@@ -270,20 +264,26 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
-                    Counter_num = Counter_num + Counter_click + 5
+                    Counter_num = Counter_num + Counter_click 
             
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     upgrade1()
+                    upgradeprice1 = (100*upgrademult1)
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     upgrade2()
+                    upgradeprice2 = (1000*upgrademult2)
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
                     upgrade3()
+                    upgradeprice3 = (5000*upgrademult3)
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     upgrade4()
+                    upgradeprice4 = (1000*upgrademult4)
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     upgrade5()
+                    upgradeprice5 = (25000*upgrademult5)
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     upgrade6()
+                    upgradeprice6 = (60000*upgrademult6)
             
                 
         global printer 
