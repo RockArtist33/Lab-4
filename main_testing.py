@@ -11,12 +11,12 @@ Counter_click = 1
 Counter_mult = 1.0
 Price_inc = 1.0
 ####################################### normal upgrades
-upgrademult1 = 1
-upgrademult2 = 1
-upgrademult3 = 1
-upgrademult4 = 1
-upgrademult5 = 1
-upgrademult6 = 1
+upgrademult1 = 2
+upgrademult2 = 3
+upgrademult3 = 4
+upgrademult4 = 5
+upgrademult5 = 6
+upgrademult6 = 7
 #---------------------------------------# 
 upgradeprice1 = (100*upgrademult1)
 upgradeprice2 = (1000*upgrademult2)
@@ -25,11 +25,11 @@ upgradeprice4 = (50000*upgrademult4)
 upgradeprice5 = (100000*upgrademult5)
 upgradeprice6 = (150000*upgrademult6)
 ####################################### Clicker upgrades
-clickermult1 = 1
-clickermult2 = 1
-clickermult3 = 1
-clickermult4 = 1
-clickermult5 = 1
+clickermult1 = 2
+clickermult2 = 3
+clickermult3 = 4
+clickermult4 = 5
+clickermult5 = 6
 #---------------------------------------#
 clickerprice1 = (1000*clickermult1)
 clickerprice2 = (10000*clickermult2)
@@ -46,6 +46,58 @@ def upgrade1():
         Counter_auto += 0.01
         print(Counter_num)
         print(Counter_auto)
+        
+def upgrade2():
+    global Counter_num
+    global Counter_auto
+    if Counter_num >= upgradeprice2:
+        math = Counter_num - upgradeprice2
+        Counter_num = math
+        Counter_auto += 0.01
+        print(Counter_num)
+        print(Counter_auto)
+        
+def upgrade3():
+    global Counter_num
+    global Counter_auto
+    if Counter_num >= upgradeprice3:
+        math = Counter_num - upgradeprice3
+        Counter_num = math
+        Counter_auto += 0.01
+        print(Counter_num)
+        print(Counter_auto)
+        
+def upgrade4():
+    global Counter_num
+    global Counter_auto
+    if Counter_num >= upgradeprice4:
+        math = Counter_num - upgradeprice4
+        Counter_num = math
+        Counter_auto += 0.01
+        print(Counter_num)
+        print(Counter_auto)
+        
+def upgrade5():
+    global Counter_num
+    global Counter_auto
+    if Counter_num >= upgradeprice5:
+        math = Counter_num - upgradeprice5
+        Counter_num = math
+        Counter_auto += 0.01
+        print(Counter_num)
+        print(Counter_auto)
+        
+def upgrade6():
+    global Counter_num
+    global Counter_auto
+    if Counter_num >= upgradeprice6:
+        math = Counter_num - upgradeprice6
+        Counter_num = math
+        Counter_auto += 0.01
+        print(Counter_num)
+        print(Counter_auto)
+        
+
 ####################################### Clicker functions
 def clicker1():
     global Counter_num
@@ -56,6 +108,42 @@ def clicker1():
         print(Counter_num)
         print(Counter_click)
         
+def clicker2():
+    global Counter_num
+    global Counter_click
+    if Counter_num >= clickerprice2:
+        Counter_num - clickerprice2
+        Counter_click = 10
+        print(Counter_num)
+        print(Counter_click)
+        
+def clicker3():
+    global Counter_num
+    global Counter_click
+    if Counter_num >= clickerprice3:
+        Counter_num - clickerprice3
+        Counter_click = 10
+        print(Counter_num)
+        print(Counter_click)
+        
+def clicker4():
+    global Counter_num
+    global Counter_click
+    if Counter_num >= clickerprice4:
+        Counter_num - clickerprice4
+        Counter_click = 10
+        print(Counter_num)
+        print(Counter_click)
+        
+def clicker5():
+    global Counter_num
+    global Counter_click
+    if Counter_num >= clickerprice5:
+        Counter_num - clickerprice5
+        Counter_click = 10
+        print(Counter_num)
+        print(Counter_click)        
+
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
 moneyicon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
