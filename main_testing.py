@@ -1,9 +1,8 @@
+####################################### Imports
 import pygame
 import sys , os
 import time
-
-
-
+import random
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
@@ -83,7 +82,7 @@ def upgrade5():
     if Counter_num >= upgradeprice5:
         math = Counter_num - upgradeprice5
         Counter_num = math
-        Counter_auto += 0.01
+        Counter_auto += 10
         print(Counter_num)
         print(Counter_auto)
         
@@ -93,7 +92,7 @@ def upgrade6():
     if Counter_num >= upgradeprice6:
         math = Counter_num - upgradeprice6
         Counter_num = math
-        Counter_auto += 0.01
+        Counter_auto += 100
         print(Counter_num)
         print(Counter_auto)
         
@@ -113,7 +112,7 @@ def clicker2():
     global Counter_click
     if Counter_num >= clickerprice2:
         Counter_num - clickerprice2
-        Counter_click = 10
+        Counter_click = 50
         print(Counter_num)
         print(Counter_click)
         
@@ -122,7 +121,7 @@ def clicker3():
     global Counter_click
     if Counter_num >= clickerprice3:
         Counter_num - clickerprice3
-        Counter_click = 10
+        Counter_click = 100
         print(Counter_num)
         print(Counter_click)
         
@@ -131,7 +130,7 @@ def clicker4():
     global Counter_click
     if Counter_num >= clickerprice4:
         Counter_num - clickerprice4
-        Counter_click = 10
+        Counter_click = 500
         print(Counter_num)
         print(Counter_click)
         
@@ -140,7 +139,7 @@ def clicker5():
     global Counter_click
     if Counter_num >= clickerprice5:
         Counter_num - clickerprice5
-        Counter_click = 10
+        Counter_click = 1000
         print(Counter_num)
         print(Counter_click)        
 
@@ -259,7 +258,7 @@ def main_loop():
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(dark_grey,50,50,200,200,160)
         printer = pygame.transform.scale(printer,(sizex, sizey))
-        screen.blit(printer,(startx, starty))
+        screen.blit(printer,(startx, starty),)
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(dark_grey,575,25,200,65,128)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(dark_grey,575,112.5,200,65,128)
         Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(dark_grey,575,200,200,65,128)
