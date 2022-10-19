@@ -60,16 +60,15 @@ cap_ryan_4_yay = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_
 cap_ryan_5 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
 cap_ryan_6 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
 cap_ryan_7 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
-#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1")) U
-#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))  N
-#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))    U
-#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))     S
-#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1") )     E
-print_1 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_1.mp3"))#D
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1")) 
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))  
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))    
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1") ) 
+print_1 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_1.mp3"))
 print_2 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_2.mp3"))
 print_3 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_3.mp3"))
 frameback = pygame.image.load(os.path.join("./assets/images/frameback.png"))
-
 cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_2.mp3",
                    "./assets/audio/capitalism/cap_ryan_3.mp3",
@@ -79,7 +78,6 @@ cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_6.mp3",
                    "./assets/audio/capitalism/cap_ryan_7.mp3"
                    ]
-
 ding = ["./assets/audio/printer/ding.mp3"]
 print_audio = ["./assets/audio/printer/print_1.mp3",
              "./assets/audio/printer/print_2.mp3",
@@ -89,8 +87,6 @@ pop_audio = ["./assets/audio/pop/pop_1", #MAY
              "./assets/audio/pop/pop_3", #UNUSED
              "./assets/audio/pop/pop_4", #BRUH
              "./assets/audio/pop/pop_5",]
-
-
 pygame.mixer.set_num_channels(100)
 pygame.mixer.set_reserved(1)
 ####################################### Upgrade functions
@@ -317,12 +313,12 @@ bought6 = False
 
 
 
-
+####################################### this function is the money per seconds 
 def auto_click():
     global Counter_num, Counter_click
     time.sleep(0.1)
     Counter_num = Counter_num + Counter_auto
-
+####################################### all this does is create so called templates
 active = True
 class Button_make:
 
@@ -352,7 +348,7 @@ class Button_make:
         screen.blit(picture, (x-50,y-50))
         return radius, x, y
         
-
+####################################### counters for all 
 
 def hub_ui():
     Button_make.button_fill(dark_grey,0,600,800,300,0)
@@ -369,6 +365,8 @@ def hub_ui():
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
     shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
+    
+####################################### main menue
 
 def start_menu():
     global bought, bought1, bought2, bought3, bought4, bought5, bought6
@@ -401,7 +399,7 @@ def start_menu():
     screen.fill(dark_grey) 
     
 
-
+####################################### this is the shop gui
 
 
 def shop():
@@ -478,6 +476,7 @@ def shop():
         global printer, exitsign
         
         
+ ####################################### buttons with pixtures for shop ui
  
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(475,100,250,125,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(475,230,250,125,0, picupgrade2)
@@ -537,7 +536,7 @@ def shop():
         dt = clock.tick(60)
 cap_swosh.set_volume(0.2)
 pygame.mixer.Channel(1).play(cap_swosh, loops=-1)
-#Main loop
+####################################### this is the main function for the first page, aka the clicker page
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     global bought, bought1, bought2, bought3, bought4, bought5, bought6
