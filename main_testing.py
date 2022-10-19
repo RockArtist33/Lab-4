@@ -230,6 +230,11 @@ cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap
 cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
 cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
 sound_printer_1 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_1.mp3"))  
+sound_printer_2 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_2.mp3"))
+sound_printer_3 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_3.mp3"))
+sound_printer_4 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_4.mp3"))
+sound_printer_5 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_5.mp3"))  
+
 pygame.init()
 screen_size = (1200,900)
 screen = pygame.display.set_mode(screen_size)
