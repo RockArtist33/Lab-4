@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 100000
+Counter_num = 100000000
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -420,7 +420,9 @@ def shop():
                     cant1 = upgrade5()
                     start_time = pygame.time.get_ticks()
                     upgradeprice5 = (3000*upgrademult5)
-                elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
+                    
+                print(Upgrade6,starty_6,sizex_6,sizey_6, mouse_pos[0],mouse_pos[1])
+                if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
                     upgradeprice6 = (10000*upgrademult6)
@@ -463,7 +465,7 @@ def shop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(475,490,250,125,0, picupgrade4)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(475,620,250,125,0, picupgrade5)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(475,750,250,125,0, picupgrade6)
-        shopexit, starty_6, sizex_6, sizey_6 = Button_make.button(15,830,100,50,0, exitsign)
+        shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(15,830,100,50,0, exitsign)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 600, 200)
         counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 600, 330)
         counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 600, 460)
