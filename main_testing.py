@@ -383,10 +383,7 @@ def start_menu():
     
     screen.fill(dark_grey) 
     
-def play_constant():
-    while True:
-        play_audio(ding, 0)
-play_constant()
+
 
 def shop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
