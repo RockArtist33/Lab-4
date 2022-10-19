@@ -98,7 +98,7 @@ def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
 def play_audio(audio_list, item):
     s = pygame.mixer.Sound(os.path.join(audio_list[item]))
     emptychannel = mixer.find_channel()
-    emptychannel.set_volume(0.2)
+    emptychannel.set_volume(0.3)
     emptychannel.play(s)
 
 
