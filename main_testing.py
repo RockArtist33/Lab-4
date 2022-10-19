@@ -80,9 +80,16 @@ cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
 
 ding = ["./assets/audio/printer/ding.mp3"]
 print_audio = ["./assets/audio/printer/print_1.mp3",
-               "./assets/audio/printer/print_2.mp3",
-               "./assets/audio/printer/print_3.mp3",]
-pygame.mixer.set_num_channels(100)
+             "./assets/audio/printer/print_2.mp3",
+             "./assets/audio/printer/print_3.mp3"]
+pop_audio = ["./assets/audio/pop/pop_1", #MAY
+             "./assets/audio/pop/pop_2", #GO
+             "./assets/audio/pop/pop_3", #UNUSED
+             "./assets/audio/pop/pop_4", #BRUH
+             "./assets/audio/pop/pop_5",]
+
+
+pygame.mixer.set_num_channels(10)
 ####################################### Upgrade functions
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
