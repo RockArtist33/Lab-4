@@ -413,7 +413,7 @@ def shop():
                 #elif 
                 
                 #elif 
-        global printer 
+        global printer, exitsign
         
         mouse_pos = pygame.mouse.get_pos()
 
@@ -423,6 +423,7 @@ def shop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(475,490,250,125,0, picupgrade4)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(475,620,250,125,0, picupgrade5)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(475,750,250,125,0, picupgrade6)
+        shopexit, starty_6, sizex_6, sizey_6 = Button_make.button(15,830,100,50,0, exitsign)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 600, 200)
         counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 600, 330)
         counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 600, 460)
