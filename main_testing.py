@@ -290,7 +290,7 @@ class Button_make:
         return int(place_x),int(place_y),int(size_x),int(size_y)
     
     def button_fill(button_color,place_x,place_y,size_x,size_y,transparency):
-        #pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
+        pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
         bttn = pygame.Surface((size_x, size_y))
         bttn.set_alpha(transparency)
         bttn.fill((button_color))
@@ -299,7 +299,7 @@ class Button_make:
         
         return int(place_x),int(place_y),int(size_x),int(size_y)
 
-    def circle(screen, colour_circle, center_location, radius, width_of_line,top_left,top_right,bottom_left,bottom_right):
+    def circle(screen, colour_circle, center_location, radius, width_of_line,top_left,top_right,bottom_left,bottom_right, picture):
         pygame.draw.circle(screen,colour_circle,center_location, radius, width_of_line,top_left,top_right,bottom_left,bottom_right)
         picture = pygame.transform.scale(picture, (radius*2, radius*2))
         screen.blit(picture, (center_location))
@@ -358,7 +358,6 @@ def shop():
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
                     start_time = pygame.time.get_ticks()
@@ -406,11 +405,11 @@ def shop():
         counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 600, 720)
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 600, 850)
         shop_clicker_text = Text_create("Clicker Upgrades", white, black, 20, 170, 100)
-        clickerup1 = Button_make.circle(screen,dark_grey,(120,200),50,50,True,True,True,True,clicker)
-        clickerup2 = Button_make.circle(screen,dark_grey,(120,325),50,50,True,True,True,True)
-        clickerup3 = Button_make.circle(screen,dark_grey,(120,450),50,50,True,True,True,True)
-        clickerup4 = Button_make.circle(screen,dark_grey,(120,575),50,50,True,True,True,True)
-        clickerup5 = Button_make.circle(screen,dark_grey,(120,700),50,50,True,True,True,True)
+        clickerup1 = Button_make.circle(screen,dark_grey,(120,200),50,50,True,True,True,True,mouse1)
+        clickerup2 = Button_make.circle(screen,dark_grey,(120,325),50,50,True,True,True,True,mouse2)
+        clickerup3 = Button_make.circle(screen,dark_grey,(120,450),50,50,True,True,True,True,mouse3)
+        clickerup4 = Button_make.circle(screen,dark_grey,(120,575),50,50,True,True,True,True,mouse4)
+        clickerup5 = Button_make.circle(screen,dark_grey,(120,700),50,50,True,True,True,True,mouse5)
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         shop_text = Text_create("The SHOP", white, black, 40, 600, 50)
         y = 0
@@ -497,11 +496,11 @@ def main_loop():
         counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 976, 406)
         counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 976, 506)
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 976, 606)
-        clickerup1 = Button_make.circle(screen,dark_grey,(50,850),50,50,True,True,True,True)
-        clickerup2 = Button_make.circle(screen,dark_grey,(150,850),50,50,True,True,True,True)
-        clickerup3 = Button_make.circle(screen,dark_grey,(250,850),50,50,True,True,True,True)
-        clickerup4 = Button_make.circle(screen,dark_grey,(350,850),50,50,True,True,True,True)
-        clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True)
+        clickerup1 = Button_make.circle(screen,dark_grey,(50,850),50,50,True,True,True,True,mouse1)
+        clickerup2 = Button_make.circle(screen,dark_grey,(150,850),50,50,True,True,True,True,mouse2)
+        clickerup3 = Button_make.circle(screen,dark_grey,(250,850),50,50,True,True,True,True,mouse3)
+        clickerup4 = Button_make.circle(screen,dark_grey,(350,850),50,50,True,True,True,True,mouse4)
+        clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True,mouse5)
 
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
