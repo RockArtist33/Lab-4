@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 10000
+Counter_num = 0
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -92,17 +92,17 @@ pygame.mixer.set_reserved(1)
 ####################################### Upgrade functions
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
-    pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size)
-    pixel_text = pixel_font.render(txt, True, color_of_text)
-    pixel_txt_Rect = pixel_text.get_rect()
-    pixel_txt_Rect.center = (pos_x,pos_y)
-    screen.blit(pixel_text,pixel_txt_Rect)
+    pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size) # creates the font
+    pixel_text = pixel_font.render(txt, True, color_of_text) # render sthe etxt and its color
+    pixel_txt_Rect = pixel_text.get_rect() # fidn the rectangle area around text
+    pixel_txt_Rect.center = (pos_x,pos_y) # find the center of it
+    screen.blit(pixel_text,pixel_txt_Rect) # displays it on the screen
 
-def play_audio(audio_list, item):
-    s = pygame.mixer.Sound(os.path.join(audio_list[item]))
-    emptychannel = mixer.find_channel()
-    emptychannel.set_volume(0.3)
-    emptychannel.play(s)
+def play_audio(audio_list, item): # play_audio function
+    s = pygame.mixer.Sound(os.path.join(audio_list[item])) # finds sound and its path in the list
+    emptychannel = mixer.find_channel() # assigns a audio channel to it
+    emptychannel.set_volume(0.3) # sets its volume
+    emptychannel.play(s) # plays it
 
 
 def upgrade1():
@@ -114,12 +114,12 @@ def upgrade1():
         math = Counter_num - upgradeprice1
         Counter_num = math
         Counter_auto += 0.25
-        upgrademult1 += 0.15
+        upgrademult1 += 0.18
         print(Counter_num)
         print(Counter_auto)
         print(upgrademult1)
         print(upgradeprice1)
-        play_audio(pop_audio, random.randint(0,4))
+        play_audio(pop_audio, random.randint(0,4)) # all fucntions like this play audio through Play_audio function
     else:
         cant = True
     return cant
@@ -133,7 +133,7 @@ def upgrade2():
         math = Counter_num - upgradeprice2
         Counter_num = math
         Counter_auto += 1
-        upgrademult2 += 0.18
+        upgrademult2 += 0.3
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -150,7 +150,7 @@ def upgrade3():
         math = Counter_num - upgradeprice3
         Counter_num = math
         Counter_auto +=15
-        upgrademult3 += 0.3
+        upgrademult3 += 0.4
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -167,7 +167,7 @@ def upgrade4():
         math = Counter_num - upgradeprice4
         Counter_num = math
         Counter_auto += 100
-        upgrademult4 += 0.6
+        upgrademult4 += 0.7
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -184,7 +184,7 @@ def upgrade5():
         math = Counter_num - upgradeprice5
         Counter_num = math
         Counter_auto += 500
-        upgrademult5 += 0.4
+        upgrademult5 += 1.7
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -201,7 +201,7 @@ def upgrade6():
         math = Counter_num - upgradeprice6
         Counter_num = math
         Counter_auto += 1000
-        upgrademult6 += 0.4
+        upgrademult6 += 2.8
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -323,7 +323,7 @@ cant_buy6 = True
 ####################################### this function is the money per seconds 
 def auto_click():
     global Counter_num, Counter_click
-    time.sleep(0.1)
+    time.sleep(0.1) # stops program for 0.1 seconds
     Counter_num = Counter_num + Counter_auto
 ####################################### all this does is create so called templates
 active = True
@@ -331,43 +331,49 @@ class Button_make:
 
     def button(place_x,place_y,size_x,size_y,transparency,picture):
         #pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
-        bttn = pygame.Surface((size_x, size_y))
-        bttn.set_alpha(transparency)
-        picture = pygame.transform.scale(picture, (size_x,size_y))
-        screen.blit(picture, (place_x, place_y))
-        screen.blit(bttn, (place_x,place_y))
+        bttn = pygame.Surface((size_x, size_y)) # creates teh button area
+        bttn.set_alpha(transparency)# sets its transparency
+        picture = pygame.transform.scale(picture, (size_x,size_y)) # scales an image over it
+        screen.blit(picture, (place_x, place_y)) # places the picture on the button
+        screen.blit(bttn, (place_x,place_y)) # displays button and picture o screen
         
-        return int(place_x),int(place_y),int(size_x),int(size_y)
+        return int(place_x),int(place_y),int(size_x),int(size_y) # returns values
     
     def button_fill(button_color,place_x,place_y,size_x,size_y,transparency):
-        pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
-        bttn = pygame.Surface((size_x, size_y))
-        bttn.set_alpha(transparency)
-        bttn.fill((button_color))
-        screen.blit(bttn, (place_x,place_y))
+        pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y]) # draw the rectangle area
+        bttn = pygame.Surface((size_x, size_y)) # sets button area
+        bttn.set_alpha(transparency)# sets its transparency
+        bttn.fill((button_color))# sets its color and fills the area
+        screen.blit(bttn, (place_x,place_y)) # puts button and rectangle on screen
 
         
-        return int(place_x),int(place_y),int(size_x),int(size_y)
+        return int(place_x),int(place_y),int(size_x),int(size_y) # returns values
 
     def circle(screen, colour_circle, x,y, radius, width_of_line,top_left,top_right,bottom_left,bottom_right, picture):
-        pygame.draw.circle(screen,colour_circle,(x,y), radius-5, width_of_line,top_left,top_right,bottom_left,bottom_right)
-        picture = pygame.transform.scale(picture, (radius*2+5, radius*2+5))
-        screen.blit(picture, (x-50,y-50))
-        return radius, x, y
+        pygame.draw.circle(screen,colour_circle,(x,y), radius-5, width_of_line,top_left,top_right,bottom_left,bottom_right) # draws a circle using its placement, radius, line thickness and whetehr certain elements will show
+        picture = pygame.transform.scale(picture, (radius*2+5, radius*2+5)) # scales image to fit the button
+        screen.blit(picture, (x-50,y-50)) # displays image of button on screen
+        return radius, x, y # returns values
         
 ####################################### counters for all 
 
 def hub_ui():
-    Button_make.button_fill(dark_grey,0,600,800,300,0)
-    Button_make.button_fill(dark_grey,750,0,450,900,0)
+    Button_make.button_fill(dark_grey,0,638,800,300,0)
+    Button_make.button_fill(dark_grey,787,0,450,900,0)
     Button_make.button_fill(darker_grey,20, 660, 1160, 220, 0)
     Button_make.button_fill(darker_grey,810, 20, 370, 810, 0)
-    Button_make.button_fill(black,750,0,40,640,0)
-    Button_make.button_fill(black,0,600,780,40,0)
-    Button_make.button_fill(light_grey,0, 605, 756, 3,0)
-    Button_make.button_fill(light_grey,0, 632, 786, 3,0)
-    Button_make.button_fill(light_grey,754, 0, 3, 608,0)
-    Button_make.button_fill(light_grey,783, 0, 3, 635,0)
+    Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
+    Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
+    Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
+    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
+    
+def hub_ui2():
+    Button_make.button_fill(dark_grey,0,638,800,300,0)
+    Button_make.button_fill(dark_grey,787,0,450,900,0)
+    Button_make.button_fill(dark_grey,0,0,413,900,0)
+    Button_make.button_fill(darker_grey,20, 660, 1160, 220, 0)
+    Button_make.button_fill(darker_grey,810, 20, 370, 810, 0)
+    Button_make.button_fill(darker_grey,20, 20, 370, 810, 0)
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
@@ -382,15 +388,15 @@ def start_menu():
     active = True
     
     while active:
-        mouse_pos1 = pygame.mouse.get_pos()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
+        mouse_pos1 = pygame.mouse.get_pos()  #gets mouse position
+        for event in pygame.event.get(): # searches for events
+            if event.type == pygame.QUIT: # if event is quit
+                sys.exit() # quits
+            if event.type == pygame.MOUSEBUTTONDOWN: # if a mouse button is pressed
+                if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1): # collision box for mouse
                     active == False
                     main_loop()
-                if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2):
+                if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2): # collision box for mouse
                     sys.exit()
         screen.fill(black)
         x_pos1, y_pos1, x_size1, y_size1 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2), x_button, y_button, 128)
@@ -420,42 +426,44 @@ def shop():
     background.set_alpha(180)
 
     while active:
-        mouse_pos = pygame.mouse.get_pos()
+        mouse_pos = pygame.mouse.get_pos() # mouse position
         screen.fill(black)
         screen.blit(background,(0,0))
         if active:
             auto_click()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get(): # event loop
+            if event.type == pygame.QUIT: #quitting
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN: # pressing mouse button down
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice1 = (50*upgrademult1)
+                    start_time = pygame.time.get_ticks() # gets time at present money
+                    upgradeprice1 = (50*upgrademult1) # sets price
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     cant1 = upgrade2()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice2 = (300*upgrademult2)
+                    start_time = pygame.time.get_ticks() # current time
+                    upgradeprice2 = (300*upgrademult2) # price
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
                     cant1 = upgrade3()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice3 = (1000*upgrademult3)
+                    start_time = pygame.time.get_ticks() # current time
+                    upgradeprice3 = (1000*upgrademult3) # price
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     cant1 = upgrade4()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice4 = (1500*upgrademult4)
+                    start_time = pygame.time.get_ticks()# current time
+                    upgradeprice4 = (10000*upgrademult4) # price
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     cant1 = upgrade5()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice5 = (3000*upgrademult5)
+                    start_time = pygame.time.get_ticks() # time 
+                    upgradeprice5 = (25000*upgrademult5) # current price
                     
                 print(x1,y1,clicker_radius1,sizey_6, mouse_pos[0],mouse_pos[1])
+                
+                # All the next iff statements are for collsion with mouse click
                 if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6: 
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice6 = (10000*upgrademult6)
-                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880:
+                    upgradeprice6 = (100000*upgrademult6)
+                elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880:
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == True:
                     print(cant_buy1)
@@ -465,18 +473,22 @@ def shop():
                 elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and cant_buy1 == False and cant_buy2 == True:
 
                     cant2 = clicker2()
+                    cant1 = cant2
                     start_time = pygame.time.get_ticks()
                     cant_buy2 = cant2
                 elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == True:
                     cant3 = clicker3()
+                    cant1 = cant3
                     start_time = pygame.time.get_ticks()
                     cant_buy3 = cant3
                 elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == False and cant_buy4 == True:
                     cant4 = clicker4()
+                    cant1 = cant4
                     start_time = pygame.time.get_ticks()
                     cant_buy4 = cant4
-                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and cant_buy1 == True and cant_buy2 == True and cant_buy3 == True and cant_buy4 == True and cant_buy5 == False:
+                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == False and cant_buy4 == False and cant_buy5 == True:
                     cant5 = clicker5()
+                    cant1 = cant5
                     start_time = pygame.time.get_ticks()
                     cant_buy5 = cant5
                 
@@ -486,52 +498,54 @@ def shop():
         
  ####################################### buttons with pixtures for shop ui
  
-        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(475,100,250,125,0, picupgrade1)
-        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(475,230,250,125,0, picupgrade2)
-        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(475,360,250,125,0, picupgrade3)
-        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(475,490,250,125,0, picupgrade4)
-        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(475,620,250,125,0, picupgrade5)
-        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(475,750,250,125,0, picupgrade6)
+ 
+        hub_ui2()
+        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(870,60,250,125,0, picupgrade1)
+        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(870,190,250,125,0, picupgrade2)
+        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(870,320,250,125,0, picupgrade3)
+        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(870,450,250,125,0, picupgrade4)
+        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(870,580,250,125,0, picupgrade5)
+        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(870,720,250,125,0, picupgrade6)
         shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, exitsign)
-        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 600, 200)
-        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 600, 330)
-        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 600, 460)
-        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 600, 590)
-        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 600, 720)
-        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 600, 850)
+        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 990, 160)
+        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 990, 290)
+        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 990, 420)
+        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 990, 550)
+        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 990, 680)
+        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 990, 821)
         global clickerprice1
         if cant_buy1 == False:
-            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 200)
+            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 120) # sets the text to BOUGHT if is bought
         else:
-            clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 200)
+            clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 120)# sets it to price if not
         if cant_buy2 == False:
-            clickup2 = Text_create("BOUGHT", white, dark_grey, 20, 250, 325)
+            clickup2 = Text_create("BOUGHT", white, dark_grey, 20, 250, 235)
         else:
-            clickup2 = Text_create("£ "+str(f"{clickerprice2:.2f}"), white, dark_grey, 20, 250, 325)
+            clickup2 = Text_create("£ "+str(f"{clickerprice2:.2f}"), white, dark_grey, 20, 250, 235)
             
         if cant_buy3 == False:
-            clickup3 = Text_create("BOUGHT", white, dark_grey, 20, 250, 450)
+            clickup3 = Text_create("BOUGHT", white, dark_grey, 20, 250, 350)
         else:
-            clickup3 = Text_create("£ "+str(f"{clickerprice3:.2f}"), white, dark_grey, 20, 250, 450)
+            clickup3 = Text_create("£ "+str(f"{clickerprice3:.2f}"), white, dark_grey, 20, 250, 350)
         
         if cant_buy4 == False:
-            clickup4 = Text_create("BOUGHT", white, dark_grey, 20, 250, 575)
+            clickup4 = Text_create("BOUGHT", white, dark_grey, 20, 250, 465)
         else:
-            clickup4 = Text_create("£ "+str(f"{clickerprice4:.2f}"), white, dark_grey, 20, 250, 575)
+            clickup4 = Text_create("£ "+str(f"{clickerprice4:.2f}"), white, dark_grey, 20, 260, 465)
         
         if cant_buy5 == False:
-            clickup5 = Text_create("BOUGHT", white, dark_grey, 20, 250, 700)
+            clickup5 = Text_create("BOUGHT", white, dark_grey, 20, 250, 580)
         else:
-            clickup5 = Text_create("£ "+str(f"{clickerprice5:.2f}"), white, dark_grey, 20, 250, 700)
+            clickup5 = Text_create("£ "+str(f"{clickerprice5:.2f}"), white, dark_grey, 20, 260, 580)
         
-        clicker_radius1, x1, y1 = Button_make.circle(screen,dark_grey,120,200,50,50,True,True,True,True,mouse1)
-        clicker_radius2, x2, y2 = Button_make.circle(screen,dark_grey,120,325,50,50,True,True,True,True,mouse2)
-        clicker_radius3, x3, y3 = Button_make.circle(screen,dark_grey,120,450,50,50,True,True,True,True,mouse3)
-        clicker_radius4, x4, y4 = Button_make.circle(screen,dark_grey,120,575,50,50,True,True,True,True,mouse4)
-        clicker_radius5, x5 ,y5 = Button_make.circle(screen,dark_grey,120,700,50,50,True,True,True,True,mouse5)
-        shop_clicker_text = Text_create("Clicker Upgrades", white, black, 20, 195, 120)
-        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
-        shop_text = Text_create("Shop", white, black, 40, 600, 50)
+        clicker_radius1, x1, y1 = Button_make.circle(screen,dark_grey,120,120,50,50,True,True,True,True,mouse1)
+        clicker_radius2, x2, y2 = Button_make.circle(screen,dark_grey,120,235,50,50,True,True,True,True,mouse2)
+        clicker_radius3, x3, y3 = Button_make.circle(screen,dark_grey,120,350,50,50,True,True,True,True,mouse3)
+        clicker_radius4, x4, y4 = Button_make.circle(screen,dark_grey,120,465,50,50,True,True,True,True,mouse4)
+        clicker_radius5, x5 ,y5 = Button_make.circle(screen,dark_grey,120,580,50,50,True,True,True,True,mouse5)
+        shop_clicker_text = Text_create("Clicker Upgrades", "#A3EBB1", black, 19, 200, 42)
+        shop_text = Text_create("Printer Upgrades", "#A3EBB1", black, 19, 990, 42)
+        shop_text = Text_create("Shop", white, black, 50, 600, 50)
         y = 0
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
@@ -539,7 +553,10 @@ def shop():
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
-         
+        
+        
+        
+        
         pygame.display.update()
         dt = clock.tick(60)
 cap_swosh.set_volume(0.2)
@@ -561,20 +578,20 @@ def main_loop():
         screen.blit(background,(0,0))
         if active:
             auto_click()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get(): # event loop
+            if event.type == pygame.QUIT: # if quit event
                 active = False
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN: # if pressend mouse mutton down
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    play_audio(print_audio, random.randint(0,2))
-                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880: 
+                    play_audio(print_audio, random.randint(0,2)) # plays audio
+                elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
                     shop()
         global printer 
         
         mouse_pos = pygame.mouse.get_pos()
-        startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
+        startx, starty, sizex, sizey = Button_make.button(120,70,500,500,0, printer)
         clickerup1 = Button_make.circle(screen,dark_grey,50,850,50,50,True,True,True,True,mouse1)
         hub_ui()
         
@@ -593,3 +610,5 @@ def main_loop():
 
 start_menu()
 
+
+#pygame.event.set_blocked(pygame.{PLEASE PUT MOUSE WHEELE HERE})
