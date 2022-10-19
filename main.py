@@ -527,6 +527,7 @@ def shop():
         shop_text = Text_create("Shop", white, black, 40, 600, 50)
         y = 0
         if cant1 == True:
+            play_audio(errorsound,0)
             print(pygame.time.get_ticks() - start_time)
             backroundframes, starty_1, sizex_1, sizey_1 = Button_make.button(145,390,905,105, 0,frameback)
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
