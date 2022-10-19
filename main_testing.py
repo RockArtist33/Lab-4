@@ -491,7 +491,7 @@ def shop():
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
-            if start_time and pygame.time.get_ticks() - start_time > 500:
+            if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
         pygame.display.update()
