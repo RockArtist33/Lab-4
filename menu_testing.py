@@ -351,10 +351,12 @@ def hub_ui():
     Button_make.button_fill(darker_grey,860, 20, 320, 860, 0)
     Button_make.button_fill(black,800,0,40,640,0)
     Button_make.button_fill(black,0,600,800,40,0)
+    Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 700)
 
 
 
 def start_menu():
+    global bought, bought1, bought2, bought3, bought4, bought5, bought6 = False
     x_button = 125
     y_button = 60
     active = True
