@@ -7,3 +7,5 @@ A simple Pygame powered clicker game with the currency being money and you havin
 <img src="https://user-images.githubusercontent.com/79339771/196797406-83d17644-9f49-48f8-9990-d328edbeed3c.png" width=31% height=31%>ᅟ
 # Requirements
 Pygame: ```pip install pygame```
+# Our timeline
+![Untitled](https://user-images.githubusercontent.com/79339771/196801977-1790963c-616f-498f-bbf9-d0cc528456cf.png)
