@@ -92,7 +92,7 @@ pygame.mixer.set_num_channels(100)
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
     pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size)
-    pixel_text = pixel_font.render(txt, True, color_of_text)
+    pixel_text = pixel_font.render(txt, True, color_of_text, rect_area_color)
     pixel_txt_Rect = pixel_text.get_rect()
     pixel_txt_Rect.center = (pos_x,pos_y)
     screen.blit(pixel_text,pixel_txt_Rect)
@@ -472,11 +472,31 @@ def shop():
         counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 600, 590)
         counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 600, 720)
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 600, 850)
-        clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 200)
-        clickup2 = Text_create("£ "+str(f"{clickerprice2:.2f}"), white, dark_grey, 20, 250, 325)
-        clickup3 = Text_create("£ "+str(f"{clickerprice3:.2f}"), white, dark_grey, 20, 250, 450)
-        clickup4 = Text_create("£ "+str(f"{clickerprice4:.2f}"), white, dark_grey, 20, 250, 575)
-        clickup5 = Text_create("£ "+str(f"{clickerprice5:.2f}"), white, dark_grey, 20, 250, 700)
+        if bought1 == False:
+            clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 200)
+        else:
+            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 200)
+        
+        if bought2 == False:
+            clickup2 = Text_create("£ "+str(f"{clickerprice2:.2f}"), white, dark_grey, 20, 250, 325)
+        else:
+            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 325)
+        
+        if bought3 == False:
+            clickup3 = Text_create("£ "+str(f"{clickerprice3:.2f}"), white, dark_grey, 20, 250, 450)
+        else:
+            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 450)
+        
+        if bought4 == False:
+            clickup4 = Text_create("£ "+str(f"{clickerprice4:.2f}"), white, dark_grey, 20, 250, 575)
+        else:
+            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 575)
+        
+        if bought5 == False:
+            clickup5 = Text_create("£ "+str(f"{clickerprice5:.2f}"), white, dark_grey, 20, 250, 700)
+        else:
+            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 700)
+        
         clicker_radius1, x1, y1 = Button_make.circle(screen,dark_grey,120,200,50,50,True,True,True,True,mouse1)
         clicker_radius2, x2, y2 = Button_make.circle(screen,dark_grey,120,325,50,50,True,True,True,True,mouse2)
         clicker_radius3, x3, y3 = Button_make.circle(screen,dark_grey,120,450,50,50,True,True,True,True,mouse3)
@@ -569,7 +589,7 @@ def main_loop():
         clickerup4 = Button_make.circle(screen,dark_grey,350,850,50,50,True,True,True,True,mouse4)
         clickerup5 = Button_make.circle(screen,dark_grey,450,850,50,50,True,True,True,True,mouse5)
 
-        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
+        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, None, 20, 198, 25)
         y = 0
         
         if cant1 == True:
