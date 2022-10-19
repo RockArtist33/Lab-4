@@ -365,7 +365,7 @@ def hub_ui():
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
-    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(135,800,150,75,0, shopsign)
+    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
     
 def hub_ui2():
     Button_make.button_fill(dark_grey,0,638,800,300,0)
