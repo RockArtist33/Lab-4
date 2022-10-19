@@ -305,13 +305,13 @@ width = screen.get_width()
 height = screen.get_height()
 price = (10*Price_inc)
 y = 0
-bought = False
-bought1 = False
-bought2 = False
-bought3 = False
-bought4 = False
-bought5 = False
-bought6 = False
+bought = True
+cant_buy1 = True
+cant_buy2 = True
+cant_buy3 = True
+cant_buy4 = True
+cant_buy5 = True
+cant_buy6 = True
 
 
 
@@ -371,7 +371,7 @@ def hub_ui():
     shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
 
 def start_menu():
-    global bought, bought1, bought2, bought3, bought4, bought5, bought6
+    global bought, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
     x_button = 125
     y_button = 60
     active = True
@@ -406,7 +406,7 @@ def start_menu():
 
 def shop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
-    global bought, bought1, bought2, bought3, bought4, bought5, bought6
+    global bought, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
     active = True
     cant1 = False
     clock = pygame.time.Clock()
@@ -452,28 +452,28 @@ def shop():
                     upgradeprice6 = (10000*upgrademult6)
                 elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880:
                     main_loop()
-                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and bought1 == False:
-                    print(bought1)
+                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == False:
+                    print(cant_buy1)
                     cant1 = clicker1()
                     start_time = pygame.time.get_ticks()
-                    bought1 = True
-                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and bought1 == True and bought2 == False:
+                    cant_buy1 = cant1
+                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and cant_buy1 == True and cant_buy2 == False:
 
-                    cant1 = clicker2()
+                    cant2 = clicker2()
                     start_time = pygame.time.get_ticks()
-                    bought2 = True
-                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and bought1 == True and bought2 == True and bought3 == False:
-                    cant1 = clicker3()
+                    cant_buy2 = cant2
+                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and cant_buy1 == True and cant_buy2 == True and cant_buy3 == False:
+                    cant3 = clicker3()
                     start_time = pygame.time.get_ticks()
-                    bought3 = True
-                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and bought1 == True and bought2 == True and bought3 == True and bought4 == False:
-                    cant1 = clicker4()
+                    cant_buy3 = cant3
+                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and cant_buy1 == True and cant_buy2 == True and cant_buy3 == True and cant_buy4 == False:
+                    cant4 = clicker4()
                     start_time = pygame.time.get_ticks()
-                    bought4 = True
-                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and bought1 == True and bought2 == True and bought3 == True and bought4 == True and bought5 == False:
-                    cant1 = clicker5()
+                    cant_buy4 = cant4
+                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and cant_buy1 == True and cant_buy2 == True and cant_buy3 == True and cant_buy4 == True and cant_buy5 == False:
+                    cant5 = clicker5()
                     start_time = pygame.time.get_ticks()
-                    bought5 = True
+                    cant_buy5 = cant5
                 
         
         global printer, exitsign
@@ -494,29 +494,29 @@ def shop():
         counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 600, 720)
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 600, 850)
         global clickerprice1
-        if bought1 == False:
-            clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 200)
-        else:
+        if cant_buy1 == False:
             clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 200)
-        if bought2 == False:
-            clickup2 = Text_create("£ "+str(f"{clickerprice2:.2f}"), white, dark_grey, 20, 250, 325)
         else:
+            clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 200)
+        if cant_buy2 == False:
             clickup2 = Text_create("BOUGHT", white, dark_grey, 20, 250, 325)
+        else:
+            clickup2 = Text_create("£ "+str(f"{clickerprice2:.2f}"), white, dark_grey, 20, 250, 325)
             
-        if bought3 == False:
-            clickup3 = Text_create("£ "+str(f"{clickerprice3:.2f}"), white, dark_grey, 20, 250, 450)
-        else:
+        if cant_buy3 == False:
             clickup3 = Text_create("BOUGHT", white, dark_grey, 20, 250, 450)
-        
-        if bought4 == False:
-            clickup4 = Text_create("£ "+str(f"{clickerprice4:.2f}"), white, dark_grey, 20, 250, 575)
         else:
+            clickup3 = Text_create("£ "+str(f"{clickerprice3:.2f}"), white, dark_grey, 20, 250, 450)
+        
+        if cant_buy4 == False:
             clickup4 = Text_create("BOUGHT", white, dark_grey, 20, 250, 575)
-        
-        if bought5 == False:
-            clickup5 = Text_create("£ "+str(f"{clickerprice5:.2f}"), white, dark_grey, 20, 250, 700)
         else:
+            clickup4 = Text_create("£ "+str(f"{clickerprice4:.2f}"), white, dark_grey, 20, 250, 575)
+        
+        if cant_buy5 == False:
             clickup5 = Text_create("BOUGHT", white, dark_grey, 20, 250, 700)
+        else:
+            clickup5 = Text_create("£ "+str(f"{clickerprice5:.2f}"), white, dark_grey, 20, 250, 700)
         
         clicker_radius1, x1, y1 = Button_make.circle(screen,dark_grey,120,200,50,50,True,True,True,True,mouse1)
         clicker_radius2, x2, y2 = Button_make.circle(screen,dark_grey,120,325,50,50,True,True,True,True,mouse2)
@@ -541,7 +541,7 @@ pygame.mixer.Channel(1).play(cap_swosh, loops=-1)
 #Main loop
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
-    global bought, bought1, bought2, bought3, bought4, bought5, bought6
+    global bought, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
     
     active = True
     print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
