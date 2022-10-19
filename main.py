@@ -92,17 +92,17 @@ pygame.mixer.set_reserved(1)
 ####################################### Upgrade functions
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
-    pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size)
-    pixel_text = pixel_font.render(txt, True, color_of_text)
-    pixel_txt_Rect = pixel_text.get_rect()
-    pixel_txt_Rect.center = (pos_x,pos_y)
-    screen.blit(pixel_text,pixel_txt_Rect)
+    pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size) # creates the font
+    pixel_text = pixel_font.render(txt, True, color_of_text) # render sthe etxt and its color
+    pixel_txt_Rect = pixel_text.get_rect() # fidn the rectangle area around text
+    pixel_txt_Rect.center = (pos_x,pos_y) # find the center of it
+    screen.blit(pixel_text,pixel_txt_Rect) # displays it on the screen
 
-def play_audio(audio_list, item):
-    s = pygame.mixer.Sound(os.path.join(audio_list[item]))
-    emptychannel = mixer.find_channel()
-    emptychannel.set_volume(0.3)
-    emptychannel.play(s)
+def play_audio(audio_list, item): # play_audio function
+    s = pygame.mixer.Sound(os.path.join(audio_list[item])) # finds sound and its path in the list
+    emptychannel = mixer.find_channel() # assigns a audio channel to it
+    emptychannel.set_volume(0.3) # sets its volume
+    emptychannel.play(s) # plays it
 
 
 def upgrade1():
@@ -119,7 +119,7 @@ def upgrade1():
         print(Counter_auto)
         print(upgrademult1)
         print(upgradeprice1)
-        play_audio(pop_audio, random.randint(0,4))
+        play_audio(pop_audio, random.randint(0,4)) # all fucntions like this play audio through Play_audio function
     else:
         cant = True
     return cant
@@ -323,7 +323,7 @@ cant_buy6 = True
 ####################################### this function is the money per seconds 
 def auto_click():
     global Counter_num, Counter_click
-    time.sleep(0.1)
+    time.sleep(0.1) # stops program for 0.1 seconds
     Counter_num = Counter_num + Counter_auto
 ####################################### all this does is create so called templates
 active = True
@@ -331,29 +331,29 @@ class Button_make:
 
     def button(place_x,place_y,size_x,size_y,transparency,picture):
         #pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
-        bttn = pygame.Surface((size_x, size_y))
-        bttn.set_alpha(transparency)
-        picture = pygame.transform.scale(picture, (size_x,size_y))
-        screen.blit(picture, (place_x, place_y))
-        screen.blit(bttn, (place_x,place_y))
+        bttn = pygame.Surface((size_x, size_y)) # creates teh button area
+        bttn.set_alpha(transparency)# sets its transparency
+        picture = pygame.transform.scale(picture, (size_x,size_y)) # scales an image over it
+        screen.blit(picture, (place_x, place_y)) # places the picture on the button
+        screen.blit(bttn, (place_x,place_y)) # displays button and picture o screen
         
-        return int(place_x),int(place_y),int(size_x),int(size_y)
+        return int(place_x),int(place_y),int(size_x),int(size_y) # returns values
     
     def button_fill(button_color,place_x,place_y,size_x,size_y,transparency):
-        pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
-        bttn = pygame.Surface((size_x, size_y))
-        bttn.set_alpha(transparency)
-        bttn.fill((button_color))
-        screen.blit(bttn, (place_x,place_y))
+        pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y]) # draw the rectangle area
+        bttn = pygame.Surface((size_x, size_y)) # sets button area
+        bttn.set_alpha(transparency)# sets its transparency
+        bttn.fill((button_color))# sets its color and fills the area
+        screen.blit(bttn, (place_x,place_y)) # puts button and rectangle on screen
 
         
-        return int(place_x),int(place_y),int(size_x),int(size_y)
+        return int(place_x),int(place_y),int(size_x),int(size_y) # returns values
 
     def circle(screen, colour_circle, x,y, radius, width_of_line,top_left,top_right,bottom_left,bottom_right, picture):
-        pygame.draw.circle(screen,colour_circle,(x,y), radius-5, width_of_line,top_left,top_right,bottom_left,bottom_right)
-        picture = pygame.transform.scale(picture, (radius*2+5, radius*2+5))
-        screen.blit(picture, (x-50,y-50))
-        return radius, x, y
+        pygame.draw.circle(screen,colour_circle,(x,y), radius-5, width_of_line,top_left,top_right,bottom_left,bottom_right) # draws a circle using its placement, radius, line thickness and whetehr certain elements will show
+        picture = pygame.transform.scale(picture, (radius*2+5, radius*2+5)) # scales image to fit the button
+        screen.blit(picture, (x-50,y-50)) # displays image of button on screen
+        return radius, x, y # returns values
         
 ####################################### counters for all 
 
@@ -387,15 +387,15 @@ def start_menu():
     active = True
     
     while active:
-        mouse_pos1 = pygame.mouse.get_pos()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
+        mouse_pos1 = pygame.mouse.get_pos()  #gets mouse position
+        for event in pygame.event.get(): # searches for events
+            if event.type == pygame.QUIT: # if event is quit
+                sys.exit() # quits
+            if event.type == pygame.MOUSEBUTTONDOWN: # if a mouse button is pressed
+                if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1): # collision box for mouse
                     active == False
                     main_loop()
-                if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2):
+                if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2): # collision box for mouse
                     sys.exit()
         screen.fill(black)
         x_pos1, y_pos1, x_size1, y_size1 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2), x_button, y_button, 128)
@@ -425,37 +425,39 @@ def shop():
     background.set_alpha(180)
 
     while active:
-        mouse_pos = pygame.mouse.get_pos()
+        mouse_pos = pygame.mouse.get_pos() # mouse position
         screen.fill(black)
         screen.blit(background,(0,0))
         if active:
             auto_click()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get(): # event loop
+            if event.type == pygame.QUIT: #quitting
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN: # pressing mouse button down
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice1 = (50*upgrademult1)
+                    start_time = pygame.time.get_ticks() # gets time at present money
+                    upgradeprice1 = (50*upgrademult1) # sets price
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     cant1 = upgrade2()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice2 = (300*upgrademult2)
+                    start_time = pygame.time.get_ticks() # current time
+                    upgradeprice2 = (300*upgrademult2) # price
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
                     cant1 = upgrade3()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice3 = (1000*upgrademult3)
+                    start_time = pygame.time.get_ticks() # current time
+                    upgradeprice3 = (1000*upgrademult3) # price
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     cant1 = upgrade4()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice4 = (10000*upgrademult4)
+                    start_time = pygame.time.get_ticks()# current time
+                    upgradeprice4 = (10000*upgrademult4) # price
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     cant1 = upgrade5()
-                    start_time = pygame.time.get_ticks()
-                    upgradeprice5 = (25000*upgrademult5)
+                    start_time = pygame.time.get_ticks() # time 
+                    upgradeprice5 = (25000*upgrademult5) # current price
                     
                 print(x1,y1,clicker_radius1,sizey_6, mouse_pos[0],mouse_pos[1])
+                
+                # All the next iff statements are for collsion with mouse click
                 if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6: 
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
@@ -470,18 +472,22 @@ def shop():
                 elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and cant_buy1 == False and cant_buy2 == True:
 
                     cant2 = clicker2()
+                    cant1 = cant2
                     start_time = pygame.time.get_ticks()
                     cant_buy2 = cant2
                 elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == True:
                     cant3 = clicker3()
+                    cant1 = cant3
                     start_time = pygame.time.get_ticks()
                     cant_buy3 = cant3
                 elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == False and cant_buy4 == True:
                     cant4 = clicker4()
+                    cant1 = cant4
                     start_time = pygame.time.get_ticks()
                     cant_buy4 = cant4
                 elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == False and cant_buy4 == False and cant_buy5 == True:
                     cant5 = clicker5()
+                    cant1 = cant5
                     start_time = pygame.time.get_ticks()
                     cant_buy5 = cant5
                 
@@ -508,9 +514,9 @@ def shop():
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 990, 821)
         global clickerprice1
         if cant_buy1 == False:
-            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 120)
+            clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 120) # sets the text to BOUGHT if is bought
         else:
-            clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 120)
+            clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 120)# sets it to price if not
         if cant_buy2 == False:
             clickup2 = Text_create("BOUGHT", white, dark_grey, 20, 250, 235)
         else:
@@ -571,14 +577,14 @@ def main_loop():
         screen.blit(background,(0,0))
         if active:
             auto_click()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get(): # event loop
+            if event.type == pygame.QUIT: # if quit event
                 active = False
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN: # if pressend mouse mutton down
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    play_audio(print_audio, random.randint(0,2))
+                    play_audio(print_audio, random.randint(0,2)) # plays audio
                 elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
                     shop()
         global printer 
