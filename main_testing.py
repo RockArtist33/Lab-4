@@ -7,6 +7,7 @@ import sys , os
 import time # Currently goes unused
 import random # Random audio file played 
 import json
+import pickle
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
@@ -265,14 +266,28 @@ list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
 
 
 
-def file_save():
+def file_save(list1):
     with open("savegame.sve","w") as f:
-        json.dump(str(list),f)
+        json.dump(list1,f)
+        f.close()
         
 def file_load():
+    global Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc
     with open("savegame.sve","r") as f:
-        json.load(f)
-        
+        a = json.load(f)
+        print(a)
+        Counter_num = a[0]
+        Counter_auto = a[1]
+        Counter_click = a[2]
+        Counter_mult = a[3]
+        Price_inc = a[4]
+        f.close()
+        return Counter_num, Counter_auto, Counter_click, Counter_mult,Price_inc
+
+if not os.path.exists("savegame.sve"):
+    file_save()
+
+
 file_load()
 
 def play_audio(audio_list, item):
@@ -350,7 +365,7 @@ def start_menu():
     
 
 def shop():
-    global printer, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6, Counter
+    global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     active = True
     cant1 = False
     clock = pygame.time.Clock()
@@ -364,10 +379,10 @@ def shop():
             auto_click()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
                 file_save()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                global Counter_num
 
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
@@ -437,8 +452,10 @@ def shop():
 
 #Main loop
 def main_loop():
-    global printer, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
+    global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
+    Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc= file_load()
     active = True
+    print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
     cant1 = False
     clock = pygame.time.Clock()
     start_time = None
@@ -452,10 +469,10 @@ def main_loop():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 active = False
-                file_save()
+                list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
+                file_save(list)
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                global Counter_num
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
                     play_audio(print_audio, random.randint(0,4))
@@ -513,7 +530,8 @@ def main_loop():
         clickerup3 = Button_make.circle(screen,dark_grey,(250,850),50,50,True,True,True,True)
         clickerup4 = Button_make.circle(screen,dark_grey,(350,850),50,50,True,True,True,True)
         clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True)
-        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
+
+        Counter_Text = Text_create("Money amount = £"+str(f"{int(Counter_num):.2f}"), white, black, 20, 198, 25)
         y = 0
         
         if cant1 == True:
