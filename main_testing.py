@@ -225,7 +225,6 @@ picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
 picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
 picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
-exitsign = pygame.image.load(os.path.join("./assets/images/exit.png"))
 cap_backing = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_back.mp3"))
 cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
 cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3")) 
@@ -235,6 +234,11 @@ cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism
 cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
 cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
 cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
+pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1.mp3"))
+pop_2 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_2.mp3"))
+pop_3 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_3.mp3"))
+pop_4 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_4.mp3"))
+pop_5 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_5.mp3"))
 
 print_audio = ["./assets/audio/printer/printer_1.mp3",
                "./assets/audio/printer/printer_2.mp3",
@@ -519,8 +523,5 @@ def main_loop():
          
         pygame.display.update()
         dt = clock.tick(60)
- 
-
-
+        
 start_menu()
-
