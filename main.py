@@ -352,6 +352,7 @@ def hub_ui():
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
     shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(130,800,150,75,0, shopsign)
+    x_pos3, y_pos3, x_size3, y_size3 = Button_make.button(568, 868,32,32,0,Pause)
     
 def hub_ui2():
     Button_make.button_fill(dark_grey,0,638,800,300,0)
@@ -390,7 +391,6 @@ def start_menu():
         screen.fill(black)
         x_pos1, y_pos1, x_size1, y_size1 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2), x_button, y_button, 128)
         x_pos2, y_pos2, x_size2, y_size2 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2)+80, x_button, y_button, 128)
-        x_pos3, y_pos3, x_size3, y_size3 = Button_make.button
         Text_create("Capitalism", white,None, 40, 1200/2, 900-600)
         Text_create("START",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2)
         Text_create("QUIT",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2 + 80)
