@@ -308,7 +308,7 @@ y = 0
 
 
 
-def auto_click(ding [0]):
+def auto_click():
     global Counter_num, Counter_click
     time.sleep(0.1)
     Counter_num = Counter_num + Counter_auto
@@ -379,7 +379,7 @@ def start_menu():
     
 def play_constant():
     while True:
-        
+        pass
 
 
 def shop():
