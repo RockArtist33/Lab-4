@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 100000000
+Counter_num = 0
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -50,25 +50,25 @@ picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
 exitsign = pygame.image.load(os.path.join("./assets/images/exit.png"))
 shopsign = pygame.image.load(os.path.join("./assets/images/shop.png"))
-cap_swosh = pygame.mixer.music.load(os.path.join(".assets/audio/music/Swish_Swosh_loop.mp3"))
-cap_person = pygame.mixer.music.load(os.path.join(".assets/audio/music/Nice_Person_loop.mp3"))
-cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
-cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3")) 
-cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
-cap_ryan_4_noyay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_noyay.mp3"))
-cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_yay.mp3"))
-cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
-cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
-cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
+cap_swosh = pygame.mixer.Sound(os.path.join("./assets/audio/music/Swish_Swosh_loop.mp3"))
+cap_person = pygame.mixer.Sound(os.path.join("./assets/audio/music/Nice_Person_loop.mp3"))
+cap_ryan_1 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
+cap_ryan_2 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3")) 
+cap_ryan_3 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
+cap_ryan_4_noyay = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_4_noyay.mp3"))
+cap_ryan_4_yay = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_4_yay.mp3"))
+cap_ryan_5 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
+cap_ryan_6 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
+cap_ryan_7 = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1")) U
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))  N
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))    U
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))     S
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1") )     E
-print_1 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_1.mp3"))#D
-print_2 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_2.mp3"))
-print_3 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_3.mp3"))
-
+print_1 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_1.mp3"))#D
+print_2 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_2.mp3"))
+print_3 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_3.mp3"))
+frameback = pygame.image.load(os.path.join("./assets/images/frameback.png"))
 
 cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_2.mp3",
@@ -493,6 +493,7 @@ def shop():
         counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 600, 590)
         counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 600, 720)
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 600, 850)
+        global clickerprice1
         if bought1 == False:
             clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 200)
         else:
@@ -528,6 +529,7 @@ def shop():
         y = 0
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
+            backroundframes, starty_1, sizex_1, sizey_1 = Button_make.button(145,390,905,105, 0,frameback)
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
@@ -575,7 +577,7 @@ def main_loop():
         
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
-            Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
+            Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 39)
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
