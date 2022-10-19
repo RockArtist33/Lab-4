@@ -29,19 +29,11 @@ upgradeprice4 = (1500*upgrademult4)
 upgradeprice5 = (3000*upgrademult5)
 upgradeprice6 = (10000*upgrademult6)
 ####################################### Clicker upgrades
-clickermult1 = 1
-clickermult2 = 1
-clickermult3 = 1
-clickermult4 = 1
-clickermult5 = 1
-#---------------------------------------#
-clickerprice1 = (1000*clickermult1)
-clickerprice2 = (10000*clickermult2)
-clickerprice3 = (50000*clickermult3)
-clickerprice4 = (100000*clickermult4)
-clickerprice5 = (200000*clickermult5)
-
-
+clickerprice1 = (1000)
+clickerprice2 = (1000)
+clickerprice3 = (50000)
+clickerprice4 = (100000)
+clickerprice5 = (200000)
 ####################################### Calling assets
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
@@ -293,8 +285,7 @@ pygame.init()
 screen_size = (1200,900)
 screen = pygame.display.set_mode(screen_size)
 pygame.display.set_caption("Capitalism")
-icon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
-pygame.display.set_icon(icon)
+pygame.display.set_icon(moneyicon)
 white = (255,255,255)
 black = (0,0,0)
 dark_grey = (32,33,33)
