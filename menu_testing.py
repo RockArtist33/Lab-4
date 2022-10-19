@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 1000
+Counter_num = 10000
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -30,7 +30,7 @@ upgradeprice5 = 3000
 upgradeprice6 = 10000
 ####################################### Clicker upgrades
 clickerprice1 = 1000
-clickerprice2 = 10000
+clickerprice2 = 2500
 clickerprice3 = 50000
 clickerprice4 = 100000
 clickerprice5 = 200000
