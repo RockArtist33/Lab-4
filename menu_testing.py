@@ -302,6 +302,13 @@ width = screen.get_width()
 height = screen.get_height()
 price = (10*Price_inc)
 y = 0
+bought = False
+bought1 = False
+bought2 = False
+bought3 = False
+bought4 = False
+bought5 = False
+bought6 = False
 
 
 
@@ -351,12 +358,12 @@ def hub_ui():
     Button_make.button_fill(darker_grey,860, 20, 320, 860, 0)
     Button_make.button_fill(black,800,0,40,640,0)
     Button_make.button_fill(black,0,600,800,40,0)
-    Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 700)
-
+    Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 198, 700)
+    Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 175,740)
 
 
 def start_menu():
-    global bought, bought1, bought2, bought3, bought4, bought5, bought6 = False
+    global bought, bought1, bought2, bought3, bought4, bought5, bought6
     x_button = 125
     y_button = 60
     active = True
@@ -387,21 +394,18 @@ def start_menu():
     
 
 
+
+
 def shop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
+    global bought, bought1, bought2, bought3, bought4, bought5, bought6
     active = True
     cant1 = False
     clock = pygame.time.Clock()
     start_time = None
     dt = 0
     background.set_alpha(180)
-    bought = False
-    bought1 = False
-    bought2 = False
-    bought3 = False
-    bought4 = False
-    bought5 = False
-    bought6 = False
+
     while active:
         mouse_pos = pygame.mouse.get_pos()
         screen.fill(black)
@@ -441,6 +445,7 @@ def shop():
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and bought1 == False:
+                    print(bought1)
                     cant1 = clicker1()
                     start_time = pygame.time.get_ticks()
                     bought1 = True
@@ -526,6 +531,7 @@ def shop():
 #Main loop
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
+    global bought, bought1, bought2, bought3, bought4, bought5, bought6
     active = True
     print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
     cant1 = False
@@ -554,7 +560,7 @@ def main_loop():
         startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
         clickerup1 = Button_make.circle(screen,dark_grey,50,850,50,50,True,True,True,True,mouse1)
         hub_ui()
-        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
+        
         y = 0
         
         if cant1 == True:
