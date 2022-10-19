@@ -493,13 +493,13 @@ def main_loop():
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
                     play_audio(ding, 0)
-                elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
+                if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
-                    start_time = pygame.time.get_ticks()   
+                    start_time = pygame.time.get_ticks()
                     upgradeprice1 = (50*upgrademult1)
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     cant1 = upgrade2()
-                    start_time = pygame.time.get_ticks()  
+                    start_time = pygame.time.get_ticks()
                     upgradeprice2 = (300*upgrademult2)
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
                     cant1 = upgrade3()
@@ -508,15 +508,15 @@ def main_loop():
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     cant1 = upgrade4()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice4 = (2500*upgrademult4)
+                    upgradeprice4 = (1500*upgrademult4)
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     cant1 = upgrade5()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice5 = (10000*upgrademult5)
+                    upgradeprice5 = (3000*upgrademult5)
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice6 = (25000*upgrademult6)
+                    upgradeprice6 = (10000*upgrademult6)
                 
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     shop()
