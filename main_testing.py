@@ -29,11 +29,11 @@ upgradeprice4 = (1500*upgrademult4)
 upgradeprice5 = (3000*upgrademult5)
 upgradeprice6 = (10000*upgrademult6)
 ####################################### Clicker upgrades
-clickerprice1 = (1000)
-clickerprice2 = (1000)
-clickerprice3 = (50000)
-clickerprice4 = (100000)
-clickerprice5 = (200000)
+clickerprice1 = 1000
+clickerprice2 = 1000
+clickerprice3 = 50000
+clickerprice4 = 100000
+clickerprice5 = 200000
 ####################################### Calling assets
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
