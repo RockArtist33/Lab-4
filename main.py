@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 10000
+Counter_num = 0
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -114,7 +114,7 @@ def upgrade1():
         math = Counter_num - upgradeprice1
         Counter_num = math
         Counter_auto += 0.25
-        upgrademult1 += 0.15
+        upgrademult1 += 0.18
         print(Counter_num)
         print(Counter_auto)
         print(upgrademult1)
@@ -133,7 +133,7 @@ def upgrade2():
         math = Counter_num - upgradeprice2
         Counter_num = math
         Counter_auto += 1
-        upgrademult2 += 0.18
+        upgrademult2 += 0.23
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -150,7 +150,7 @@ def upgrade3():
         math = Counter_num - upgradeprice3
         Counter_num = math
         Counter_auto +=15
-        upgrademult3 += 0.3
+        upgrademult3 += 0.7
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -167,7 +167,7 @@ def upgrade4():
         math = Counter_num - upgradeprice4
         Counter_num = math
         Counter_auto += 100
-        upgrademult4 += 0.6
+        upgrademult4 += 1
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -184,7 +184,7 @@ def upgrade5():
         math = Counter_num - upgradeprice5
         Counter_num = math
         Counter_auto += 500
-        upgrademult5 += 0.4
+        upgrademult5 += 1.7
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
@@ -201,7 +201,7 @@ def upgrade6():
         math = Counter_num - upgradeprice6
         Counter_num = math
         Counter_auto += 1000
-        upgrademult6 += 0.4
+        upgrademult6 += 2.8
         print(Counter_num)
         print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
