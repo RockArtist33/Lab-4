@@ -534,7 +534,7 @@ def shop():
          
         pygame.display.update()
         dt = clock.tick(60)
-
+cap_swosh.set_volume(0.2)
 pygame.mixer.Channel(1).play(cap_swosh, loops=-1)
 #Main loop
 def main_loop():
