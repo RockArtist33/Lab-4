@@ -444,17 +444,17 @@ def shop():
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     cant1 = upgrade4()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice4 = (1500*upgrademult4)
+                    upgradeprice4 = (10000*upgrademult4)
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     cant1 = upgrade5()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice5 = (3000*upgrademult5)
+                    upgradeprice5 = (2500*upgrademult5)
                     
                 print(x1,y1,clicker_radius1,sizey_6, mouse_pos[0],mouse_pos[1])
                 if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6: 
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice6 = (10000*upgrademult6)
+                    upgradeprice6 = (100000*upgrademult6)
                 elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880:
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == True:
