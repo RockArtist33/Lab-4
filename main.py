@@ -594,3 +594,5 @@ def main_loop():
 
 start_menu()
 
+
+#pygame.event.set_blocked(pygame.{PLEASE PUT MOUSE WHEELE HERE})
