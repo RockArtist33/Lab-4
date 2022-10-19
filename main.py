@@ -494,19 +494,19 @@ def shop():
  
  
         hub_ui2()
-        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(870,50,250,125,0, picupgrade1)
-        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(870,180,250,125,0, picupgrade2)
-        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(870,310,250,125,0, picupgrade3)
-        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(870,440,250,125,0, picupgrade4)
-        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(870,570,250,125,0, picupgrade5)
-        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(870,700,250,125,0, picupgrade6)
+        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(870,60,250,125,0, picupgrade1)
+        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(870,190,250,125,0, picupgrade2)
+        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(870,320,250,125,0, picupgrade3)
+        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(870,450,250,125,0, picupgrade4)
+        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(870,580,250,125,0, picupgrade5)
+        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(870,720,250,125,0, picupgrade6)
         shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, exitsign)
-        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 990, 150)
-        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 990, 280)
-        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 990, 410)
-        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 990, 540)
-        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 990, 670)
-        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 990, 800)
+        counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 990, 160)
+        counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 990, 290)
+        counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 990, 420)
+        counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 990, 550)
+        counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 990, 680)
+        counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 990, 821)
         global clickerprice1
         if cant_buy1 == False:
             clickup1 = Text_create("BOUGHT", white, dark_grey, 20, 250, 120)
@@ -537,8 +537,9 @@ def shop():
         clicker_radius3, x3, y3 = Button_make.circle(screen,dark_grey,120,350,50,50,True,True,True,True,mouse3)
         clicker_radius4, x4, y4 = Button_make.circle(screen,dark_grey,120,465,50,50,True,True,True,True,mouse4)
         clicker_radius5, x5 ,y5 = Button_make.circle(screen,dark_grey,120,580,50,50,True,True,True,True,mouse5)
-        shop_clicker_text = Text_create("Clicker Upgrades", white, black, 20, 170, 25)
-        shop_text = Text_create("Shop", white, black, 40, 600, 50)
+        shop_clicker_text = Text_create("Clicker Upgrades", "#A3EBB1", black, 19, 200, 46)
+        shop_text = Text_create("Upgrades", "#A3EBB1", black, 19, 990, 40)
+        shop_text = Text_create("Shop", white, black, 50, 600, 50)
         y = 0
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
