@@ -367,10 +367,14 @@ def hub_ui2():
 ####################################### main menue
 
 def start_menu():
+    mouse_pos = pygame.mouse.get_pos()
     global bought, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
     x_button = 125
     y_button = 60
     active = True
+    x_pos1, y_pos1, x_size1, y_size1 =0,0,0,0
+    x_pos2, y_pos2, x_size2, y_size2 =0,0,0,0
+    
     
     while active:
         mouse_pos1 = pygame.mouse.get_pos()
@@ -401,6 +405,7 @@ def start_menu():
 
 
 def shop():
+    mouse_pos = pygame.mouse.get_pos()
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     global bought, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
     active = True
@@ -409,6 +414,18 @@ def shop():
     start_time = None
     dt = 0
     background.set_alpha(180)
+    Upgrade1, starty_1, sizex_1, sizey_1 = 0,0,0,0
+    Upgrade2, starty_2, sizex_2, sizey_2 = 0,0,0,0
+    Upgrade3, starty_3, sizex_3, sizey_3 = 0,0,0,0
+    Upgrade4, starty_4, sizex_4, sizey_4 = 0,0,0,0
+    Upgrade5, starty_5, sizex_5, sizey_5 = 0,0,0,0
+    Upgrade6, starty_6, sizex_6, sizey_6 = 0,0,0,0
+    shopexit, starty_7, sizex_7, sizey_7 = 0,0,0,0
+    clicker_radius1, x1, y1 = 0,0,0
+    clicker_radius2, x2, y1 = 0,0,0
+    clicker_radius3, x3, y1 = 0,0,0
+    clicker_radius4, x4, y1 = 0,0,0
+    clicker_radius5, x5, y1 = 0,0,0
 
     while active:
         mouse_pos = pygame.mouse.get_pos()
@@ -545,6 +562,8 @@ pygame.mixer.Channel(1).play(cap_swosh, loops=-1)
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     global bought, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
+    startx, starty, sizex, sizey = 0,0,0,0
+    mouse_pos = pygame.mouse.get_pos()
     
     active = True
     print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
