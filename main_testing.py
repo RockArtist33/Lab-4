@@ -59,7 +59,7 @@ def upgrade1():
     if Counter_num >= upgradeprice1:
         math = Counter_num - upgradeprice1
         Counter_num = math
-        Counter_auto += 0.01
+        Counter_auto += 0.5
         upgrademult1 += 0.15
         print(Counter_num)
         print(Counter_auto)
@@ -77,7 +77,7 @@ def upgrade2():
     if Counter_num >= upgradeprice2:
         math = Counter_num - upgradeprice2
         Counter_num = math
-        Counter_auto += 0.05
+        Counter_auto += 1
         upgrademult2 += 0.18
         print(Counter_num)
         print(Counter_auto)
@@ -93,7 +93,7 @@ def upgrade3():
     if Counter_num >= upgradeprice3:
         math = Counter_num - upgradeprice3
         Counter_num = math
-        Counter_auto += 0.5
+        Counter_auto +=15
         upgrademult3 += 0.3
         print(Counter_num)
         print(Counter_auto)
@@ -109,7 +109,7 @@ def upgrade4():
     if Counter_num >= upgradeprice4:
         math = Counter_num - upgradeprice4
         Counter_num = math
-        Counter_auto += 1.5
+        Counter_auto += 100
         upgrademult4 += 0.6
         print(Counter_num)
         print(Counter_auto)
@@ -125,7 +125,7 @@ def upgrade5():
     if Counter_num >= upgradeprice5:
         math = Counter_num - upgradeprice5
         Counter_num = math
-        Counter_auto += 10
+        Counter_auto += 500
         upgrademult5 += 0.4
         print(Counter_num)
         print(Counter_auto)
@@ -141,7 +141,7 @@ def upgrade6():
     if Counter_num >= upgradeprice6:
         math = Counter_num - upgradeprice6
         Counter_num = math
-        Counter_auto += 100
+        Counter_auto += 1000
         upgrademult6 += 0.4
         print(Counter_num)
         print(Counter_auto)
@@ -464,17 +464,17 @@ def main_loop():
                     cant1 = upgrade4()
                     start_time = pygame.time.get_ticks()
                     mixer.music.set_volume(1); mixer.music.play()  
-                    upgradeprice4 = (1500*upgrademult4)
+                    upgradeprice4 = (2500*upgrademult4)
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     cant1 = upgrade5()
                     start_time = pygame.time.get_ticks()
                     mixer.music.set_volume(1); mixer.music.play()  
-                    upgradeprice5 = (3000*upgrademult5)
+                    upgradeprice5 = (10000*upgrademult5)
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
                     mixer.music.set_volume(1); mixer.music.play()  
-                    upgradeprice6 = (10000*upgrademult6)
+                    upgradeprice6 = (25000*upgrademult6)
                 
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     shop()
