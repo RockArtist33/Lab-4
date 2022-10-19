@@ -219,11 +219,15 @@ def start_menu():
                 if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
                     main_loop()
                 
-                if 
-    
+                if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2):
+                    sys.exit()
+                    
+                    
+                    
         screen.fill(black)
         x_pos1, y_pos1, x_size1, y_size1 = Button_make.button(light_grey, ((800/2)-(x_button)/2), ((600/2)-(y_button)/2), x_button, y_button, 128)
         x_pos2, y_pos2, x_size2, y_size2 = Button_make.button(light_grey, ((800/2)-(x_button)/2), ((600/2)-(y_button)/2)+80, x_button, y_button, 128)
+        Text_create("Capitalism", white,None, 40, 1200/2, 900/2)
         Text_create("START",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2)
         Text_create("QUIT",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2 + 80)
         

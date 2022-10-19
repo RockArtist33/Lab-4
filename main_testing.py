@@ -12,6 +12,7 @@ Counter_auto = 0
 Counter_click = 1
 Counter_mult = 1.0
 Price_inc = 1.0
+
 ####################################### normal upgrades
 upgrademult1 = 1
 upgrademult2 = 1
@@ -45,11 +46,12 @@ def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
     pixel_text = pixel_font.render(txt, True, color_of_text, rect_area_color)
     pixel_txt_Rect = pixel_text.get_rect()
     pixel_txt_Rect.center = (pos_x,pos_y)
-    screen.blit(pixel_text, pixel_txt_Rect)
+    screen.blit(pixel_text,pixel_txt_Rect)
 
 
 
 def upgrade1():
+    cant = False
     global Counter_num
     global Counter_auto
     global upgrademult1
@@ -63,10 +65,11 @@ def upgrade1():
         print(upgrademult1)
         print(upgradeprice1)
     else:
-        Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 1024/2, 768/2)
-        
+        cant = True
+    return cant
         
 def upgrade2():
+    cant = False
     global Counter_num
     global Counter_auto
     global upgrademult2
@@ -78,9 +81,11 @@ def upgrade2():
         print(Counter_num)
         print(Counter_auto)
     else:
-        print("You do not have enough money")
+        cant = True
+    return cant
         
 def upgrade3():
+    cant = False
     global Counter_num
     global Counter_auto
     global upgrademult3
@@ -92,9 +97,11 @@ def upgrade3():
         print(Counter_num)
         print(Counter_auto)
     else:
-        print("You do not have enough money")
+        cant = True
+    return cant
         
 def upgrade4():
+    cant = False
     global Counter_num
     global upgrademult4
     global Counter_auto
@@ -106,9 +113,11 @@ def upgrade4():
         print(Counter_num)
         print(Counter_auto)
     else:
-        print("You do not have enough money")
+        cant = True
+    return cant
         
 def upgrade5():
+    cant = False
     global Counter_num
     global Counter_auto
     global upgrademult5
@@ -120,9 +129,11 @@ def upgrade5():
         print(Counter_num)
         print(Counter_auto)
     else:
-        print("You do not have enough money")
+        cant = True
+    return cant
         
 def upgrade6():
+    cant = False
     global Counter_num
     global Counter_auto
     global upgrademult6
@@ -134,7 +145,8 @@ def upgrade6():
         print(Counter_num)
         print(Counter_auto)
     else:
-        print("You do not have enough money")
+        cant = True
+    return cant
         
 
 ####################################### Clicker functions
@@ -148,6 +160,7 @@ def clicker1():
         print(Counter_click)
     else:
         print("You do not have enough money")
+        
         
 def clicker2():
     global Counter_num
@@ -223,6 +236,7 @@ screen = pygame.display.set_mode(screen_size)
 white = (255,255,255)
 black = (0,0,0)
 dark_grey = (32,33,33)
+light_grey = (80,80,80)
 red = (255,0,0)
 green = (0,255,0)
 blue = (0,0,255)
@@ -253,13 +267,11 @@ class Button_make:
         
         return int(place_x),int(place_y),int(size_x),int(size_y)
     
-    def button_fill(button_color,place_x,place_y,size_x,size_y,transparency,picture):
+    def button_fill(button_color,place_x,place_y,size_x,size_y,transparency):
         #pygame.draw.rect(screen,button_color,[place_x,place_y,size_x,size_y])
         bttn = pygame.Surface((size_x, size_y))
         bttn.set_alpha(transparency)
         bttn.fill((button_color))
-        picture = pygame.transform.scale(picture, (size_x,size_y))
-        screen.blit(picture, (place_x, place_y))
         screen.blit(bttn, (place_x,place_y))
         
         return int(place_x),int(place_y),int(size_x),int(size_y)
@@ -274,15 +286,33 @@ class Button_make:
 
 
 
-
 def start_menu():
+    x_button = 125
+    y_button = 60
     active = True
+    
     while active:
+        mouse_pos1 = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                active == False
+                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                pass
+                if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
+                    active == False
+                    main_loop()
+                
+                if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2):
+                    sys.exit()
+        screen.fill(black)
+        x_pos1, y_pos1, x_size1, y_size1 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2), x_button, y_button, 128)
+        x_pos2, y_pos2, x_size2, y_size2 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2)+80, x_button, y_button, 128)
+        Text_create("Capitalism", white,None, 40, 1200/2, 900-600)
+        Text_create("START",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2)
+        Text_create("QUIT",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2 + 80)
+        
+    
+        print(x_pos1, y_pos1, x_size1, y_size1, mouse_pos1[0], mouse_pos1[1])
+        pygame.display.update()
     
     screen.fill(dark_grey) 
         
@@ -290,7 +320,12 @@ def start_menu():
 def main_loop():
     global printer, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     active = True
+    cant1 = False
+    clock = pygame.time.Clock()
+    start_time = None
+    dt = 0
     while active:
+        screen.blit(background,(0,0)) 
         if active:
             auto_click()
         for event in pygame.event.get():
@@ -299,32 +334,43 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
                 sound_printer_1
-                mixer.music.set_volume(1); mixer.music.play()
+                
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
-                    Counter_num = Counter_num + Counter_click 
-            
+                    Counter_num = Counter_num + Counter_click
+                    mixer.music.set_volume(1); mixer.music.play()
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
-                    upgrade1()
+                    cant1 = upgrade1()
+                    start_time = pygame.time.get_ticks()
+                    mixer.music.set_volume(1); mixer.music.play()   
                     upgradeprice1 = (50*upgrademult1)
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
-                    upgrade2()
+                    cant1 = upgrade2()
+                    start_time = pygame.time.get_ticks()  
                     upgradeprice2 = (300*upgrademult2)
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
-                    upgrade3()
+                    cant1 = upgrade3()
+                    start_time = pygame.time.get_ticks()
+                    mixer.music.set_volume(1); mixer.music.play()  
                     upgradeprice3 = (1000*upgrademult3)
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
-                    upgrade4()
-                    upgradeprice4 = (2500*upgrademult4)
+                    cant1 = upgrade4()
+                    start_time = pygame.time.get_ticks()
+                    mixer.music.set_volume(1); mixer.music.play()  
+                    upgradeprice4 = (1500*upgrademult4)
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
-                    upgrade5()
-                    upgradeprice5 = (10000*upgrademult5)
+                    cant1 = upgrade5()
+                    start_time = pygame.time.get_ticks()
+                    mixer.music.set_volume(1); mixer.music.play()  
+                    upgradeprice5 = (3000*upgrademult5)
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
-                    upgrade6()
-                    upgradeprice6 = (25000*upgrademult6)
+                    cant1 = upgrade6()
+                    start_time = pygame.time.get_ticks()
+                    mixer.music.set_volume(1); mixer.music.play()  
+                    upgradeprice6 = (10000*upgrademult6)
         global printer 
-        screen.blit(background,(0,0)) 
+        
         mouse_pos = pygame.mouse.get_pos()
-        startx, starty, sizex, sizey = Button_make.button(100,100,500,500,0, printer)
+        startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
 
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(875,25,200,100,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(875,125,200,100,0, picupgrade2)
@@ -346,10 +392,17 @@ def main_loop():
         Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
         
+        if cant1 == True:
+            print(pygame.time.get_ticks() - start_time)
+            Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
+            if start_time and pygame.time.get_ticks() - start_time > 3000:
+                cant1 = False
+         
         pygame.display.update()
+        dt = clock.tick(60)
  
 
 
-main_loop()
+start_menu()
 
 
