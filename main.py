@@ -42,6 +42,7 @@ mouse2 = pygame.image.load(os.path.join("./assets/images/mouse2.png"))
 mouse3 = pygame.image.load(os.path.join("./assets/images/mouse3.png"))
 mouse4 = pygame.image.load(os.path.join("./assets/images/mouse4.png"))
 mouse5 = pygame.image.load(os.path.join("./assets/images/mouse5.png"))
+Pause = pygame.image.load(os.path.join("./assets/images/Pause.png"))
 picupgrade1 = pygame.image.load(os.path.join("./assets/images/upgrade1.png"))
 picupgrade2 = pygame.image.load(os.path.join("./assets/images/upgrade2.png"))
 picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
@@ -353,6 +354,7 @@ def hub_ui():
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
     shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(130,800,150,75,0, shopsign)
     x_pos3, y_pos3, x_size3, y_size3 = Button_make.button(568, 868,32,32,0,Pause)
+    return x_pos3,y_pos3,x_size3,y_size3
     
 def hub_ui2():
     Button_make.button_fill(dark_grey,0,638,800,300,0)
@@ -364,7 +366,9 @@ def hub_ui2():
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
-    
+    x_pos3, y_pos3, x_size3, y_size3 = Button_make.button(568, 868,32,32,0,Pause)
+    return x_pos3,y_pos3,x_size3,y_size3
+
 ####################################### main menue
 
 def start_menu():
@@ -489,6 +493,8 @@ def shop():
                     cant5 = clicker5()
                     start_time = pygame.time.get_ticks()
                     cant_buy5 = cant5
+                elif x_pause <= mouse_pos[0] <= x_pause+x_pausesize and y_pause <= mouse_pos[1] <= y_pause+y_pausesize:
+                    start_menu()
                 
         
         global printer, exitsign
@@ -497,7 +503,7 @@ def shop():
  ####################################### buttons with pixtures for shop ui
  
  
-        hub_ui2()
+        x_pause,y_pause,x_pausesize,y_pausesize = hub_ui2()
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(870,60,250,125,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(870,190,250,125,0, picupgrade2)
         Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(870,320,250,125,0, picupgrade3)
@@ -564,6 +570,7 @@ def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     global bought, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
     startx, starty, sizex, sizey = 0,0,0,0
+    x_pause,y_pause,x_pausesize,y_pausesize = 0,0,0,0
     mouse_pos = pygame.mouse.get_pos()
     
     active = True
@@ -589,12 +596,14 @@ def main_loop():
                 elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
                     play_audio(click_audio,0)
                     shop()
+                elif x_pause <= mouse_pos[0] <= x_pause+x_pausesize and y_pause <= mouse_pos[1] <= y_pause+y_pausesize:
+                    start_menu()
         global printer 
         
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(120,70,500,500,0, printer)
         clickerup1 = Button_make.circle(screen,dark_grey,50,850,50,50,True,True,True,True,mouse1)
-        hub_ui()
+        x_pause,y_pause,x_pausesize,y_pausesize = hub_ui()
         
         y = 0
         
