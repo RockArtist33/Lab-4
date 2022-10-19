@@ -537,8 +537,8 @@ def shop():
         clicker_radius3, x3, y3 = Button_make.circle(screen,dark_grey,120,350,50,50,True,True,True,True,mouse3)
         clicker_radius4, x4, y4 = Button_make.circle(screen,dark_grey,120,465,50,50,True,True,True,True,mouse4)
         clicker_radius5, x5 ,y5 = Button_make.circle(screen,dark_grey,120,580,50,50,True,True,True,True,mouse5)
-        shop_clicker_text = Text_create("Clicker Upgrades", "#A3EBB1", black, 19, 200, 46)
-        shop_text = Text_create("Upgrades", "#A3EBB1", black, 19, 990, 40)
+        shop_clicker_text = Text_create("Clicker Upgrades", "#A3EBB1", black, 19, 200, 42)
+        shop_text = Text_create("Printer Upgrades", "#A3EBB1", black, 19, 990, 42)
         shop_text = Text_create("Shop", white, black, 50, 600, 50)
         y = 0
         if cant1 == True:
