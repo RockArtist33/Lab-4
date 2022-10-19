@@ -358,16 +358,10 @@ class Button_make:
 ####################################### counters for all 
 
 def hub_ui():
-    Button_make.button_fill(dark_grey,0,600,800,300,0)
-    Button_make.button_fill(dark_grey,750,0,450,900,0)
+    Button_make.button_fill(dark_grey,0,638,800,300,0)
+    Button_make.button_fill(dark_grey,787,0,450,900,0)
     Button_make.button_fill(darker_grey,20, 660, 1160, 220, 0)
     Button_make.button_fill(darker_grey,810, 20, 370, 810, 0)
-    Button_make.button_fill(black,750,0,40,640,0)
-    Button_make.button_fill(black,0,600,780,40,0)
-    Button_make.button_fill(light_grey,0, 605, 756, 3,0)
-    Button_make.button_fill(light_grey,0, 632, 786, 3,0)
-    Button_make.button_fill(light_grey,754, 0, 3, 608,0)
-    Button_make.button_fill(light_grey,783, 0, 3, 635,0)
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
@@ -591,7 +585,7 @@ def main_loop():
         global printer 
         
         mouse_pos = pygame.mouse.get_pos()
-        startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
+        startx, starty, sizex, sizey = Button_make.button(120,70,500,500,0, printer)
         clickerup1 = Button_make.circle(screen,dark_grey,50,850,50,50,True,True,True,True,mouse1)
         hub_ui()
         
@@ -610,3 +604,5 @@ def main_loop():
 
 start_menu()
 
+
+#pygame.event.set_blocked(pygame.{PLEASE PUT MOUSE WHEELE HERE})
