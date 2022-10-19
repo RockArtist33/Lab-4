@@ -79,6 +79,7 @@ cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    ]
 
 ding = ["./assets/audio/printer/ding.mp3"]
+
 print_audio = ["./assets/audio/printer/print_1.mp3",
              "./assets/audio/printer/print_2.mp3",
              "./assets/audio/printer/print_3.mp3"]
@@ -87,6 +88,11 @@ pop_audio = ["./assets/audio/pop/pop_1", #MAY
              "./assets/audio/pop/pop_3", #UNUSED
              "./assets/audio/pop/pop_4", #BRUH
              "./assets/audio/pop/pop_5",]
+print_audio_full = [".assets/audio/printer/full_printer/printer_1.mp3",
+                    ".assets/audio/printer/full_printer/printer_2.mp3",
+                    ".assets/audio/printer/full_printer/printer_3.mp3",
+                    ".assets/audio/printer/full_printer/printer_4.mp3",
+                    ".assets/audio/printer/full_printer/printer_5.mp3"]
 
 
 pygame.mixer.set_num_channels(100)
@@ -120,7 +126,7 @@ def upgrade1():
         print(Counter_auto)
         print(upgrademult1)
         print(upgradeprice1)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(print_audio_full, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -137,7 +143,7 @@ def upgrade2():
         upgrademult2 += 0.18
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(print_audio_full, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -154,7 +160,7 @@ def upgrade3():
         upgrademult3 += 0.3
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(print_audio_full, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -171,7 +177,7 @@ def upgrade4():
         upgrademult4 += 0.6
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(print_audio_full, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -188,7 +194,7 @@ def upgrade5():
         upgrademult5 += 0.4
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(print_audio_full, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -205,7 +211,7 @@ def upgrade6():
         upgrademult6 += 0.4
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(print_audio_full, random.randint(0,4))
     else:
         cant = True
     return cant
