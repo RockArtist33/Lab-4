@@ -206,6 +206,9 @@ def clicker5():
     else:
         print("You do not have enough money")        
 
+pygame.mixer.set_num_channels(1000)
+
+
 ####################################### Calling assets
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
@@ -256,8 +259,9 @@ y = 0
 
 
 def play_audio(audio_list, item):
-    pygame.mixer.music.load(os.path.join(audio_list[item]))
-    mixer.music.set_volume(1); mixer.music.play()   
+    s = pygame.mixer.Sound(os.path.join(audio_list[item]))
+    emptychannel = mixer.find_channel()
+    emptychannel.play(s)
 
 def auto_click():
     global Counter_num, Counter_click
