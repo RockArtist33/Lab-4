@@ -261,7 +261,7 @@ y = 0
 def play_audio(audio_list, item):
     s = pygame.mixer.Sound(os.path.join(audio_list[item]))
     emptychannel = mixer.find_channel()
-    emptychannel.set_volume(0.1)
+    emptychannel.set_volume(0.2)
     emptychannel.play(s)
 
 def auto_click():
