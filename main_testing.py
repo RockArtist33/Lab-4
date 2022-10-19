@@ -228,8 +228,8 @@ def clicker1():
         print(Counter_click)
         play_audio(cap_ryan_sounds, random.randint(0,7))
     else:
-        print("You do not have enough money")
-        
+        cant = True
+    return cant
         
 def clicker2():
     global Counter_num
@@ -241,8 +241,9 @@ def clicker2():
         print(Counter_click)
         play_audio(cap_ryan_sounds, random.randint(0,7))
     else:
-        print("You do not have enough money")
-        
+        cant = True
+    return cant
+
 def clicker3():
     global Counter_num
     global Counter_click
@@ -253,8 +254,8 @@ def clicker3():
         print(Counter_click)
         play_audio(cap_ryan_sounds, random.randint(0,7))
     else:
-        print("You do not have enough money")
-        
+        cant = True
+    return cant
 def clicker4():
     global Counter_num
     global Counter_click
@@ -265,8 +266,9 @@ def clicker4():
         print(Counter_click)
         play_audio(cap_ryan_sounds, random.randint(0,7))
     else:
-        print("You do not have enough money")
-        
+        cant = True
+    return cant
+
 def clicker5():
     global Counter_num
     global Counter_click
@@ -277,8 +279,8 @@ def clicker5():
         print(Counter_click)
         play_audio(cap_ryan_sounds, random.randint(0,7))
     else:
-        print("You do not have enough money")        
-
+        cant = True
+    return cant
 
 
 ####################################### Initalise Pygame window
@@ -378,8 +380,8 @@ def start_menu():
     
 def play_constant():
     while True:
-        pass
-
+        play_audio(ding, 0)
+play_constant()
 
 def shop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
@@ -390,6 +392,7 @@ def shop():
     dt = 0
     background.set_alpha(180)
     while active:
+        mouse_pos = pygame.mouse.get_pos()
         screen.fill(black)
         screen.blit(background,(0,0))
         if active:
@@ -424,12 +427,31 @@ def shop():
                     upgradeprice6 = (10000*upgrademult6)
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     main_loop()
-                #elif 
+                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1:
+                    clicker1()
+                    cant1 = clicker1()
+                    start_time = pygame.time.get_ticks()
+                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2:
+                    clicker2()
+                    cant1 = clicker2()
+                    start_time = pygame.time.get_ticks()
+                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3:
+                    clicker3()
+                    cant1 = clicker3()
+                    start_time = pygame.time.get_ticks()
+                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4:
+                    clicker4()
+                    cant1 = clicker4()
+                    start_time = pygame.time.get_ticks()
+                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5:
+                    clicker5()
+                    cant1 = clicker5()
+                    start_time = pygame.time.get_ticks()
                 
-                #elif 
+        
         global printer, exitsign
         
-        mouse_pos = pygame.mouse.get_pos()
+        
 
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(475,100,250,125,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(475,230,250,125,0, picupgrade2)
@@ -458,11 +480,10 @@ def shop():
         Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         shop_text = Text_create("Shop", white, black, 40, 600, 50)
         y = 0
-        
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
-            if start_time and pygame.time.get_ticks() - start_time > 300:
+            if start_time and pygame.time.get_ticks() - start_time > 500:
                 cant1 = False
          
         pygame.display.update()
@@ -492,13 +513,13 @@ def main_loop():
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
                     play_audio(ding, 0)
-                elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
+                if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
-                    start_time = pygame.time.get_ticks()   
+                    start_time = pygame.time.get_ticks()
                     upgradeprice1 = (50*upgrademult1)
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     cant1 = upgrade2()
-                    start_time = pygame.time.get_ticks()  
+                    start_time = pygame.time.get_ticks()
                     upgradeprice2 = (300*upgrademult2)
                 elif Upgrade3 <= mouse_pos[0] <= (Upgrade3+sizex_3) and starty_3 <= mouse_pos[1] <= starty_3+sizey_3:
                     cant1 = upgrade3()
@@ -507,15 +528,15 @@ def main_loop():
                 elif Upgrade4 <= mouse_pos[0] <= (Upgrade4+sizex_4) and starty_4 <= mouse_pos[1] <= starty_4+sizey_4:
                     cant1 = upgrade4()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice4 = (2500*upgrademult4)
+                    upgradeprice4 = (1500*upgrademult4)
                 elif Upgrade5 <= mouse_pos[0] <= (Upgrade5+sizex_5) and starty_5 <= mouse_pos[1] <= starty_5+sizey_5:
                     cant1 = upgrade5()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice5 = (10000*upgrademult5)
+                    upgradeprice5 = (3000*upgrademult5)
                 elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
-                    upgradeprice6 = (25000*upgrademult6)
+                    upgradeprice6 = (10000*upgrademult6)
                 
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     shop()
