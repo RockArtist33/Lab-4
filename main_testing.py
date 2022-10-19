@@ -1,11 +1,11 @@
 ####################################### Imports
 from msilib.schema import Upgrade
 import pygame
-from pygame import mixer
+from pygame import mixer # Audio
 mixer.init()
 import sys , os
-import time
-import random
+import time # Currently goes unused
+import random # Random audio file played 
 import json
 ####################################### main storage
 Counter_num = 0
@@ -13,7 +13,6 @@ Counter_auto = 0
 Counter_click = 1
 Counter_mult = 1.0
 Price_inc = 1.0
-
 ####################################### normal upgrades
 upgrademult1 = 1
 upgrademult2 = 1
@@ -225,6 +224,7 @@ picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
 picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
 picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
+cap_backing = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_back.mp3"))
 cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
 cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3"))
 cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
