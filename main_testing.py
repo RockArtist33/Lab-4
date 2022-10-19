@@ -22,19 +22,18 @@ upgrademult4 = 1
 upgrademult5 = 1
 upgrademult6 = 1
 #---------------------------------------# 
-upgradeprice1 = (50*upgrademult1)
-upgradeprice2 = (300*upgrademult2)
-upgradeprice3 = (1000*upgrademult3)
-upgradeprice4 = (1500*upgrademult4)
-upgradeprice5 = (3000*upgrademult5)
-upgradeprice6 = (10000*upgrademult6)
+upgradeprice1 = 50
+upgradeprice2 = 300
+upgradeprice3 = 1000
+upgradeprice4 = 1500
+upgradeprice5 = 3000
+upgradeprice6 = 10000
 ####################################### Clicker upgrades
-clickerprice1 = (1000)
-clickerprice2 = (1000)
-clickerprice3 = (50000)
-clickerprice4 = (100000)
-clickerprice5 = (200000)
-####################################### Calling assets
+clickerprice1 = 1000
+clickerprice2 = 1000
+clickerprice3 = 50000
+clickerprice4 = 100000
+clickerprice5 = 200000
 background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
 moneyicon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
@@ -51,8 +50,24 @@ picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
 exitsign = pygame.image.load(os.path.join("./assets/images/exit.png"))
 cap_backing = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_back.mp3"))
+cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
+cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3")) 
+cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
+cap_ryan_4_noyay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_noyay.mp3"))
+cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_yay.mp3"))
+cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
+cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
+cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1")) U
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))  N
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))    U
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))     S
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1") )     E
+print_1 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_1.mp3"))#D
+print_2 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_2.mp3"))
+print_3 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_3.mp3"))
 
-############################################################## Audio
+
 cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_2.mp3",
                    "./assets/audio/capitalism/cap_ryan_3.mp3",
@@ -62,20 +77,16 @@ cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_6.mp3",
                    "./assets/audio/capitalism/cap_ryan_7.mp3"
                    ]
+
 ding = ["./assets/audio/printer/ding.mp3"]
-print_audio = ["./assets/audio/printer/printer_1.mp3",
-               "./assets/audio/printer/printer_2.mp3",
-               "./assets/audio/printer/printer_3.mp3",
-               "./assets/audio/printer/printer_4.mp3",
-               "./assets/audio/printer/printer_5.mp3"]
 print_audio = ["./assets/audio/printer/print_1.mp3",
              "./assets/audio/printer/print_2.mp3",
              "./assets/audio/printer/print_3.mp3"]
-pop_audio = ["./assets/audio/pop/pop_1.mp3", #MAY
-             "./assets/audio/pop/pop_2.mp3", #GO
-             "./assets/audio/pop/pop_3.mp3", #UNUSED
-             "./assets/audio/pop/pop_4.mp3", #BRUH
-             "./assets/audio/pop/pop_5.mp3",]
+pop_audio = ["./assets/audio/pop/pop_1", #MAY
+             "./assets/audio/pop/pop_2", #GO
+             "./assets/audio/pop/pop_3", #UNUSED
+             "./assets/audio/pop/pop_4", #BRUH
+             "./assets/audio/pop/pop_5",]
 
 
 pygame.mixer.set_num_channels(10)
@@ -206,7 +217,7 @@ def clicker1():
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice1:
-        Counter_num - clickerprice1
+        Counter_num = Counter_num - clickerprice1
         Counter_click = 10
         print(Counter_num)
         print(Counter_click)
@@ -220,7 +231,7 @@ def clicker2():
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice2:
-        Counter_num - clickerprice2
+        Counter_num = Counter_num - clickerprice2
         Counter_click = 50
         print(Counter_num)
         print(Counter_click)
@@ -234,7 +245,7 @@ def clicker3():
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice3:
-        Counter_num - clickerprice3
+        Counter_num = Counter_num - clickerprice3
         Counter_click = 100
         print(Counter_num)
         print(Counter_click)
@@ -247,7 +258,7 @@ def clicker4():
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice4:
-        Counter_num - clickerprice4
+        Counter_num = Counter_num - clickerprice4
         Counter_click = 500
         print(Counter_num)
         print(Counter_click)
@@ -261,7 +272,7 @@ def clicker5():
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice5:
-        Counter_num - clickerprice5
+        Counter_num = Counter_num - clickerprice5
         Counter_click = 1000
         print(Counter_num)
         print(Counter_click)
@@ -376,6 +387,12 @@ def shop():
     dt = 0
     background.set_alpha(180)
     bought = False
+    bought1 = False
+    bought2 = False
+    bought3 = False
+    bought4 = False
+    bought5 = False
+    bought6 = False
     while active:
         mouse_pos = pygame.mouse.get_pos()
         screen.fill(black)
@@ -414,37 +431,37 @@ def shop():
                     upgradeprice6 = (10000*upgrademult6)
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     main_loop()
-                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and bought == False:
+                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and bought1 == False:
                     clicker1()
                     cant1 = clicker1()
                     start_time = pygame.time.get_ticks()
-                    bought = True
-                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and bought == False:
+                    bought1 = True
+                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and bought2 == False:
                     clicker2()
                     cant1 = clicker2()
                     start_time = pygame.time.get_ticks()
-                    bought = True
-                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and bought == False:
+                    bought2 = True
+                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and bought3 == False:
                     clicker3()
                     cant1 = clicker3()
                     start_time = pygame.time.get_ticks()
-                    bought = True
-                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and bought == False:
+                    bought3 = True
+                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and bought4 == False:
                     clicker4()
                     cant1 = clicker4()
                     start_time = pygame.time.get_ticks()
-                    bought = True
-                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and bought == False:
+                    bought4 = True
+                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and bought5 == False:
                     clicker5()
                     cant1 = clicker5()
                     start_time = pygame.time.get_ticks()
-                    bought = True
+                    bought5 = True
                 
         
         global printer, exitsign
         
         
-
+ 
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(475,100,250,125,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(475,230,250,125,0, picupgrade2)
         Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(475,360,250,125,0, picupgrade3)
@@ -504,7 +521,7 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    play_audio(print_audio,random.randint(0,2))
+                    play_audio(ding, 0)
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
                     start_time = pygame.time.get_ticks()
