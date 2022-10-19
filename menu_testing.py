@@ -291,6 +291,7 @@ pygame.display.set_icon(moneyicon)
 white = (255,255,255)
 black = (0,0,0)
 dark_grey = (32,33,33)
+darker_grey = (22,23,23)
 light_grey = (80,80,80)
 red = (255,0,0)
 green = (0,255,0)
@@ -343,7 +344,13 @@ class Button_make:
         
 
 
-
+def hub_ui():
+    Button_make.button_fill(dark_grey,0,600,800,300,0)
+    Button_make.button_fill(dark_grey,800,0,400,900,0)
+    Button_make.button_fill(darker_grey,20, 660, 840, 220, 0)
+    Button_make.button_fill(darker_grey,860, 20, 320, 860, 0)
+    Button_make.button_fill(black,800,0,40,640,0)
+    Button_make.button_fill(black,0,600,800,40,0)
 
 
 
@@ -544,7 +551,7 @@ def main_loop():
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
         clickerup1 = Button_make.circle(screen,dark_grey,50,850,50,50,True,True,True,True,mouse1)
-        Button_make.button()
+        hub_ui()
         Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
         
