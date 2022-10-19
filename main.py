@@ -365,7 +365,7 @@ def hub_ui():
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
-    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
+    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(135,800,150,75,0, shopsign)
     
 ####################################### main menue
 
@@ -449,7 +449,7 @@ def shop():
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
                     upgradeprice6 = (100000*upgrademult6)
-                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880:
+                elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880:
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == True:
                     print(cant_buy1)
@@ -486,7 +486,7 @@ def shop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(475,490,250,125,0, picupgrade4)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(475,620,250,125,0, picupgrade5)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(475,750,250,125,0, picupgrade6)
-        shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, exitsign)
+        shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(135,800,150,75,0, exitsign)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 600, 200)
         counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 600, 330)
         counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 600, 460)
@@ -564,7 +564,7 @@ def main_loop():
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
                     play_audio(print_audio, random.randint(0,2))
-                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880: 
+                elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
                     shop()
         global printer 
         
