@@ -7,7 +7,7 @@ import sys , os
 import time
 import random
 ####################################### main storage
-Counter_num = 
+Counter_num = 0
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -432,7 +432,6 @@ def main_loop():
                 
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    sound_printer_1
                     mixer.music.set_volume(1); mixer.music.play()
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
