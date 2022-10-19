@@ -432,27 +432,23 @@ def shop():
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and bought1 == False:
-                    clicker1()
                     cant1 = clicker1()
                     start_time = pygame.time.get_ticks()
                     bought1 = True
                 elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and bought1 == True and bought2 == False:
-                    clicker2()
+
                     cant1 = clicker2()
                     start_time = pygame.time.get_ticks()
                     bought2 = True
                 elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and bought1 == True and bought2 == True and bought3 == False:
-                    clicker3()
                     cant1 = clicker3()
                     start_time = pygame.time.get_ticks()
                     bought3 = True
                 elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and bought1 == True and bought2 == True and bought3 == True and bought4 == False:
-                    clicker4()
                     cant1 = clicker4()
                     start_time = pygame.time.get_ticks()
                     bought4 = True
                 elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and bought1 == True and bought2 == True and bought3 == True and bought4 == True and bought5 == False:
-                    clicker5()
                     cant1 = clicker5()
                     start_time = pygame.time.get_ticks()
                     bought5 = True
@@ -548,8 +544,7 @@ def main_loop():
         mouse_pos = pygame.mouse.get_pos()
         startx, starty, sizex, sizey = Button_make.button(50,50,500,500,0, printer)
         clickerup1 = Button_make.circle(screen,dark_grey,50,850,50,50,True,True,True,True,mouse1)
-
-
+        Button_make.button()
         Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
         
