@@ -7,7 +7,7 @@ import sys , os
 import time
 import random
 ####################################### main storage
-Counter_num = 999999999
+Counter_num = 0
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
