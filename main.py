@@ -578,14 +578,14 @@ def main_loop():
         screen.blit(background,(0,0))
         if active:
             auto_click()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get(): # event loop
+            if event.type == pygame.QUIT: # if quit event
                 active = False
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN: # if pressend mouse mutton down
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    play_audio(print_audio, random.randint(0,2))
+                    play_audio(print_audio, random.randint(0,2)) # plays audio
                 elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
                     shop()
         global printer 
