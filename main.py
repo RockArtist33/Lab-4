@@ -102,10 +102,7 @@ def upgrade1():
         Counter_num = math
         Counter_auto += 0.25
         upgrademult1 += 0.18
-        print(Counter_num)
-        print(Counter_auto)
-        print(upgrademult1)
-        print(upgradeprice1)
+
         play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
@@ -121,8 +118,7 @@ def upgrade2():
         Counter_num = math
         Counter_auto += 1
         upgrademult2 += 0.3
-        print(Counter_num)
-        print(Counter_auto)
+
         play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
@@ -138,8 +134,6 @@ def upgrade3():
         Counter_num = math
         Counter_auto +=15
         upgrademult3 += 0.4
-        print(Counter_num)
-        print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
@@ -155,8 +149,7 @@ def upgrade4():
         Counter_num = math
         Counter_auto += 100
         upgrademult4 += 0.7
-        print(Counter_num)
-        print(Counter_auto)
+
         play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
@@ -172,8 +165,7 @@ def upgrade5():
         Counter_num = math
         Counter_auto += 500
         upgrademult5 += 1.7
-        print(Counter_num)
-        print(Counter_auto)
+
         play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
@@ -189,8 +181,6 @@ def upgrade6():
         Counter_num = math
         Counter_auto += 1000
         upgrademult6 += 2.8
-        print(Counter_num)
-        print(Counter_auto)
         play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
@@ -205,14 +195,11 @@ def clicker1():
     if Counter_num >= clickerprice1:
         Counter_num = Counter_num - clickerprice1
         Counter_click = 10
-        print(Counter_num)
-        print(Counter_click)
+
         play_audio(pop_audio, random.randint(0,4))
         cant = False
-        print("1")
     else:
         cant = True
-        print("2")
     return cant
         
 def clicker2():
@@ -222,8 +209,6 @@ def clicker2():
     if Counter_num >= clickerprice2:
         Counter_num = Counter_num - clickerprice2
         Counter_click = 50
-        print(Counter_num)
-        print(Counter_click)
         play_audio(pop_audio, random.randint(0,4))
         cant = False
     else:
@@ -237,8 +222,6 @@ def clicker3():
     if Counter_num >= clickerprice3:
         Counter_num = Counter_num - clickerprice3
         Counter_click = 100
-        print(Counter_num)
-        print(Counter_click)
         play_audio(pop_audio, random.randint(0,4))
         cant = False
     else:
@@ -251,8 +234,6 @@ def clicker4():
     if Counter_num >= clickerprice4:
         Counter_num = Counter_num - clickerprice4
         Counter_click = 500
-        print(Counter_num)
-        print(Counter_click)
         play_audio(pop_audio, random.randint(0,4))
         cant = False
     else:
@@ -266,8 +247,6 @@ def clicker5():
     if Counter_num >= clickerprice5:
         Counter_num = Counter_num - clickerprice5
         Counter_click = 1000
-        print(Counter_num)
-        print(Counter_click)
         play_audio(pop_audio, random.randint(0,4))
         cant = False
     else:
@@ -400,7 +379,6 @@ def start_menu():
         Text_create("QUIT",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2 + 80)
         
     
-        print(x_pos1, y_pos1, x_size1, y_size1, mouse_pos1[0], mouse_pos1[1])
         pygame.display.update()
     
     screen.fill(dark_grey) 
@@ -463,7 +441,6 @@ def shop():
                     start_time = pygame.time.get_ticks()
                     upgradeprice5 = (25000*upgrademult5)
                     
-                print(x1,y1,clicker_radius1,sizey_6, mouse_pos[0],mouse_pos[1])
                 if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6: 
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
@@ -472,12 +449,10 @@ def shop():
                     play_audio(click_audio,0)
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == True:
-                    print(cant_buy1)
                     cant1 = clicker1()
                     start_time = pygame.time.get_ticks()
                     cant_buy1 = cant1
                 elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and cant_buy1 == False and cant_buy2 == True:
-
                     cant2 = clicker2()
                     start_time = pygame.time.get_ticks()
                     cant_buy2 = cant2
@@ -553,7 +528,6 @@ def shop():
         y = 0
         if cant1 == True:
             play_audio(errorsound,0)
-            print(pygame.time.get_ticks() - start_time)
             backroundframes, starty_1, sizex_1, sizey_1 = Button_make.button(145,390,905,105, 0,frameback)
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
             if start_time and pygame.time.get_ticks() - start_time > 300:
@@ -575,7 +549,6 @@ def main_loop():
     mouse_pos = pygame.mouse.get_pos()
     
     active = True
-    print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
     cant1 = False
     clock = pygame.time.Clock()
     start_time = None
@@ -609,9 +582,8 @@ def main_loop():
         y = 0
         
         if cant1 == True:
-            print(pygame.time.get_ticks() - start_time)
             Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 39)
-            if start_time and pygame.time.get_ticks() - start_time > 3000:
+            if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
         pygame.display.update()
