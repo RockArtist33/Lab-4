@@ -92,6 +92,7 @@ pop_audio = ["./assets/audio/pop/pop_1", #MAY
 
 
 pygame.mixer.set_num_channels(100)
+pygame.mixer.set_reserved(1)
 ####################################### Upgrade functions
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
@@ -355,15 +356,15 @@ class Button_make:
 
 def hub_ui():
     Button_make.button_fill(dark_grey,0,600,800,300,0)
-    Button_make.button_fill(dark_grey,800,0,400,900,0)
+    Button_make.button_fill(dark_grey,750,0,450,900,0)
     Button_make.button_fill(darker_grey,20, 660, 840, 220, 0)
-    Button_make.button_fill(darker_grey,860, 20, 320, 860, 0)
-    Button_make.button_fill(black,800,0,40,640,0)
+    Button_make.button_fill(darker_grey,810, 20, 400, 810, 0)
+    #Button_make.button_fill(black,800,0,40,640,0)
     Button_make.button_fill(black,0,600,800,40,0)
     Button_make.button_fill(light_grey,0, 605, 804, 3,0)
     Button_make.button_fill(light_grey,0, 632, 835, 3,0)
-    Button_make.button_fill(light_grey,804, 0, 3, 608,0)
-    Button_make.button_fill(light_grey,833, 0, 3, 635,0)
+    #Button_make.button_fill(light_grey,804, 0, 3, 608,0)
+    #Button_make.button_fill(light_grey,833, 0, 3, 635,0)
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
@@ -539,6 +540,8 @@ def shop():
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     global bought, bought1, bought2, bought3, bought4, bought5, bought6
+    pygame.mixer.Channel(1).play(cap_backing, loops=-1)
+    
     active = True
     print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
     cant1 = False
