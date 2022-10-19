@@ -373,6 +373,18 @@ def hub_ui():
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
     shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
     
+def hub_ui2():
+    Button_make.button_fill(dark_grey,0,600,800,300,0)
+    Button_make.button_fill(dark_grey,750,0,450,900,0)
+    Button_make.button_fill(dark_grey,0,0,450,900,0)
+    Button_make.button_fill(darker_grey,20, 660, 1160, 220, 0)
+    Button_make.button_fill(darker_grey,810, 20, 370, 810, 0)
+    Button_make.button_fill(darker_grey,20, 20, 370, 810, 0)
+    Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
+    Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
+    Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
+    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
+    
 ####################################### main menue
 
 def start_menu():
@@ -486,12 +498,14 @@ def shop():
         
  ####################################### buttons with pixtures for shop ui
  
-        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(475,100,250,125,0, picupgrade1)
-        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(475,230,250,125,0, picupgrade2)
-        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(475,360,250,125,0, picupgrade3)
-        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(475,490,250,125,0, picupgrade4)
-        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(475,620,250,125,0, picupgrade5)
-        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(475,750,250,125,0, picupgrade6)
+ 
+        hub_ui2()
+        Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(950,50,250,125,0, picupgrade1)
+        Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(950,180,250,125,0, picupgrade2)
+        Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(950,360,250,125,0, picupgrade3)
+        Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(950,490,250,125,0, picupgrade4)
+        Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(950,620,250,125,0, picupgrade5)
+        Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(950,750,250,125,0, picupgrade6)
         shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, exitsign)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 600, 200)
         counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 600, 330)
@@ -540,7 +554,9 @@ def shop():
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
         
-
+        
+        
+        
         pygame.display.update()
         dt = clock.tick(60)
 cap_swosh.set_volume(0.2)
