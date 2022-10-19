@@ -262,8 +262,6 @@ height = screen.get_height()
 price = (10*Price_inc)
 y = 0
 
-list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
-
 
 
 
@@ -356,8 +354,6 @@ def shop():
             auto_click()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
-                file_save()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
 
@@ -430,7 +426,6 @@ def shop():
 #Main loop
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
-    Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc= file_load()
     active = True
     print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
     cant1 = False
@@ -446,8 +441,6 @@ def main_loop():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 active = False
-                list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
-                file_save(list)
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
@@ -508,7 +501,7 @@ def main_loop():
         clickerup4 = Button_make.circle(screen,dark_grey,(350,850),50,50,True,True,True,True)
         clickerup5 = Button_make.circle(screen,dark_grey,(450,850),50,50,True,True,True,True)
 
-        Counter_Text = Text_create("Money amount = £"+str(f"{int(Counter_num):.2f}"), white, black, 20, 198, 25)
+        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
         
         if cant1 == True:
