@@ -365,7 +365,7 @@ def hub_ui():
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
-    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
+    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(130,800,150,75,0, shopsign)
     
 def hub_ui2():
     Button_make.button_fill(dark_grey,0,638,800,300,0)
@@ -377,7 +377,6 @@ def hub_ui2():
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
-    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
     
 ####################################### main menue
 
@@ -500,7 +499,7 @@ def shop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(870,450,250,125,0, picupgrade4)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(870,580,250,125,0, picupgrade5)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(870,720,250,125,0, picupgrade6)
-        shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, exitsign)
+        shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(130,800,150,75,0, exitsign)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 990, 160)
         counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 990, 290)
         counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 990, 420)
