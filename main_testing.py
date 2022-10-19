@@ -376,6 +376,12 @@ def shop():
     dt = 0
     background.set_alpha(180)
     bought = False
+    bought1 = False
+    bought2 = False
+    bought3 = False
+    bought4 = False
+    bought5 = False
+    bought6 = False
     while active:
         mouse_pos = pygame.mouse.get_pos()
         screen.fill(black)
