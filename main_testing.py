@@ -206,7 +206,7 @@ def clicker5():
     else:
         print("You do not have enough money")        
 
-pygame.mixer.set_num_channels(1000)
+pygame.mixer.set_num_channels(100)
 
 
 ####################################### Calling assets
@@ -261,6 +261,7 @@ y = 0
 def play_audio(audio_list, item):
     s = pygame.mixer.Sound(os.path.join(audio_list[item]))
     emptychannel = mixer.find_channel()
+    emptychannel.set_volume(0.1)
     emptychannel.play(s)
 
 def auto_click():
