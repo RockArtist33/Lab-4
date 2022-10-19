@@ -322,7 +322,6 @@ def start_menu():
                 if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
                     active == False
                     main_loop()
-                
                 if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2):
                     sys.exit()
         screen.fill(black)
@@ -416,7 +415,7 @@ def shop():
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
-            if start_time and pygame.time.get_ticks() - start_time > 3000:
+            if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
         pygame.display.update()
@@ -507,7 +506,7 @@ def main_loop():
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
-            if start_time and pygame.time.get_ticks() - start_time > 3000:
+            if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
         pygame.display.update()
