@@ -358,9 +358,9 @@ def hub_ui():
     Button_make.button_fill(darker_grey,860, 20, 320, 860, 0)
     Button_make.button_fill(black,800,0,40,640,0)
     Button_make.button_fill(black,0,600,800,40,0)
-    Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 198, 700)
-    Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 175,740)
-
+    Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
+    Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
+    Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
 
 def start_menu():
     global bought, bought1, bought2, bought3, bought4, bought5, bought6
