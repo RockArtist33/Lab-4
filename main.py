@@ -69,7 +69,7 @@ print_1 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_1.mp3"))
 print_2 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_2.mp3"))
 print_3 = pygame.mixer.Sound(os.path.join("./assets/audio/printer/print_3.mp3"))
 frameback = pygame.image.load(os.path.join("./assets/images/frameback.png"))
-click_audio = pygame.mixer.Sound(os.path.join("./assets/audio/click.mp3"))
+click_audio = ["./assets/audio/click.mp3"]
 cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_2.mp3",
                    "./assets/audio/capitalism/cap_ryan_3.mp3",
@@ -462,7 +462,7 @@ def shop():
                     start_time = pygame.time.get_ticks()
                     upgradeprice6 = (100000*upgrademult6)
                 elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880:
-                    play_audio(click_audio)
+                    play_audio(click_audio,0)
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == True:
                     print(cant_buy1)
@@ -581,7 +581,7 @@ def main_loop():
                     Counter_num = Counter_num + Counter_click
                     play_audio(print_audio, random.randint(0,2))
                 elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
-                    play_audio(click_audio)
+                    play_audio(click_audio,0)
                     shop()
         global printer 
         
