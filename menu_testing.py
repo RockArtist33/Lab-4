@@ -50,7 +50,8 @@ picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
 exitsign = pygame.image.load(os.path.join("./assets/images/exit.png"))
 shopsign = pygame.image.load(os.path.join("./assets/images/shop.png"))
-cap_backing = pygame.mixer.Sound(os.path.join("./assets/audio/music/Swish_Swosh_loop.mp3"))
+cap_swosh = pygame.mixer.music.load(os.path.join(".assets/audio/music/Swish_Swosh_loop.mp3"))
+cap_person = pygame.mixer.music.load(os.path.join(".assets/audio/music/Nice_Person_loop.mp3"))
 cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
 cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3")) 
 cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
@@ -539,7 +540,7 @@ pygame.mixer.Channel(1).play(cap_backing, loops=-1)
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     global bought, bought1, bought2, bought3, bought4, bought5, bought6
-
+    pygame.mixer.Channel(1).play(cap_swosh, loops=-1)
     
     active = True
     print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
