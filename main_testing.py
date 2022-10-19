@@ -67,15 +67,14 @@ cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism
 cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
 cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
 cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
-
-
-
-
-
-
-
-
-
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1")) U
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))  N
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))    U
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))     S
+#pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1") )     E
+print_1 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_1"))#D
+print_2 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_2"))
+print_3 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/print_3"))
 
 
 cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
@@ -96,7 +95,7 @@ print_audio = ["./assets/audio/printer/printer_1.mp3",
                "./assets/audio/printer/printer_5.mp3"]
 
 
-pygame.mixer.set_num_channels(1000)
+pygame.mixer.set_num_channels(100)
 ####################################### Upgrade functions
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
@@ -384,7 +383,10 @@ def start_menu():
     
     screen.fill(dark_grey) 
     
-    
+def play_constant():
+    while True:
+        play_audio(ding, 0)
+play_constant()
 
 def shop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
