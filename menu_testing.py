@@ -458,7 +458,6 @@ def shop():
                     start_time = pygame.time.get_ticks()
                     bought1 = True
                 elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and bought1 == True and bought2 == False:
-
                     cant1 = clicker2()
                     start_time = pygame.time.get_ticks()
                     bought2 = True
