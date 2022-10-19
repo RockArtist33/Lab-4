@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 0
+Counter_num = 10000
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
