@@ -25,9 +25,9 @@ upgrademult6 = 1
 upgradeprice1 = 50
 upgradeprice2 = 300
 upgradeprice3 = 1000
-upgradeprice4 = 1500
-upgradeprice5 = 3000
-upgradeprice6 = 10000
+upgradeprice4 = 10000
+upgradeprice5 = 25000
+upgradeprice6 = 100000
 ####################################### Clicker upgrades
 clickerprice1 = 1000
 clickerprice2 = 2500
