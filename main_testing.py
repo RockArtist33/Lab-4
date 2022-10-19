@@ -240,6 +240,7 @@ print_audio = ["./assets/audio/printer/printer_1.mp3",
                "./assets/audio/printer/printer_4.mp3",
                "./assets/audio/printer/printer_5.mp3"]
 
+####################################### Initalise Pygame window
 pygame.init()
 screen_size = (1200,900)
 screen = pygame.display.set_mode(screen_size)
