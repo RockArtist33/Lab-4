@@ -475,7 +475,7 @@ def shop():
                     cant4 = clicker4()
                     start_time = pygame.time.get_ticks()
                     cant_buy4 = cant4
-                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and cant_buy1 == True and cant_buy2 == True and cant_buy3 == True and cant_buy4 == True and cant_buy5 == False:
+                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == False and cant_buy4 == False and cant_buy5 == True:
                     cant5 = clicker5()
                     start_time = pygame.time.get_ticks()
                     cant_buy5 = cant5
@@ -539,6 +539,8 @@ def shop():
             Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
+        
+        
          
         pygame.display.update()
         dt = clock.tick(60)
