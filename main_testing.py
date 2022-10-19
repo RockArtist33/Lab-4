@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 0
+Counter_num = 100000
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -220,6 +220,7 @@ def upgrade6():
 
 ####################################### Clicker functions
 def clicker1():
+    cant = False
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice1:
@@ -233,6 +234,7 @@ def clicker1():
     return cant
         
 def clicker2():
+    cant = False
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice2:
@@ -246,6 +248,7 @@ def clicker2():
     return cant
 
 def clicker3():
+    cant = False
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice3:
@@ -258,6 +261,7 @@ def clicker3():
         cant = True
     return cant
 def clicker4():
+    cant = False
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice4:
@@ -271,6 +275,7 @@ def clicker4():
     return cant
 
 def clicker5():
+    cant = False
     global Counter_num
     global Counter_click
     if Counter_num >= clickerprice5:
@@ -389,6 +394,7 @@ def shop():
     start_time = None
     dt = 0
     background.set_alpha(180)
+    bought = False
     while active:
         mouse_pos = pygame.mouse.get_pos()
         screen.fill(black)
@@ -419,32 +425,37 @@ def shop():
                     cant1 = upgrade5()
                     start_time = pygame.time.get_ticks()
                     upgradeprice5 = (3000*upgrademult5)
-                elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
+                elif Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6 and bought == False:
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
                     upgradeprice6 = (10000*upgrademult6)
                 elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
                     main_loop()
-                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1:
+                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and bought == False:
                     clicker1()
                     cant1 = clicker1()
                     start_time = pygame.time.get_ticks()
-                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2:
+                    bought = True
+                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and bought == False:
                     clicker2()
                     cant1 = clicker2()
                     start_time = pygame.time.get_ticks()
-                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3:
+                    bought = True
+                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and bought == False:
                     clicker3()
                     cant1 = clicker3()
                     start_time = pygame.time.get_ticks()
-                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4:
+                    bought = True
+                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and bought == False:
                     clicker4()
                     cant1 = clicker4()
                     start_time = pygame.time.get_ticks()
-                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5:
+                    bought = True
+                elif x5 - clicker_radius3 <= mouse_pos[0] <= x5+ clicker_radius5 and y5 - clicker_radius5 <= mouse_pos[1] <= y5 + clicker_radius5 and bought == False:
                     clicker5()
                     cant1 = clicker5()
                     start_time = pygame.time.get_ticks()
+                    bought = True
                 
         
         global printer, exitsign
