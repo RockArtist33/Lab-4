@@ -89,7 +89,7 @@ pop_audio = ["./assets/audio/pop/pop_1", #MAY
              "./assets/audio/pop/pop_5",]
 
 
-pygame.mixer.set_num_channels(10)
+pygame.mixer.set_num_channels(100)
 ####################################### Upgrade functions
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
