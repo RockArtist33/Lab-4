@@ -229,11 +229,12 @@ cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism
 cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
 cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
 cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
-sound_printer_1 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_1.mp3"))  
-sound_printer_2 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_2.mp3"))
-sound_printer_3 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_3.mp3"))
-sound_printer_4 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_4.mp3"))
-sound_printer_5 = pygame.mixer.music.load(os.path.join("./assets/audio/printer/printer_5.mp3"))  
+
+print_audio = ["./assets/audio/printer/printer_1.mp3",
+               "./assets/audio/printer/printer_2.mp3",
+               "./assets/audio/printer/printer_3.mp3",
+               "./assets/audio/printer/printer_4.mp3",
+               "./assets/audio/printer/printer_5.mp3"]
 
 pygame.init()
 screen_size = (1200,900)
@@ -253,6 +254,10 @@ price = (10*Price_inc)
 y = 0
 
 
+
+def play_audio(audio_list, item):
+    pygame.mixer.music.load(os.path.join(audio_list[item]))
+    mixer.music.set_volume(1); mixer.music.play()   
 
 def auto_click():
     global Counter_num, Counter_click
@@ -344,7 +349,6 @@ def shop():
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
                     start_time = pygame.time.get_ticks()
-                    mixer.music.set_volume(1); mixer.music.play()   
                     upgradeprice1 = (50*upgrademult1)
                 elif Upgrade2 <= mouse_pos[0] <= (Upgrade2+sizex_2) and starty_2 <= mouse_pos[1] <= starty_2+sizey_2:
                     cant1 = upgrade2()
@@ -428,12 +432,9 @@ def main_loop():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
-                sound_printer_1
-                
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    sound_printer_1
-                    mixer.music.set_volume(1); mixer.music.play()
+                    play_audio(print_audio, random.randint(0,4))
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
                     start_time = pygame.time.get_ticks()
