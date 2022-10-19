@@ -540,7 +540,7 @@ def shop():
 def main_loop():
     global printer,Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
     global bought, bought1, bought2, bought3, bought4, bought5, bought6
-    pygame.mixer.Channel(1).play(cap_backing, loops=-1)
+    pygame.mixer.Channel(1).play(cap_swosh, loops=-1)
     
     active = True
     print(Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc)
