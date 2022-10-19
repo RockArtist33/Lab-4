@@ -404,7 +404,6 @@ def shop():
         counterup4 = Text_create("£ "+str(f"{upgradeprice4:.2f}"), white, dark_grey, 20, 600, 590)
         counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 600, 720)
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 600, 850)
-        shop_clicker_text = Text_create("Clicker Upgrades", white, black, 20, 170, 100)
         clickup1 = Text_create("£ "+str(f"{clickerprice1:.2f}"), white, dark_grey, 20, 250, 200)
         clickup2 = Text_create("£ "+str(f"{clickerprice2:.2f}"), white, dark_grey, 20, 250, 325)
         clickup3 = Text_create("£ "+str(f"{clickerprice3:.2f}"), white, dark_grey, 20, 250, 450)
@@ -415,8 +414,9 @@ def shop():
         clickerup3 = Button_make.circle(screen,dark_grey,120,450,50,50,True,True,True,True,mouse3)
         clickerup4 = Button_make.circle(screen,dark_grey,120,575,50,50,True,True,True,True,mouse4)
         clickerup5 = Button_make.circle(screen,dark_grey,120,700,50,50,True,True,True,True,mouse5)
-        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
-        shop_text = Text_create("The SHOP", white, black, 40, 600, 50)
+        shop_clicker_text = Text_create("Clicker Upgrades", white, black, 20, 195, 120)
+        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
+        shop_text = Text_create("Shop", white, black, 40, 600, 50)
         y = 0
         
         if cant1 == True:
@@ -507,7 +507,7 @@ def main_loop():
         clickerup4 = Button_make.circle(screen,dark_grey,350,850,50,50,True,True,True,True,mouse4)
         clickerup5 = Button_make.circle(screen,dark_grey,450,850,50,50,True,True,True,True,mouse5)
 
-        Counter_Text = Text_create("Money amount = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
+        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
         y = 0
         
         if cant1 == True:
