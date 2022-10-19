@@ -266,29 +266,6 @@ list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
 
 
 
-def file_save(list1):
-    with open("savegame.sve","w") as f:
-        json.dump(list1,f)
-        f.close()
-        
-def file_load():
-    global Counter_num, Counter_auto,Counter_click,Counter_mult,Price_inc
-    with open("savegame.sve","r") as f:
-        a = json.load(f)
-        print(a)
-        Counter_num = a[0]
-        Counter_auto = a[1]
-        Counter_click = a[2]
-        Counter_mult = a[3]
-        Price_inc = a[4]
-        f.close()
-        return Counter_num, Counter_auto, Counter_click, Counter_mult,Price_inc
-
-if not os.path.exists("savegame.sve"):
-    file_save()
-
-
-file_load()
 
 def play_audio(audio_list, item):
     s = pygame.mixer.Sound(os.path.join(audio_list[item]))
