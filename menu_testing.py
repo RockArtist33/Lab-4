@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 0
+Counter_num = 1000
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -30,7 +30,7 @@ upgradeprice5 = 3000
 upgradeprice6 = 10000
 ####################################### Clicker upgrades
 clickerprice1 = 1000
-clickerprice2 = 1000
+clickerprice2 = 10000
 clickerprice3 = 50000
 clickerprice4 = 100000
 clickerprice5 = 200000
@@ -82,11 +82,11 @@ ding = ["./assets/audio/printer/ding.mp3"]
 print_audio = ["./assets/audio/printer/print_1.mp3",
              "./assets/audio/printer/print_2.mp3",
              "./assets/audio/printer/print_3.mp3"]
-pop_audio = ["./assets/audio/pop/pop_1", #MAY
-             "./assets/audio/pop/pop_2", #GO
-             "./assets/audio/pop/pop_3", #UNUSED
-             "./assets/audio/pop/pop_4", #BRUH
-             "./assets/audio/pop/pop_5",]
+pop_audio = ["./assets/audio/pop/pop_1.mp3", #MAY
+             "./assets/audio/pop/pop_2.mp3", #GO
+             "./assets/audio/pop/pop_3.mp3", #UNUSED
+             "./assets/audio/pop/pop_4.mp3", #BRUH
+             "./assets/audio/pop/pop_5.mp3",]
 pygame.mixer.set_num_channels(100)
 pygame.mixer.set_reserved(1)
 ####################################### Upgrade functions
@@ -119,7 +119,7 @@ def upgrade1():
         print(Counter_auto)
         print(upgrademult1)
         print(upgradeprice1)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -136,7 +136,7 @@ def upgrade2():
         upgrademult2 += 0.18
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -153,7 +153,7 @@ def upgrade3():
         upgrademult3 += 0.3
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -170,7 +170,7 @@ def upgrade4():
         upgrademult4 += 0.6
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -187,7 +187,7 @@ def upgrade5():
         upgrademult5 += 0.4
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -204,7 +204,7 @@ def upgrade6():
         upgrademult6 += 0.4
         print(Counter_num)
         print(Counter_auto)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
     else:
         cant = True
     return cant
@@ -220,9 +220,12 @@ def clicker1():
         Counter_click = 10
         print(Counter_num)
         print(Counter_click)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
+        cant = False
+        print("1")
     else:
         cant = True
+        print("2")
     return cant
         
 def clicker2():
@@ -234,7 +237,8 @@ def clicker2():
         Counter_click = 50
         print(Counter_num)
         print(Counter_click)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
+        cant = False
     else:
         cant = True
     return cant
@@ -248,7 +252,8 @@ def clicker3():
         Counter_click = 100
         print(Counter_num)
         print(Counter_click)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
+        cant = False
     else:
         cant = True
     return cant
@@ -261,7 +266,8 @@ def clicker4():
         Counter_click = 500
         print(Counter_num)
         print(Counter_click)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
+        cant = False
     else:
         cant = True
     return cant
@@ -275,7 +281,8 @@ def clicker5():
         Counter_click = 1000
         print(Counter_num)
         print(Counter_click)
-        play_audio(cap_ryan_sounds, random.randint(0,7))
+        play_audio(pop_audio, random.randint(0,4))
+        cant = False
     else:
         cant = True
     return cant
@@ -443,28 +450,28 @@ def shop():
                     start_time = pygame.time.get_ticks()
                     upgradeprice5 = (3000*upgrademult5)
                     
-                print(Upgrade6,starty_6,sizex_6,sizey_6, mouse_pos[0],mouse_pos[1])
+                print(x1,y1,clicker_radius1,sizey_6, mouse_pos[0],mouse_pos[1])
                 if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6: 
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
                     upgradeprice6 = (10000*upgrademult6)
                 elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880:
                     main_loop()
-                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == False:
+                elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == True:
                     print(cant_buy1)
                     cant1 = clicker1()
                     start_time = pygame.time.get_ticks()
                     cant_buy1 = cant1
-                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and cant_buy1 == True and cant_buy2 == False:
+                elif x2 - clicker_radius2 <= mouse_pos[0] <= x2+ clicker_radius2 and y2 - clicker_radius2 <= mouse_pos[1] <= y2 + clicker_radius2 and cant_buy1 == False and cant_buy2 == True:
 
                     cant2 = clicker2()
                     start_time = pygame.time.get_ticks()
                     cant_buy2 = cant2
-                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and cant_buy1 == True and cant_buy2 == True and cant_buy3 == False:
+                elif x3 - clicker_radius3 <= mouse_pos[0] <= x3+ clicker_radius3 and y3 - clicker_radius3 <= mouse_pos[1] <= y3 + clicker_radius3 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == True:
                     cant3 = clicker3()
                     start_time = pygame.time.get_ticks()
                     cant_buy3 = cant3
-                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and cant_buy1 == True and cant_buy2 == True and cant_buy3 == True and cant_buy4 == False:
+                elif x4 - clicker_radius4 <= mouse_pos[0] <= x4+ clicker_radius4 and y4 - clicker_radius4 <= mouse_pos[1] <= y4 + clicker_radius4 and cant_buy1 == False and cant_buy2 == False and cant_buy3 == False and cant_buy4 == True:
                     cant4 = clicker4()
                     start_time = pygame.time.get_ticks()
                     cant_buy4 = cant4
