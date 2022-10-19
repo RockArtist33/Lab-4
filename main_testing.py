@@ -6,6 +6,7 @@ mixer.init()
 import sys , os
 import time
 import random
+import json
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
@@ -259,7 +260,19 @@ height = screen.get_height()
 price = (10*Price_inc)
 y = 0
 
+list = [Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc]
 
+
+
+def file_save():
+    with open("savegame.sve","w") as f:
+        json.dump(str(list),f)
+        
+def file_load():
+    with open("savegame.sve","r") as f:
+        json.load(f)
+        
+file_load()
 
 def play_audio(audio_list, item):
     s = pygame.mixer.Sound(os.path.join(audio_list[item]))
@@ -336,7 +349,7 @@ def start_menu():
     
 
 def shop():
-    global printer, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
+    global printer, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6, Counter
     active = True
     cant1 = False
     clock = pygame.time.Clock()
@@ -350,10 +363,11 @@ def shop():
             auto_click()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                file_save()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
-                
+
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
                     start_time = pygame.time.get_ticks()
@@ -437,6 +451,7 @@ def main_loop():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 active = False
+                file_save()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
