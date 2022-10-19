@@ -78,6 +78,7 @@ cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_7.mp3"
                    ]
 
+ding = ["./assets/audio/printer/ding.mp3"]
 print_audio = ["./assets/audio/printer/printer_1.mp3",
                "./assets/audio/printer/printer_2.mp3",
                "./assets/audio/printer/printer_3.mp3",
@@ -476,7 +477,7 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    play_audio(print_audio,random.randint(0,4))
+                    play_audio(ding, 0)
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
                     start_time = pygame.time.get_ticks()   
