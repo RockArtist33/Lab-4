@@ -227,7 +227,7 @@ picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
 cap_backing = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_back.mp3"))
 cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
-cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3"))
+cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3")) 
 cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
 cap_ryan_4_noyay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_noyay.mp3"))
 cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_4_yay.mp3"))
@@ -295,11 +295,14 @@ class Button_make:
         bttn.set_alpha(transparency)
         bttn.fill((button_color))
         screen.blit(bttn, (place_x,place_y))
+
         
         return int(place_x),int(place_y),int(size_x),int(size_y)
 
     def circle(screen, colour_circle, center_location, radius, width_of_line,top_left,top_right,bottom_left,bottom_right):
         pygame.draw.circle(screen,colour_circle,center_location, radius, width_of_line,top_left,top_right,bottom_left,bottom_right)
+        picture = pygame.transform.scale(picture, (radius*2, radius*2))
+        screen.blit(picture, (center_location))
         return radius
         
 
@@ -404,7 +407,7 @@ def shop():
         counterup5 = Text_create("£ "+str(f"{upgradeprice5:.2f}"), white, dark_grey, 20, 600, 720)
         counterup6 = Text_create("£ "+str(f"{upgradeprice6:.2f}"), white, dark_grey, 20, 600, 850)
         shop_clicker_text = Text_create("Clicker Upgrades", white, black, 20, 170, 100)
-        clickerup1 = Button_make.circle(screen,dark_grey,(120,200),50,50,True,True,True,True)
+        clickerup1 = Button_make.circle(screen,dark_grey,(120,200),50,50,True,True,True,True,clicker)
         clickerup2 = Button_make.circle(screen,dark_grey,(120,325),50,50,True,True,True,True)
         clickerup3 = Button_make.circle(screen,dark_grey,(120,450),50,50,True,True,True,True)
         clickerup4 = Button_make.circle(screen,dark_grey,(120,575),50,50,True,True,True,True)
