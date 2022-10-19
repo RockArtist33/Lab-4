@@ -59,7 +59,7 @@ def upgrade1():
     if Counter_num >= upgradeprice1:
         math = Counter_num - upgradeprice1
         Counter_num = math
-        Counter_auto += 0.5
+        Counter_auto += 0.25
         upgrademult1 += 0.15
         print(Counter_num)
         print(Counter_auto)
