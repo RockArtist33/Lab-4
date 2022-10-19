@@ -611,7 +611,7 @@ def main_loop():
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
             Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 39)
-            if start_time and pygame.time.get_ticks() - start_time > 300:
+            if start_time and pygame.time.get_ticks() - start_time > 3000:
                 cant1 = False
          
         pygame.display.update()
