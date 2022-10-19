@@ -9,7 +9,7 @@ import random # Random audio file played
 import json
 import pickle
 ####################################### main storage
-Counter_num = 100000000
+Counter_num = 100000000000000000000000000000000000000000000
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -513,7 +513,7 @@ def shop():
         y = 0
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
-            Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
+            Text_create("NOT ENOUGH MONEY!!!", white, black, topleft=(60, 600,450))
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
