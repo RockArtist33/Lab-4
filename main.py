@@ -564,7 +564,7 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    play_audio(print_audio, random.randint(0,2))
+                    play_audio(print_audio, random.randint(0,2)) # plays audio=
                 elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
                     play_audio(click_audio,0)
                     shop()
