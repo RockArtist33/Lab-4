@@ -88,11 +88,11 @@ pop_audio = ["./assets/audio/pop/pop_1", #MAY
              "./assets/audio/pop/pop_3", #UNUSED
              "./assets/audio/pop/pop_4", #BRUH
              "./assets/audio/pop/pop_5",]
-print_audio_full = [".assets/audio/printer/full_printer/printer_1.mp3",
-                    ".assets/audio/printer/full_printer/printer_2.mp3",
-                    ".assets/audio/printer/full_printer/printer_3.mp3",
-                    ".assets/audio/printer/full_printer/printer_4.mp3",
-                    ".assets/audio/printer/full_printer/printer_5.mp3"]
+print_audio_full = ["./assets/audio/printer/full_printer/printer_1.mp3",
+                    "./assets/audio/printer/full_printer/printer_2.mp3",
+                    "./assets/audio/printer/full_printer/printer_3.mp3",
+                    "./assets/audio/printer/full_printer/printer_4.mp3",
+                    "./assets/audio/printer/full_printer/printer_5.mp3"]
 
 
 pygame.mixer.set_num_channels(100)
