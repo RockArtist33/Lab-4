@@ -22,12 +22,12 @@ upgrademult4 = 1
 upgrademult5 = 1
 upgrademult6 = 1
 #---------------------------------------# 
-upgradeprice1 = (50*upgrademult1)
-upgradeprice2 = (300*upgrademult2)
-upgradeprice3 = (1000*upgrademult3)
-upgradeprice4 = (1500*upgrademult4)
-upgradeprice5 = (3000*upgrademult5)
-upgradeprice6 = (10000*upgrademult6)
+upgradeprice1 = 50
+upgradeprice2 = 300
+upgradeprice3 = 1000
+upgradeprice4 = 1500
+upgradeprice5 = 3000
+upgradeprice6 = 10000
 ####################################### Clicker upgrades
 clickerprice1 = 1000
 clickerprice2 = 1000
