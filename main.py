@@ -390,6 +390,7 @@ def start_menu():
         screen.fill(black)
         x_pos1, y_pos1, x_size1, y_size1 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2), x_button, y_button, 128)
         x_pos2, y_pos2, x_size2, y_size2 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2)+80, x_button, y_button, 128)
+        x_pos3, y_pos3, x_size3, y_size3 = Button_make.button
         Text_create("Capitalism", white,None, 40, 1200/2, 900-600)
         Text_create("START",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2)
         Text_create("QUIT",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2 + 80)
