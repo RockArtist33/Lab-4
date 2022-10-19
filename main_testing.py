@@ -1,15 +1,15 @@
 ####################################### Imports
+from cmath import rect
 from msilib.schema import Upgrade
+from turtle import shape
 import pygame
 from pygame import mixer # Audio
 mixer.init()
 import sys , os
 import time # Currently goes unused
 import random # Random audio file played 
-import json
-import pickle
 ####################################### main storage
-Counter_num = 10000000000000
+Counter_num = 0
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -58,6 +58,7 @@ cap_ryan_4_yay = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism
 cap_ryan_5 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_5.mp3"))
 cap_ryan_6 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_6.mp3"))
 cap_ryan_7 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_7.mp3"))
+frameback = pygame.image.load(os.path.join("./assets/images/frameback.png"))
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1")) U
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))  N
 #pop_1 = pygame.mixer.music.load(os.path.join("./assets/audio/pop/pop_1"))    U
@@ -459,9 +460,7 @@ def shop():
                 
         
         global printer, exitsign
-        
-        
- 
+        backroundframes, starty_1, sizex_1, sizey_1 = Button_make.button(1,7,500,55, 0,frameback)
         Upgrade1, starty_1, sizex_1, sizey_1 = Button_make.button(475,100,250,125,0, picupgrade1)
         Upgrade2, starty_2, sizex_2, sizey_2 = Button_make.button(475,230,250,125,0, picupgrade2)
         Upgrade3, starty_3, sizex_3, sizey_3 = Button_make.button(475,360,250,125,0, picupgrade3)
@@ -486,12 +485,13 @@ def shop():
         clicker_radius4, x4, y4 = Button_make.circle(screen,dark_grey,120,575,50,50,True,True,True,True,mouse4)
         clicker_radius5, x5 ,y5 = Button_make.circle(screen,dark_grey,120,700,50,50,True,True,True,True,mouse5)
         shop_clicker_text = Text_create("Clicker Upgrades", white, black, 20, 195, 120)
-        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
+        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 39 )
         shop_text = Text_create("Shop", white, black, 40, 600, 50)
         y = 0
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
-            Text_create("NOT ENOUGH MONEY!!!", white, black, topleft=(60, 600,450))
+            backroundframes, starty_1, sizex_1, sizey_1 = Button_make.button(145,390,905,105, 0,frameback)
+            Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
@@ -531,12 +531,13 @@ def main_loop():
         clickerup1 = Button_make.circle(screen,dark_grey,50,850,50,50,True,True,True,True,mouse1)
 
 
-        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 25)
+        backroundframes, starty_1, sizex_1, sizey_1 = Button_make.button(1,7,500,55, 0,frameback)
+        Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 39)
         y = 0
         
         if cant1 == True:
             print(pygame.time.get_ticks() - start_time)
-            Text_create("NOT ENOUGH MONEY!!!", white, black, 60, 600,450)
+            Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, black, 20, 198, 39)
             if start_time and pygame.time.get_ticks() - start_time > 300:
                 cant1 = False
          
