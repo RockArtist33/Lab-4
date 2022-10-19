@@ -315,7 +315,11 @@ def start_menu():
         pygame.display.update()
     
     screen.fill(dark_grey) 
-        
+    
+
+
+
+
 #Main loop
 def main_loop():
     global printer, background, upgradeprice1,upgradeprice2,upgradeprice3,upgradeprice4,upgradeprice5,upgradeprice6
@@ -324,8 +328,10 @@ def main_loop():
     clock = pygame.time.Clock()
     start_time = None
     dt = 0
+    background.set_alpha(180)
     while active:
-        screen.blit(background,(0,0)) 
+        screen.fill(black)
+        screen.blit(background,(0,0))
         if active:
             auto_click()
         for event in pygame.event.get():
