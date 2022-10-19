@@ -30,7 +30,7 @@ upgradeprice5 = 3000
 upgradeprice6 = 10000
 ####################################### Clicker upgrades
 clickerprice1 = 1000
-clickerprice2 = 1000
+clickerprice2 = 2500
 clickerprice3 = 50000
 clickerprice4 = 100000
 clickerprice5 = 200000
