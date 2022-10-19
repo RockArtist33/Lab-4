@@ -365,7 +365,7 @@ def hub_ui():
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
-    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
+    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(135,800,150,75,0, shopsign)
     
 def hub_ui2():
     Button_make.button_fill(dark_grey,0,638,800,300,0)
@@ -461,7 +461,7 @@ def shop():
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
                     upgradeprice6 = (100000*upgrademult6)
-                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880:
+                elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880:
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and cant_buy1 == True:
                     print(cant_buy1)
@@ -580,7 +580,7 @@ def main_loop():
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
                     play_audio(print_audio, random.randint(0,2))
-                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880: 
+                elif 130 <= mouse_pos[0] <= 280 and 800 <= mouse_pos[1] <= 880: 
                     shop()
         global printer 
         
