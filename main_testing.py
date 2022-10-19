@@ -92,7 +92,7 @@ pygame.mixer.set_num_channels(100)
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
     pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size)
-    pixel_text = pixel_font.render(txt, True, color_of_text, rect_area_color)
+    pixel_text = pixel_font.render(txt, True, color_of_text)
     pixel_txt_Rect = pixel_text.get_rect()
     pixel_txt_Rect.center = (pos_x,pos_y)
     screen.blit(pixel_text,pixel_txt_Rect)
