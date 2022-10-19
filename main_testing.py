@@ -496,6 +496,5 @@ def main_loop():
  
 
 
-shop()
-
+start_menu()
 
