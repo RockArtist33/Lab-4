@@ -7,7 +7,7 @@ import sys , os
 import time
 import random
 ####################################### main storage
-Counter_num = 0
+Counter_num = 999999999
 Counter_auto = 0    
 Counter_click = 1
 Counter_mult = 1.0
@@ -58,7 +58,7 @@ def upgrade1():
     if Counter_num >= upgradeprice1:
         math = Counter_num - upgradeprice1
         Counter_num = math
-        Counter_auto += 0.5
+        Counter_auto += 0.01
         upgrademult1 += 0.15
         print(Counter_num)
         print(Counter_auto)
@@ -76,7 +76,7 @@ def upgrade2():
     if Counter_num >= upgradeprice2:
         math = Counter_num - upgradeprice2
         Counter_num = math
-        Counter_auto += 1
+        Counter_auto += 0.05
         upgrademult2 += 0.18
         print(Counter_num)
         print(Counter_auto)
@@ -92,7 +92,7 @@ def upgrade3():
     if Counter_num >= upgradeprice3:
         math = Counter_num - upgradeprice3
         Counter_num = math
-        Counter_auto += 15
+        Counter_auto += 0.5
         upgrademult3 += 0.3
         print(Counter_num)
         print(Counter_auto)
@@ -108,7 +108,7 @@ def upgrade4():
     if Counter_num >= upgradeprice4:
         math = Counter_num - upgradeprice4
         Counter_num = math
-        Counter_auto += 100
+        Counter_auto += 1.5
         upgrademult4 += 0.6
         print(Counter_num)
         print(Counter_auto)
@@ -124,7 +124,7 @@ def upgrade5():
     if Counter_num >= upgradeprice5:
         math = Counter_num - upgradeprice5
         Counter_num = math
-        Counter_auto += 500
+        Counter_auto += 10
         upgrademult5 += 0.4
         print(Counter_num)
         print(Counter_auto)
@@ -140,7 +140,7 @@ def upgrade6():
     if Counter_num >= upgradeprice6:
         math = Counter_num - upgradeprice6
         Counter_num = math
-        Counter_auto += 1000
+        Counter_auto += 100
         upgrademult6 += 0.4
         print(Counter_num)
         print(Counter_auto)
