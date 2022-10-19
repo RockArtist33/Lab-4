@@ -49,7 +49,8 @@ picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
 picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
 picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
 exitsign = pygame.image.load(os.path.join("./assets/images/exit.png"))
-cap_backing = pygame.mixer.Sound(os.path.join("./assets/audio/capitalism/cap_back.mp3"))
+shopsign = pygame.image.load(os.path.join("./assets/images/shop.png"))
+cap_backing = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_back.mp3"))
 cap_ryan_1 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_1.mp3")) 
 cap_ryan_2 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_2.mp3")) 
 cap_ryan_3 = pygame.mixer.music.load(os.path.join("./assets/audio/capitalism/cap_ryan_3.mp3"))
@@ -366,6 +367,7 @@ def hub_ui():
     Counter_Text = Text_create("Money = £"+str(f"{Counter_num:.2f}"), white, darker_grey, 20, 227, 700)
     Money_per_click = Text_create("Money per click: £"+str(f"{Counter_click}"), white, darker_grey, 20, 200,740)
     Money_per_second = Text_create("Money per second: £"+str(f"{Counter_auto*10}"),white,black,20,217, 780)
+    shopopne, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, shopsign)
 
 def start_menu():
     global bought, bought1, bought2, bought3, bought4, bought5, bought6
@@ -443,11 +445,11 @@ def shop():
                     upgradeprice5 = (3000*upgrademult5)
                     
                 print(Upgrade6,starty_6,sizex_6,sizey_6, mouse_pos[0],mouse_pos[1])
-                if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6:
+                if Upgrade6 <= mouse_pos[0] <= (Upgrade6+sizex_6) and starty_6 <= mouse_pos[1] <= starty_6+sizey_6: 
                     cant1 = upgrade6()
                     start_time = pygame.time.get_ticks()
                     upgradeprice6 = (10000*upgrademult6)
-                elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
+                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880:
                     main_loop()
                 elif x1 - clicker_radius1 <= mouse_pos[0] <= x1+ clicker_radius1 and y1 - clicker_radius1 <= mouse_pos[1] <= y1 + clicker_radius1 and bought1 == False:
                     print(bought1)
@@ -483,7 +485,7 @@ def shop():
         Upgrade4, starty_4, sizex_4, sizey_4 = Button_make.button(475,490,250,125,0, picupgrade4)
         Upgrade5, starty_5, sizex_5, sizey_5 = Button_make.button(475,620,250,125,0, picupgrade5)
         Upgrade6, starty_6, sizex_6, sizey_6 = Button_make.button(475,750,250,125,0, picupgrade6)
-        shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(15,830,100,50,0, exitsign)
+        shopexit, starty_7, sizex_7, sizey_7 = Button_make.button(67,800,150,75,0, exitsign)
         counterup1 = Text_create("£ "+str(f"{upgradeprice1:.2f}"), white, dark_grey, 20, 600, 200)
         counterup2 = Text_create("£ "+str(f"{upgradeprice2:.2f}"), white, dark_grey, 20, 600, 330)
         counterup3 = Text_create("£ "+str(f"{upgradeprice3:.2f}"), white, dark_grey, 20, 600, 460)
@@ -558,8 +560,8 @@ def main_loop():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
-                    play_audio(print_audio, 0)
-                elif 0 <= mouse_pos[0] <= 100 and 800 <= mouse_pos[1] <= 900:
+                    play_audio(print_audio, random.randint(0,2))
+                elif 60 <= mouse_pos[0] <= 200 and 800 <= mouse_pos[1] <= 880: 
                     shop()
         global printer 
         
