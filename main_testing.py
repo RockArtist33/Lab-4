@@ -340,7 +340,7 @@ def shop():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 global Counter_num
-                sound_printer_1
+                
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
                     start_time = pygame.time.get_ticks()
@@ -432,6 +432,7 @@ def main_loop():
                 
                 if startx <= mouse_pos[0] <= (startx+sizex) and starty <= mouse_pos[1] <= (starty+sizey):
                     Counter_num = Counter_num + Counter_click
+                    sound_printer_1
                     mixer.music.set_volume(1); mixer.music.play()
                 elif Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
                     cant1 = upgrade1()
