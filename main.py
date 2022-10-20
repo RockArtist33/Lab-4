@@ -1,13 +1,10 @@
 ####################################### Imports
-from msilib.schema import Upgrade
 import pygame
 from pygame import mixer # Audio
 mixer.init()
 import sys , os
 import time # Currently goes unused
 import random # Random audio file played 
-import json
-import pickle
 ####################################### main storage
 Counter_num = 0
 Counter_auto = 0    
