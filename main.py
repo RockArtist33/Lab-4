@@ -409,6 +409,7 @@ def shop():
     clicker_radius3, x3, y1 = 0,0,0
     clicker_radius4, x4, y1 = 0,0,0
     clicker_radius5, x5, y1 = 0,0,0
+    x_pause,y_pause,x_pausesize,y_pausesize = 0,0,0,0
 
     while active:
         mouse_pos = pygame.mouse.get_pos()
