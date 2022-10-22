@@ -52,13 +52,13 @@ variable_table = [Counter_num,
 
 
 def file_save(var_tbl):
-    with open("savegame.sve", "w") as fp:
+    with open("savegame_for_Capitalism.sve", "w") as fp:
         json.dump(var_tbl, fp)
         fp.close()
 
 def file_load():
     global Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc,upgrademult1,upgrademult2,upgrademult3,upgrademult4,upgrademult5,upgrademult6, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
-    with open("savegame.sve") as fp:
+    with open("savegame_for_Capitalism.sve") as fp:
         json_list = json.load(fp)
         print(json_list)
         Counter_num = json_list[0]
