@@ -788,3 +788,4 @@ start_menu()
 
 
 #pygame.event.set_blocked(pygame.{PLEASE PUT MOUSE WHEELE HERE})
+#Me (Zed) trying to figure out how to block the mouse wheel input
