@@ -106,11 +106,11 @@ variable_table = [Counter_num,
 
 
 upgradeprice1 = (50 * upgrademult1)
-upgradeprice2 = (300 * upgrademult2)
-upgradeprice3 = (1000 * upgrademult3)
-upgradeprice4 = (10000 * upgrademult4)
-upgradeprice5 = (25000 * upgrademult5)
-upgradeprice6 = (100000 * upgrademult6)
+upgradeprice2 = (500 * upgrademult2)
+upgradeprice3 = (5000 * upgrademult3)
+upgradeprice4 = (20000 * upgrademult4)
+upgradeprice5 = (50000 * upgrademult5)
+upgradeprice6 = (200000 * upgrademult6)
 ####################################### Clicker upgrades
 clickerprice1 = 1000
 clickerprice2 = 2500
