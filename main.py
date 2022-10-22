@@ -712,7 +712,7 @@ def shop():
         
         pygame.display.update()
         dt = clock.tick(60)
-cap_swosh.set_volume(0.2)
+cap_swosh.set_volume(0.5)
 pygame.mixer.Channel(1).play(cap_swosh, loops=-1)
 ####################################### this is the main function for the first page, aka the clicker page
 def main_loop():
