@@ -82,7 +82,7 @@ def file_load():
         
         
         
-if not os.path.exists("./savegame.sve"):
+if not os.path.exists("./savegame_for_Capitalism.sve"):
     file_save(variable_table)
 file_load()
 variable_table = [Counter_num,
