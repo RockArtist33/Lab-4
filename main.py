@@ -3,6 +3,7 @@ import pygame
 from pygame import mixer # Audio
 mixer.init()
 import sys , os
+import json
 import time # Currently goes unused
 import random # Random audio file played 
 ####################################### main storage
@@ -18,20 +19,105 @@ upgrademult3 = 1
 upgrademult4 = 1
 upgrademult5 = 1
 upgrademult6 = 1
+
+cant_buy1 = True
+cant_buy2 = True
+cant_buy3 = True
+cant_buy4 = True
+cant_buy5 = True
+cant_buy6 = True
+
+
+variable_table = [Counter_num,
+                  Counter_auto,
+                  Counter_click,
+                  Counter_mult,
+                  Price_inc,
+                  upgrademult1,
+                  upgrademult2,
+                  upgrademult3,
+                  upgrademult4,
+                  upgrademult5,
+                  upgrademult6,
+                  cant_buy1,
+                  cant_buy2,
+                  cant_buy3,
+                  cant_buy4,
+                  cant_buy5,
+                  cant_buy6
+                  ]
 #---------------------------------------# 
-upgradeprice1 = 50
-upgradeprice2 = 300
-upgradeprice3 = 1000
-upgradeprice4 = 10000
-upgradeprice5 = 25000
-upgradeprice6 = 100000
+
+
+
+
+def file_save(var_tbl):
+    with open("savegame.sve", "w") as fp:
+        json.dump(var_tbl, fp)
+        fp.close()
+
+def file_load():
+    global Counter_num,Counter_auto,Counter_click,Counter_mult,Price_inc,upgrademult1,upgrademult2,upgrademult3,upgrademult4,upgrademult5,upgrademult6, cant_buy1, cant_buy2, cant_buy3, cant_buy4, cant_buy5, cant_buy6
+    with open("savegame.sve") as fp:
+        json_list = json.load(fp)
+        print(json_list)
+        Counter_num = json_list[0]
+        Counter_auto = json_list[1]
+        Counter_click = json_list[2]
+        Counter_mult = json_list[3]
+        Price_inc = json_list[4]
+        upgrademult1 = json_list[5]
+        upgrademult2 = json_list[6]
+        upgrademult3 = json_list[7]
+        upgrademult4 = json_list[8]
+        upgrademult5 = json_list[9]
+        upgrademult6 = json_list[10]
+        cant_buy1 = json_list[11]
+        cant_buy2 = json_list[12]
+        cant_buy3 = json_list[13]
+        cant_buy4 = json_list[14]
+        cant_buy5 = json_list[15]
+        cant_buy6 = json_list[16]
+        fp.close()
+        
+        
+        
+if not os.path.exists("./savegame.sve"):
+    file_save(variable_table)
+file_load()
+variable_table = [Counter_num,
+                  Counter_auto,
+                  Counter_click,
+                  Counter_mult,
+                  Price_inc,
+                  upgrademult1,
+                  upgrademult2,
+                  upgrademult3,
+                  upgrademult4,
+                  upgrademult5,
+                  upgrademult6,
+                  cant_buy1,
+                  cant_buy2,
+                  cant_buy3,
+                  cant_buy4,
+                  cant_buy5,
+                  cant_buy6
+                  ]
+
+
+upgradeprice1 = (50 * upgrademult1)
+upgradeprice2 = (300 * upgrademult2)
+upgradeprice3 = (1000 * upgrademult3)
+upgradeprice4 = (10000 * upgrademult4)
+upgradeprice5 = (25000 * upgrademult5)
+upgradeprice6 = (100000 * upgrademult6)
 ####################################### Clicker upgrades
 clickerprice1 = 1000
 clickerprice2 = 2500
 clickerprice3 = 50000
 clickerprice4 = 100000
 clickerprice5 = 200000
-background = pygame.image.load(os.path.join("./assets/images/Backround.png")).convert()
+background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
 printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
 moneyicon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
 mouse1 = pygame.image.load(os.path.join("./assets/images/mouse1.png"))
@@ -272,12 +358,6 @@ height = screen.get_height()
 price = (10*Price_inc)
 y = 0
 bought = True
-cant_buy1 = True
-cant_buy2 = True
-cant_buy3 = True
-cant_buy4 = True
-cant_buy5 = True
-cant_buy6 = True
 
 
 
@@ -355,25 +435,88 @@ def start_menu():
     active = True
     x_pos1, y_pos1, x_size1, y_size1 =0,0,0,0
     x_pos2, y_pos2, x_size2, y_size2 =0,0,0,0
+    x_pos3, y_pos3, x_size3, y_size3 = 0,0,0,0
     
     
     while active:
         mouse_pos1 = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                variable_table = [Counter_num,
+                  Counter_auto,
+                  Counter_click,
+                  Counter_mult,
+                  Price_inc,
+                  upgrademult1,
+                  upgrademult2,
+                  upgrademult3,
+                  upgrademult4,
+                  upgrademult5,
+                  upgrademult6,
+                  cant_buy1,
+                  cant_buy2,
+                  cant_buy3,
+                  cant_buy4,
+                  cant_buy5,
+                  cant_buy6
+                  ]
+                file_save(variable_table)
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if x_pos1 <= mouse_pos1[0] <= (x_pos1+x_size1) and y_pos1 <= mouse_pos1[1] <= (y_pos1+y_size1):
                     active == False
                     main_loop()
                 if x_pos2 <= mouse_pos1[0] <= (x_pos2+x_size2) and y_pos2 <= mouse_pos1[1] <= (y_pos2+y_size2):
+                    variable_table = [Counter_num,
+                  Counter_auto,
+                  Counter_click,
+                  Counter_mult,
+                  Price_inc,
+                  upgrademult1,
+                  upgrademult2,
+                  upgrademult3,
+                  upgrademult4,
+                  upgrademult5,
+                  upgrademult6,
+                  cant_buy1,
+                  cant_buy2,
+                  cant_buy3,
+                  cant_buy4,
+                  cant_buy5,
+                  cant_buy6
+                  ]
+                    file_save(variable_table)
+                    sys.exit()
+                    
+                if x_pos3 <= mouse_pos1[0] <= (x_pos3+x_size3) and y_pos3 <= mouse_pos1[1] <= (y_pos3+y_size3):
+                    variable_table = [0,
+                    0,
+                    1,
+                    1.0,
+                    1.0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    True,
+                    True,
+                    True,
+                    True,
+                    True,
+                    True
+                    ]
+                    file_save(variable_table)
                     sys.exit()
         screen.fill(black)
         x_pos1, y_pos1, x_size1, y_size1 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2), x_button, y_button, 128)
         x_pos2, y_pos2, x_size2, y_size2 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2)+80, x_button, y_button, 128)
+        x_pos3, y_pos3, x_size3, y_size3 = Button_make.button_fill(light_grey, ((1200/2)-(x_button)/2), ((900/2)-(y_button)/2)+160, x_button, y_button, 128)
         Text_create("Capitalism", white,None, 40, 1200/2, 900-600)
         Text_create("START",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2)
         Text_create("QUIT",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2 + 80)
+        Text_create("RESET",white,None,20,x_pos1+x_size1/2, y_pos1+y_size1/2 + 160)
         
     
         pygame.display.update()
@@ -416,6 +559,25 @@ def shop():
             auto_click()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                variable_table = [Counter_num,
+                  Counter_auto,
+                  Counter_click,
+                  Counter_mult,
+                  Price_inc,
+                  upgrademult1,
+                  upgrademult2,
+                  upgrademult3,
+                  upgrademult4,
+                  upgrademult5,
+                  upgrademult6,
+                  cant_buy1,
+                  cant_buy2,
+                  cant_buy3,
+                  cant_buy4,
+                  cant_buy5,
+                  cant_buy6
+                  ]
+                file_save(variable_table)
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if Upgrade1 <= mouse_pos[0] <= (Upgrade1+sizex_1) and starty_1 <= mouse_pos[1] <= starty_1+sizey_1:
@@ -559,6 +721,25 @@ def main_loop():
             auto_click()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                variable_table = [Counter_num,
+                  Counter_auto,
+                  Counter_click,
+                  Counter_mult,
+                  Price_inc,
+                  upgrademult1,
+                  upgrademult2,
+                  upgrademult3,
+                  upgrademult4,
+                  upgrademult5,
+                  upgrademult6,
+                  cant_buy1,
+                  cant_buy2,
+                  cant_buy3,
+                  cant_buy4,
+                  cant_buy5,
+                  cant_buy6
+                  ]
+                file_save(variable_table)
                 active = False
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
