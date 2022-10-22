@@ -169,12 +169,14 @@ pop_audio = ["./assets/audio/pop/pop_1.mp3", #MAY
              "./assets/audio/pop/pop_3.mp3", #UNUSED
              "./assets/audio/pop/pop_4.mp3", #BRUH
              "./assets/audio/pop/pop_5.mp3",]
+
+font_for_this = resource_path("./assets/Font/fffforward.ttf")
 pygame.mixer.set_num_channels(100)
 pygame.mixer.set_reserved(1)
 ####################################### Upgrade functions
 
 def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
-    pixel_font = pygame.font.Font('./assets/Font/fffforward.ttf',font_size)
+    pixel_font = pygame.font.Font(font_for_this,font_size)
     pixel_text = pixel_font.render(txt, True, color_of_text)
     pixel_txt_Rect = pixel_text.get_rect()
     pixel_txt_Rect.center = (pos_x,pos_y)
