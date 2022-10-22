@@ -117,27 +117,39 @@ clickerprice2 = 2500
 clickerprice3 = 50000
 clickerprice4 = 100000
 clickerprice5 = 200000
-background = pygame.image.load(os.path.join("./assets/images/Backround.png"))
-printer = pygame.image.load(os.path.join("./assets/images/Printer.png"))
-moneyicon = pygame.image.load(os.path.join("./assets/images/Money-icon.png"))
-mouse1 = pygame.image.load(os.path.join("./assets/images/mouse1.png"))
-mouse2 = pygame.image.load(os.path.join("./assets/images/mouse2.png"))
-mouse3 = pygame.image.load(os.path.join("./assets/images/mouse3.png"))
-mouse4 = pygame.image.load(os.path.join("./assets/images/mouse4.png"))
-mouse5 = pygame.image.load(os.path.join("./assets/images/mouse5.png"))
-Pause = pygame.image.load(os.path.join("./assets/images/Pause.png"))
-picupgrade1 = pygame.image.load(os.path.join("./assets/images/upgrade1.png"))
-picupgrade2 = pygame.image.load(os.path.join("./assets/images/upgrade2.png"))
-picupgrade3 = pygame.image.load(os.path.join("./assets/images/upgrade3.png"))
-picupgrade4 = pygame.image.load(os.path.join("./assets/images/upgrade4.png"))
-picupgrade5 = pygame.image.load(os.path.join("./assets/images/upgrade5.png"))
-picupgrade6 = pygame.image.load(os.path.join("./assets/images/upgrade6.png"))
-exitsign = pygame.image.load(os.path.join("./assets/images/exit.png"))
-shopsign = pygame.image.load(os.path.join("./assets/images/shop.png"))
-cap_swosh = pygame.mixer.Sound(os.path.join("./assets/audio/music/Swish_Swosh_loop.mp3"))
-cap_person = pygame.mixer.Sound(os.path.join("./assets/audio/music/Nice_Person_loop.mp3"))
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
+background = pygame.image.load(resource_path("./assets/images/Backround.png"))
+printer = pygame.image.load(resource_path("./assets/images/Printer.png"))
+moneyicon = pygame.image.load(resource_path("./assets/images/Money-icon.png"))
+mouse1 = pygame.image.load(resource_path("./assets/images/mouse1.png"))
+mouse2 = pygame.image.load(resource_path("./assets/images/mouse2.png"))
+mouse3 = pygame.image.load(resource_path("./assets/images/mouse3.png"))
+mouse4 = pygame.image.load(resource_path("./assets/images/mouse4.png"))
+mouse5 = pygame.image.load(resource_path("./assets/images/mouse5.png"))
+Pause = pygame.image.load(resource_path("./assets/images/Pause.png"))
+picupgrade1 = pygame.image.load(resource_path("./assets/images/upgrade1.png"))
+picupgrade2 = pygame.image.load(resource_path("./assets/images/upgrade2.png"))
+picupgrade3 = pygame.image.load(resource_path("./assets/images/upgrade3.png"))
+picupgrade4 = pygame.image.load(resource_path("./assets/images/upgrade4.png"))
+picupgrade5 = pygame.image.load(resource_path("./assets/images/upgrade5.png"))
+picupgrade6 = pygame.image.load(resource_path("./assets/images/upgrade6.png"))
+exitsign = pygame.image.load(resource_path("./assets/images/exit.png"))
+shopsign = pygame.image.load(resource_path("./assets/images/shop.png"))
+cap_swosh = pygame.mixer.Sound(resource_path("./assets/audio/music/Swish_Swosh_loop.mp3"))
+cap_person = pygame.mixer.Sound(resource_path("./assets/audio/music/Nice_Person_loop.mp3"))
 errorsound = ["./assets/audio/pop/error.mp3"]  
-frameback = pygame.image.load(os.path.join("./assets/images/frameback.png"))
+frameback = pygame.image.load(resource_path("./assets/images/frameback.png"))
 click_audio = ["./assets/audio/click.mp3"]
 cap_ryan_sounds = ["./assets/audio/capitalism/cap_ryan_1.mp3",
                    "./assets/audio/capitalism/cap_ryan_2.mp3",
@@ -169,7 +181,7 @@ def Text_create(txt,color_of_text, rect_area_color, font_size, pos_x, pos_y):
     screen.blit(pixel_text,pixel_txt_Rect)
 
 def play_audio(audio_list, item):
-    s = pygame.mixer.Sound(os.path.join(audio_list[item]))
+    s = pygame.mixer.Sound(resource_path(audio_list[item]))
     emptychannel = mixer.find_channel()
     emptychannel.set_volume(0.3)
     emptychannel.play(s)
